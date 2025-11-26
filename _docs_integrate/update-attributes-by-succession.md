@@ -51,7 +51,7 @@ Instead, it will be stored in the `content` property of an [OwnIdentityAttribute
 In the following examples, some properties of the occuring [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be omitted if they aren't required for the explanation.
 {: .notice--info}
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/33654502-420f-41bd-801a-e0d4c1564df0" id="zs0-w2Ag-nJ4"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/7bcf7e2c-00cd-471b-9a58-3f3521d129f3" id="5dq.VFpnN6MB"></iframe></div>
 
 ### Sharing an OwnIdentityAttribute
 
@@ -64,7 +64,7 @@ They store the same `sourceReference` and the peer's address, as well as the `id
 
 Concluding, sharing an IdentityAttribute will create AttributeForwardingDetails for every peer you shared the Attribute with at your side and a PeerIdentityAttribute copy for each peer at their side.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/c1195765-c1ca-46b4-9468-1735f4a018cc" id="_s0-VcxrpcCM"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/b23acc1c-2111-4dfa-8f6d-4fe203a6a2b2" id="Yeq.jI1BRTvp"></iframe></div>
 
 ### Succeeding an OwnIdentityAttribute
 
@@ -74,7 +74,7 @@ This successor stores the `id` of the old version, the predecessor, in its `succ
 The predecessor is updated, too, such that its `succeededBy` property links to the successor.
 Consequently, the different versions of a LocalAttribute created by Attribute successions make up a doubly linked list.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/8e81cd6b-240f-4e41-ae08-9eea13b32974" id="zt0-EawwJWIx"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/ce6f5b05-001d-44d4-be3a-f0201b384d36" id="igq.Zo9SfPxR"></iframe></div>
 
 ### Notifying a peer about an OwnIdentityAttribute succession
 
@@ -87,7 +87,7 @@ It can then only be received and processed if the [Relationship is reactivated](
 The Notification is also queued if the [peer is currently in deletion]({% link _docs_integrate/delete-identities.md %}#effects-of-identity-deletion-on-relationships) but not yet deleted.
 It can then only be received and processed if the peer [cancels its deletion]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}).
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/079d7602-95af-4ddf-8fd5-cca5294038d9" id="Fv0-x9lenepV"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/b4eb8903-58fa-453e-8f10-8e3646250497" id="Khq.m5nY-72w"></iframe></div>
 
 ## Succeeding own RelationshipAttributes
 
@@ -103,7 +103,7 @@ To this end, a Request containing a [CreateAttributeRequestItem]({% link _docs_i
 Only if the peer accepts this Request will a LocalAttribute with the RelationshipAttribute as `content` be created at their side and after you receive their Response, at your side, too.
 Hence, you and your peer will always have an identical shared RelationshipAttribute, only differing in the LocalAttribute's `peer` property.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/11244175-05b4-4225-b08f-7da48aa21e2f" id="gw0-8Yqzp0IL"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/3c07ae76-d010-45cf-8408-c5b20aad2869" id="ekq..g1qyvSY"></iframe></div>
 
 ### Succeeding a RelationshipAttribute and notifying the peer
 
@@ -116,7 +116,7 @@ It can then only be received and processed if the [Relationship is reactivated](
 Furthermore, the Notification is also queued if the [peer is currently in deletion]({% link _docs_integrate/delete-identities.md %}#effects-of-identity-deletion-on-relationships) but not yet deleted.
 It can then only be received and processed if the peer [cancels its deletion]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}).
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/67c46978-696b-4adf-b04a-cf27d0438f53" id="ww0-.JinZtEX"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/875fec45-1dc4-4df3-b173-4d917366aaf9" id="zlq.Yjqk0Mu4"></iframe></div>
 
 ## What's next?
 
