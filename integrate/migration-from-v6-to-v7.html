@@ -1,0 +1,724 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Migration From v6 to v7 - enmeshed</title>
+<meta name="description" content="The Runtime of enmeshed has recently been updated from version 6 to version 7. Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors. The version update has resulted in some breaking changes. To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Migration From v6 to v7">
+<meta property="og:url" content="/integrate/migration-from-v6-to-v7">
+
+
+  <meta property="og:description" content="The Runtime of enmeshed has recently been updated from version 6 to version 7. Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors. The version update has resulted in some breaking changes. To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-11-28T15:52:48+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="/integrate/migration-from-v6-to-v7">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+<link href="/assets/css/enmeshed.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc@9.2.0/dist/rapidoc-min.js"></script>
+
+
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/use"
+                
+                
+              >Use</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/explore"
+                
+                
+              >Explore</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/integrate"
+                
+                
+              >Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/operate"
+                
+                
+              >Operate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/contribute"
+                
+                
+              >Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog"
+                
+                
+              >Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate enmeshed</h3>
+      
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Getting Started</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/integrate/access-the-connector">Access the Connector</a></li>
+            
+              <li><a href="/integrate/integration-example">Integration example</a></li>
+            
+              <li><a href="/integrate/event-introduction">Event introduction</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Identities and Relationships</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/integrate/establish-relationships">Establish Relationships</a></li>
+            
+              <li><a href="/integrate/exchange-messages">Exchange Messages</a></li>
+            
+              <li><a href="/integrate/terminate-relationships">Terminate Relationships</a></li>
+            
+              <li><a href="/integrate/delete-identities">Delete Identities</a></li>
+            
+              <li><a href="/integrate/manage-identitymetadata">Manage IdentityMetadata</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Working With Requests</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/integrate/request-and-response-introduction">Request and Response introduction</a></li>
+            
+              <li><a href="/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a></li>
+            
+              <li><a href="/integrate/requests-via-messages">Requests via Messages</a></li>
+            
+              <li><a href="/integrate/form-fields-within-requests">Form Fields Within Requests</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Manage Attributes</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/integrate/attribute-introduction">Attribute introduction</a></li>
+            
+              <li><a href="/integrate/create-attributes-for-yourself">Create Attributes for yourself</a></li>
+            
+              <li><a href="/integrate/share-attributes-with-peer">Share Attributes with peer</a></li>
+            
+              <li><a href="/integrate/read-attributes-from-peer">Read Attributes from peer</a></li>
+            
+              <li><a href="/integrate/create-attributes-for-peer">Create Attributes for peer</a></li>
+            
+              <li><a href="/integrate/propose-attributes-to-peer">Propose Attributes to peer</a></li>
+            
+              <li><a href="/integrate/update-attributes-by-succession">Update Attributes by succession</a></li>
+            
+              <li><a href="/integrate/delete-attributes">Delete Attributes</a></li>
+            
+              <li><a href="/integrate/exchange-files-using-attributes">Exchange Files using Attributes</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Request Consent</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
+            
+              <li><a href="/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Data Model</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/integrate/data-model-overview">Data Model Overview</a></li>
+            
+              <li><a href="/integrate/attribute-values">Attribute Values</a></li>
+            
+              <li><a href="/integrate/connector-events">Connector Events</a></li>
+            
+              <li><a href="/integrate/use-cases">Use Cases</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Migration Guides</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/integrate/migration-from-v4-to-v5">Migration From v4 to v5</a></li>
+            
+              <li><a href="/integrate/migration-from-v5-to-v6">Migration From v5 to v6</a></li>
+            
+              <li><a href="/integrate/migration-from-v6-to-v7" class="active">Migration From v6 to v7</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Troubleshooting</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/integrate/error-codes">Error codes</a></li>
+            
+              <li><a href="/integrate/faq">FAQ</a></li>
+            
+              <li><a href="/integrate/support">Support</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Migration From v6 to v7">
+    <meta itemprop="description" content="The Runtime of enmeshed has recently been updated from version 6 to version 7.Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors.The version update has resulted in some breaking changes.To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
+    <meta itemprop="datePublished" content="2025-11-28T15:52:48+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="/integrate/migration-from-v6-to-v7" itemprop="url">Migration From v6 to v7
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#step-by-step-instructions">Step-by-Step Instructions</a><ul><li><a href="#connector-setup">Connector Setup</a></li><li><a href="#removed-and-changed-data-structures">Removed and Changed Data Structures</a></li><li><a href="#changed-behavior-of-known-features">Changed Behavior of Known Features</a></li><li><a href="#removed-and-changed-connector-routes">Removed and Changed Connector Routes</a></li><li><a href="#typescript-sdk-changes">TypeScript SDK Changes</a></li><li><a href="#removed-and-changed-error-codes">Removed and Changed Error Codes</a></li></ul></li><li><a href="#runtime-specific-breaking-changes">Runtime-Specific Breaking Changes</a><ul><li><a href="#removed-and-changed-use-cases">Removed and Changed Use Cases</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <p>The <a href="https://github.com/nmshd/runtime">Runtime</a> of enmeshed has recently been updated from version 6 to version 7.
+Accordingly, a new version of the <a href="https://github.com/nmshd/connector">Connector</a> has also been released to make the updated Runtime available to Integrators of Connectors.
+The version update has resulted in some breaking changes.
+To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.</p>
+
+<h2 id="step-by-step-instructions">Step-by-Step Instructions</h2>
+
+<p>The step-by-step instructions can be consulted to start the migration to version 7 as an Integrator of a Connector directly.
+<a href="#runtime-specific-breaking-changes">Runtime-specific breaking changes</a> that do not need to be taken into account when updating the Connector from version 6 to version 7 can be found below.</p>
+
+<h3 id="connector-setup">Connector Setup</h3>
+
+<ul>
+  <li>Data persisted in the database by a previous version of the Connector is not compatible with version 7.
+For this reason, the old data must be deleted.
+Alternatively, the database can be deleted as a whole and <a href="/operate/setup-with-docker-compose">set up again</a>.</li>
+  <li>The <a href="https://github.com/nmshd/connector?tab=readme-ov-file#connector">image</a> used to run the Connector must be updated to version 7.</li>
+  <li>Some changes must be made to the <a href="/operate/configuration">configuration</a> of the Connector.
+    <ul>
+      <li>The <code class="language-plaintext highlighter-rouge">database.dbNamePrefix</code> field of the <a href="/operate/configuration#database">database configuration</a> was removed.
+Before, it defaulted to <code class="language-plaintext highlighter-rouge">acc-</code>.
+If a database called <code class="language-plaintext highlighter-rouge">acc-connector</code> is to be accessed, the value of the <code class="language-plaintext highlighter-rouge">database.dbName</code> field must be set to <code class="language-plaintext highlighter-rouge">acc-connector</code> instead of <code class="language-plaintext highlighter-rouge">connector</code> only.</li>
+      <li>To support additional authentication methods beyond API key authentication, the <code class="language-plaintext highlighter-rouge">apiKey</code> field was replaced by the <code class="language-plaintext highlighter-rouge">authentication.apiKey.keys.&lt;key-id&gt;.key</code> parameter of the <a href="/operate/configuration#authentication">authentication configuration</a>.
+The <code class="language-plaintext highlighter-rouge">authentication.apiKey.keys.&lt;key-id&gt;.scopes</code> field provides a convenient way to configure the permissions that apply when the API key identified by <code class="language-plaintext highlighter-rouge">&lt;key-id&gt;</code> is used.</li>
+      <li>Additionally, the support for the <code class="language-plaintext highlighter-rouge">API_KEY</code> <a href="/operate/configuration#environment-variables">environment variable</a> has been removed, that could be used to define an API key using a short environment variable.
+As an alternative, the <code class="language-plaintext highlighter-rouge">authentication.apiKey.keys.&lt;key-id&gt;.key</code> configuration property can be set using an environment variable.</li>
+    </ul>
+  </li>
+  <li>It must be ensured that a <a href="https://github.com/nmshd/backbone/tags">Backbone</a> is used which is compatible with version 7 of the Connector.
+Even though a Backbone of version 6 can still be used, it is recommended to update to version 7 of the Backbone due to the new features and bug fixes provided.
+Appropriate Backbone credentials can be specified in the fields <code class="language-plaintext highlighter-rouge">transportLibrary.baseUrl</code>, <code class="language-plaintext highlighter-rouge">transportLibrary.platformClientId</code> and <code class="language-plaintext highlighter-rouge">transportLibrary.platformClientSecret</code> of the <a href="/operate/configuration#transportlibrary">Backbone configuration</a>.
+The URL <code class="language-plaintext highlighter-rouge">&lt;baseUrl of Backbone&gt;/api/v2/version</code> can be accessed to validate the version of the Backbone.
+Please note that version 7 of the Backbone only supports version 2 of its API and no longer version 1.</li>
+</ul>
+
+<h3 id="removed-and-changed-data-structures">Removed and Changed Data Structures</h3>
+
+<ul>
+  <li>The FreeTextRequestItem has been removed.
+It is no longer needed as the <a href="/integrate/data-model-overview#formfieldrequestitem">FormFieldRequestItem</a> with <a href="/integrate/data-model-overview#stringformfieldsettings">StringFormFieldSettings</a> as <code class="language-plaintext highlighter-rouge">settings</code> can be used instead.
+Of course, the associated AcceptFreeTextRequestItemParameters and the FreeTextAcceptResponseItem have been removed as well.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">title</code> property of most <a href="/integrate/data-model-overview#requestitems">RequestItems</a> has been removed, because in most cases the kind of RequestItem already clearly indicates its purpose.
+To be more precise, the <code class="language-plaintext highlighter-rouge">title</code> was only kept by the <a href="/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> and the <a href="/integrate/data-model-overview#formfieldrequestitem">FormFieldRequestItem</a> to provide context.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">title</code> property of the <a href="/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> is now mandatory to always convey the subject of authentication.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">requireManualDecision</code> property of all <a href="/integrate/data-model-overview#requestitems">RequestItems</a> has been removed.
+<a href="/integrate/data-model-overview#request">Requests</a> containing at least one <a href="/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> or <a href="/integrate/data-model-overview#consentrequestitem">ConsentRequestItem</a> within their <code class="language-plaintext highlighter-rouge">items</code> property are no longer eligible for automatic acceptance or rejection by the <a href="/explore/runtime#decider-module">Decider Module</a>, yet proper configuration still enables automatic processing of Requests containing other RequestItems.
+Furthermore, the <code class="language-plaintext highlighter-rouge">requiresInteraction</code> property was added to the ConsentRequestItem to keep the ability to require an explicit action to grant consent, even though the <code class="language-plaintext highlighter-rouge">requireManualDecision</code> property was removed.</li>
+  <li>The properties <code class="language-plaintext highlighter-rouge">validFrom</code> and <code class="language-plaintext highlighter-rouge">validTo</code> have been removed from the <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a>, the <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>, the <a href="/integrate/data-model-overview#identityattributequery">IdentityAttributeQuery</a>, the <a href="/integrate/data-model-overview#relationshipattributequery">RelationshipAttributeQuery</a> and the <a href="/integrate/data-model-overview#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a>.
+Specifying validity periods for <a href="/integrate/data-model-overview#attributes">Attributes</a> is no longer supported as they were not enforced during Attribute processing so far.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">template</code> property of the <a href="/integrate/data-model-overview#relationship">Relationship</a> was replaced by the <code class="language-plaintext highlighter-rouge">templateId</code> property in order to reduce data duplication by storing only the <code class="language-plaintext highlighter-rouge">id</code> of the <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> rather than the RelationshipTemplate itself within the Relationship.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">truncatedReference</code> property of the <a href="/integrate/data-model-overview#token">Token</a>, the <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> and the <a href="/integrate/data-model-overview#file">File</a>, which was already marked as deprecated, has been removed and replaced by the <code class="language-plaintext highlighter-rouge">reference.truncated</code> property.
+The property <code class="language-plaintext highlighter-rouge">reference</code> was introduced to group the property <code class="language-plaintext highlighter-rouge">truncated</code> with the additional property <code class="language-plaintext highlighter-rouge">url</code>, improving structure and better organizing related data.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">title</code> property of the <a href="/integrate/data-model-overview#file">File</a> became optional and should no longer be relied upon to be set.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">ownershipToken</code> property of the <a href="/integrate/data-model-overview#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a> became mandatory.
+This ensures that the ownership of the original File on the Backbone is transferred instead of applying a copy-based workaround.
+If the ownership of a <a href="/integrate/data-model-overview#file">File</a> ought to be transferred, that doesn’t have an <code class="language-plaintext highlighter-rouge">ownershipToken</code> yet, it will need to be <a href="/use-case-transport-regenerate-file-ownership-token">regenerated</a>.</li>
+  <li>The properties <code class="language-plaintext highlighter-rouge">approvedAt</code> and <code class="language-plaintext highlighter-rouge">approvedByDevice</code> of the <a href="/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a> have been removed.
+Furthermore, renaming <code class="language-plaintext highlighter-rouge">"Approved"</code> to <code class="language-plaintext highlighter-rouge">"Active"</code> resulted in a change of an IdentityDeletionProcess <code class="language-plaintext highlighter-rouge">status</code>.</li>
+  <li>All data structures around the Attribute listener feature, including the LocalAttributeListener, the RegisterAttributeListenerRequestItem, and the RegisterAttributeListenerAcceptResponseItem, were removed.</li>
+  <li>AffiliationOrganization, AffiliationRole, AffiliationUnit, BirthCity, BirthCountry, BirthDay, BirthMonth, BirthState, BirthYear, City, Country, HouseNumber, State, Street, and ZipCode can no longer be used as <code class="language-plaintext highlighter-rouge">value.@type</code> of <a href="/integrate/data-model-overview#identityattribute">IdentityAttributes</a> as there is no child Attribute feature anymore.
+Sharing individual components of a <a href="/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttribute</a> will be possible again in future releases.</li>
+  <li>With the new <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> concept, an Attribute copy is no longer created when an Attribute is <a href="/integrate/share-attributes-with-peer">shared</a>.
+Furthermore, LocalAttribute subtypes have been introduced to help distinguish between different kinds of LocalAttributes.
+    <ul>
+      <li>RepositoryAttributes were renamed to <a href="/integrate/data-model-overview#ownidentityattribute">OwnIdentityAttributes</a>.
+There are no own shared IdentityAttributes anymore.
+Instead, sharing an OwnIdentityAttribute leads to the creation of <a href="/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a>.</li>
+      <li>The peer shared IdentityAttribute, the own shared RelationshipAttribute and the peer shared RelationshipAttribute have been replaced by the LocalAttribute subtypes <a href="/integrate/data-model-overview#peeridentityattribute">PeerIdentityAttribute</a>, <a href="/integrate/data-model-overview#ownrelationshipattribute">OwnRelationshipAttribute</a> and <a href="/integrate/data-model-overview#peerrelationshipattribute">PeerRelationshipAttribute</a>, respectively.</li>
+      <li>There are no emitted ThirdPartyRelationshipAttributes anymore.
+Instead, forwarding a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> to a peer, which is not involved in the <a href="/integrate/data-model-overview#relationship">Relationship</a> in which the RelationshipAttribute exists, leads to the creation of <a href="/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a>.
+For this reason, the received ThirdPartyRelationshipAttribute is called <a href="/integrate/data-model-overview#thirdpartyrelationshipattribute">ThirdPartyRelationshipAttribute</a> from now on.</li>
+      <li>The <code class="language-plaintext highlighter-rouge">shareInfo</code> property of the <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> and the corresponding LocalAttributeShareInfo data object were removed.
+To track with which peer an Attribute was <a href="/integrate/share-attributes-with-peer">shared</a>, <a href="/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a> are now used and, in the case of <a href="/integrate/data-model-overview#peeridentityattribute">PeerIdentityAttributes</a>, <a href="/integrate/data-model-overview#ownrelationshipattribute">OwnRelationshipAttributes</a>, <a href="/integrate/data-model-overview#peerrelationshipattribute">PeerRelationshipAttributes</a>, and <a href="/integrate/data-model-overview#thirdpartyrelationshipattribute">ThirdPartyRelationshipAttributes</a>, the properties <code class="language-plaintext highlighter-rouge">peer</code>, <code class="language-plaintext highlighter-rouge">sourceReference</code>, and <code class="language-plaintext highlighter-rouge">deletionInfo</code> are utilized.
+For the ThirdPartyRelationshipAttributes, the <code class="language-plaintext highlighter-rouge">initialAttributePeer</code> property is additionally needed.</li>
+      <li>Some <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> subtypes may have a <code class="language-plaintext highlighter-rouge">deletionInfo</code> set, which has either <a href="/integrate/data-model-overview#emittedattributedeletioninfo">EmittedAttributeDeletionInfo</a> or <a href="/integrate/data-model-overview#receivedattributedeletioninfo">ReceivedAttributeDeletionInfo</a> as its type.
+The LocalAttributeDeletionInfo data object has been removed.</li>
+      <li>The introduction of the <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> subtypes has led to a renaming of the <a href="/integrate/data-model-overview#notificationitems">NotificationItems</a>.
+The <a href="/integrate/data-model-overview#peerattributesucceedednotificationitem">PeerAttributeSucceededNotificationItem</a> replaces the PeerSharedAttributeSucceededNotificationItem.
+The OwnSharedAttributeDeletedByOwnerNotificationItem, the PeerSharedAttributeDeletedByPeerNotificationItem and the ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem have been replaced by the <a href="/integrate/data-model-overview#ownattributedeletedbyownernotificationitem">OwnAttributeDeletedByOwnerNotificationItem</a>, the <a href="/integrate/data-model-overview#peerrelationshipattributedeletedbypeernotificationitem">PeerRelationshipAttributeDeletedByPeerNotificationItem</a> and the <a href="/integrate/data-model-overview#forwardedattributedeletedbypeernotificationitem">ForwardedAttributeDeletedByPeerNotificationItem</a>.</li>
+      <li>To better align with the <code class="language-plaintext highlighter-rouge">initialAttributePeer</code> property of the <a href="/integrate/data-model-overview#thirdpartyrelationshipattribute">ThirdPartyRelationshipAttribute</a>, the <code class="language-plaintext highlighter-rouge">thirdPartyAddress</code> property of the <a href="/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a> and the <a href="/integrate/data-model-overview#readattributeacceptresponseitem">ReadAttributeAcceptResponseItem</a> has been renamed to <code class="language-plaintext highlighter-rouge">initialAttributePeer</code>.
+Furthermore, the <code class="language-plaintext highlighter-rouge">sourceAttributeId</code> property of the ShareAttributeRequestItem has been renamed to <code class="language-plaintext highlighter-rouge">attributeId</code>.</li>
+      <li>The <code class="language-plaintext highlighter-rouge">parentId</code> property of the <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> was removed as there is no child Attribute feature anymore.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="changed-behavior-of-known-features">Changed Behavior of Known Features</h3>
+
+<ul>
+  <li>Stricter validation of <code class="language-plaintext highlighter-rouge">tags</code> of <a href="/integrate/data-model-overview#identityattribute">IdentityAttributes</a> and <a href="/integrate/data-model-overview#file">Files</a> have been added as documented in their description in the data model overview.
+An error with <a href="/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.consumption.attributes.invalidTags</code> will be thrown if an attempt is made to use invalid <code class="language-plaintext highlighter-rouge">tags</code>.</li>
+  <li>For Attribute values, a <a href="/integrate/attribute-values#valid-characters-in-attributes">character set is introduced</a>.
+An error with <a href="/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.consumption.attributes.forbiddenCharactersInAttribute</code> will be thrown if an attempt is made to use characters outside of that character set in an Attribute value.</li>
+</ul>
+
+<h3 id="removed-and-changed-connector-routes">Removed and Changed Connector Routes</h3>
+
+<ul>
+  <li>For every Connector route originating from the <a href="/operate/modules#corehttpapi">Core HTTP API Module</a>, the prefix has been changed from <code class="language-plaintext highlighter-rouge">/api/v2</code> to <code class="language-plaintext highlighter-rouge">/api/core/v1</code> to reflect its origin.
+The prefix syntax change led to the version being reset.</li>
+  <li>The introduction of the <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> subtypes has led to a change of some Connector routes and their underlying <a href="/integrate/use-cases">use cases</a>.
+    <ul>
+      <li>The Connector routes <code class="language-plaintext highlighter-rouge">GET /api/core/v1/Attributes/Own/Identity</code>, <code class="language-plaintext highlighter-rouge">GET /api/core/v1/Attributes/Own/Shared/{peer}</code>, and <code class="language-plaintext highlighter-rouge">GET /api/core/v1/Attributes/Peer/{peer}</code> replace the <code class="language-plaintext highlighter-rouge">GET /api/v2/Attributes/Own/Repository</code>, <code class="language-plaintext highlighter-rouge">GET /api/v2/Attributes/Own/Shared/Identity</code>, and <code class="language-plaintext highlighter-rouge">GET /api/v2/Attributes/Peer/Shared/Identity</code> Connector routes.
+The corresponding use cases for getting RepositoryAttributes, for getting own shared IdentityAttributes, and for getting peer shared IdentityAttributes were replaced by <a href="/use-case-consumption-get-ownidentityattributes">Get OwnIdentityAttributes</a>, <a href="/use-case-consumption-get-own-attributes-shared-with-peer">Get own Attributes shared with peer</a> and <a href="/use-case-consumption-get-peer-attributes">Get peer Attributes</a>.</li>
+      <li>The <a href="/use-case-consumption-delete-an-attribute-and-notify">Delete an Attribute and notify</a> use case replaces the use cases for deleting a RepositoryAttribute, deleting an own shared Attribute and notifying peer, deleting a peer shared Attribute and notifying owner, and deleting a ThirdPartyRelationshipAttribute and notifying peer use cases.
+The corresponding Connector route now returns an array of <code class="language-plaintext highlighter-rouge">notificationIds</code> instead of a single <code class="language-plaintext highlighter-rouge">notificationId</code>.</li>
+      <li>The <a href="/use-case-consumption-get-versions-of-attribute-shared-with-peer">Get versions of Attribute shared with peer</a> use case replaces the use case for getting shared versions of an Attribute.
+The parameters of the corresponding Connector route have changed.
+Additionally, the <a href="/use-case-consumption-get-forwardingdetails-for-attribute">Get ForwardingDetails for Attribute</a> use case was added.
+Furthermore, the parameters of the Connector route associated with the <a href="/use-case-consumption-get-attributes">Get Attributes</a> use case have changed.</li>
+    </ul>
+  </li>
+  <li>The <code class="language-plaintext highlighter-rouge">GET /api/v2/Attributes/Valid</code> Connector route and its underlying <a href="/integrate/use-cases">use case</a> for getting valid <a href="/integrate/data-model-overview#attributes">Attributes</a> were removed, because the properties <code class="language-plaintext highlighter-rouge">validFrom</code> and <code class="language-plaintext highlighter-rouge">validTo</code> have been removed from the Attributes.
+For the same reason, the <code class="language-plaintext highlighter-rouge">onlyValid</code> parameter was removed from the use cases <a href="/use-case-consumption-get-attributes">Get Attributes</a>, <a href="/use-case-consumption-get-own-attributes-shared-with-peer">Get own Attributes shared with peer</a> and <a href="/use-case-consumption-get-peer-attributes">Get peer Attributes</a>.
+Accordingly, it was removed from the associated Connector routes as well.</li>
+</ul>
+
+<h3 id="typescript-sdk-changes">TypeScript SDK Changes</h3>
+
+<p>With every version of the Connector, we ship a matching <a href="/integrate/access-the-connector#accessing-the-connector-by-software-development-kits-sdk">TypeScript SDK</a>.
+With version 7 of the SDK, the deprecated field <code class="language-plaintext highlighter-rouge">apiKey</code> was removed.
+To access the Connector using an API key, you can configure the SDK now as follows:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ApiKeyAuthenticator</span><span class="p">,</span> <span class="nx">ConnectorClient</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@nmshd/connector-sdk</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">connectorClient</span> <span class="o">=</span> <span class="nx">ConnectorClient</span><span class="p">.</span><span class="nf">create</span><span class="p">({</span>
+  <span class="na">baseUrl</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;insert-the-base-URL-of-your-Connector-here&gt;</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">authenticator</span><span class="p">:</span> <span class="k">new</span> <span class="nc">ApiKeyAuthenticator</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;insert-your-valid-API-key-here&gt;</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="removed-and-changed-error-codes">Removed and Changed Error Codes</h3>
+
+<p>An overview of the <a href="/integrate/error-codes">Error codes</a> that may occur is given on the corresponding documentation page.
+The most important changes regarding the error codes due to the update from version 6 to version 7 are:</p>
+
+<ul>
+  <li>With the new <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> concept, an Attribute copy is no longer created when an Attribute is <a href="/integrate/share-attributes-with-peer">shared</a>.
+Therefore, there are no Attribute copies and source Attributes anymore.
+The <code class="language-plaintext highlighter-rouge">error.consumption.attributes.successorSourceContentIsNotEqualToCopyContent</code> error code and similar error codes could thus be removed.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">error.consumption.attributes.successionMustNotChangePeer</code> error code has been removed as the new <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> concept prevents some errors from occurring.
+Similarly, other error codes are no longer needed.
+However, a few new error codes, such as <code class="language-plaintext highlighter-rouge">error.consumption.attributes.wrongTypeOfAttribute</code>, had to be introduced.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">error.runtime.attributes.isNotRepositoryAttribute</code> error code has been renamed to <code class="language-plaintext highlighter-rouge">error.runtime.attributes.isNotOwnIdentityAttribute</code> as OwnIdentityAttributes now present those <a href="/integrate/data-model-overview#localattribute">LocalAttributes</a> that were previously known as RepositoryAttributes.
+Similarly, other error codes have been renamed.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">error.consumption.attributes.cannotSucceedChildOfComplexAttribute</code> error code has been removed as there is no child Attribute feature anymore.</li>
+  <li>By renaming an <a href="/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a> <code class="language-plaintext highlighter-rouge">status</code> from <code class="language-plaintext highlighter-rouge">"Approved"</code> to <code class="language-plaintext highlighter-rouge">"Active"</code>, the error code <code class="language-plaintext highlighter-rouge">error.runtime.identityDeletionProcess.noApprovedIdentityDeletionProcess</code> has been replaced by <code class="language-plaintext highlighter-rouge">error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess</code>.</li>
+</ul>
+
+<h2 id="runtime-specific-breaking-changes">Runtime-Specific Breaking Changes</h2>
+
+<p>As an Integrator of a Connector, the following changes do not need to be taken into account during migration to version 7, as they are Runtime-specific breaking changes handled internally by the Connector.</p>
+
+<h3 id="removed-and-changed-use-cases">Removed and Changed Use Cases</h3>
+
+<p>Some <a href="/integrate/use-cases">use cases</a> of the Runtime that were previously marked as deprecated and replaced by new ones have now been removed.
+However, the Connector routes associated with these use cases are not affected by these replacements and can still be used.</p>
+
+<ul>
+  <li>The nomenclature of <a href="/integrate/data-model-overview#thirdpartyrelationshipattribute">ThirdPartyRelationshipAttributes</a> has already changed in version 6.
+In particular, the term third party owned RelationshipAttribute has become obsolete.
+For this reason, the <a href="/use-case-consumption-delete-an-attribute-and-notify">Delete a ThirdPartyRelationshipAttribute and notify peer</a> use case was already added in version 6 and the use case of deleting a third party owned RelationshipAttribute and notifying the peer was marked as deprecated.
+It has now been deleted with the update to version 7.</li>
+  <li>It will be possible to load items not only from truncated references, but also from other references.
+For this reason, the <a href="/use-case-transport-load-item-from-reference">Load item from reference</a> use case was already added in version 6 and the use case of loading an item from a truncated reference was marked as deprecated.
+It has now been deleted with the update to version 7.</li>
+</ul>
+
+<p>The introduction of the <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> subtypes has led to a renaming of some <a href="/integrate/use-cases">use cases</a>.</p>
+
+<ul>
+  <li>The use cases for checking if a RepositoryAttribute can be created, for creating a RepositoryAttribute, for sharing a RepositoryAttribute, and for changing a default RepositoryAttribute were renamed to <a href="/use-case-consumption-check-if-ownidentityattribute-can-be-created">Check if OwnIdentityAttribute can be created</a>, <a href="/use-case-consumption-create-an-ownidentityattribute">Create an OwnIdentityAttribute</a>, <a href="/use-case-consumption-share-an-ownidentityattribute">Share an OwnIdentityAttribute</a>, and <a href="/use-case-consumption-change-default-ownidentityattribute">Change default OwnIdentityAttribute</a>.</li>
+  <li>The use cases for succeeding a RepositoryAttribute and notifying a peer about a RepositoryAttribute succession were renamed to <a href="/use-case-consumption-succeed-an-ownidentityattribute">Succeed an OwnIdentityAttribute</a> and <a href="/use-case-consumption-notify-peer-about-ownidentityattribute-succession">Notify peer about OwnIdentityAttribute succession</a>.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-28T15:52:48+01:00">November 28, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="footer-new">
+    <div class="footer-row">
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">enmeshed</h5>
+            <p class="footer-content">
+                enmeshed is an open source wallet that ensures end-to-end encrypted digital data exchange between organizations and individuals.
+                <br />
+                <br />
+                <small>enmeshed was developed by j&s-soft AG.</small>
+            </p>
+            <div class="footer-socials">
+                <a class="footer-icon footer-social-icon footer-social-icon-twitter" href="https://twitter.com/enmeshed_jssoft" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-github" href="https://github.com/nmshd" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-linkedin" href="https://www.linkedin.com/showcase/enmeshed/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Contact</h5>
+            <p class="footer-content">
+                j&s-soft AG
+                <br />
+                Max-Jarecki-Straße 21
+                <br />
+                69115 Heidelberg
+                <br />
+                <br />
+                <small
+                    ><a href="tel:00496221431210"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-phone-alt"></i></span>+49 (6221) 43121-0</a
+                    ></small
+                >
+                <br />
+                <small
+                    ><a href="mailto:enmeshed.support@js-soft.com"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-envelope"></i></span>enmeshed.support@js-soft.com</a
+                    ></small
+                >
+            </p>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Quick Links</h5>
+            <ul class="footer-menu">
+                   
+                <li>
+                    <a href="https://js-soft.com" rel="nofollow noopener noreferrer" target="_blank"> j&s-soft Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.enmeshed.de" rel="nofollow noopener noreferrer" target="_blank"> enmeshed Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer" target="_blank"> enmeshed on GitHub</a>
+                </li>
+                  
+                <li>
+                    <a href="/legal" rel="nofollow noopener noreferrer" target="_blank"> Legal Disclosure</a>
+                </li>
+                  
+                <li>
+                    <a href="/privacy" rel="nofollow noopener noreferrer" target="_blank"> Privacy Statement</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer" target="_blank"> NPM</a>
+                </li>
+                  
+                <li>
+                    <a href="/feed.xml" rel="nofollow noopener noreferrer" target="_blank"> RSS Feed</a>
+                </li>
+                  
+            </ul>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Download the App</h5>
+            <p class="footer-downloads footer-content">
+                <a href="https://apps.apple.com/de/app/enmeshed/id1576693742" target="_blank">
+                    <img src="/assets/images/appstore.svg" class="logo-app logo-app__appstore" />
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=eu.enmeshed.app&hl=de&gl=US" target="_blank">
+                    <img src="/assets/images/gplay.svg" class="logo-app logo-app__gplaystore" />
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

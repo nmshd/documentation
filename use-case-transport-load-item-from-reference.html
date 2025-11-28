@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:29+01:00">
+  <meta property="article:published_time" content="2025-11-28T15:52:48+01:00">
 
 
 
@@ -324,6 +324,8 @@
             
               <li><a href="/integrate/migration-from-v5-to-v6">Migration From v5 to v6</a></li>
             
+              <li><a href="/integrate/migration-from-v6-to-v7">Migration From v6 to v7</a></li>
+            
           </ul>
           
         </li>
@@ -360,7 +362,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Load item from reference">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:29+01:00">
+    <meta itemprop="datePublished" content="2025-11-28T15:52:48+01:00">
     
 
     <div class="page__inner-wrap">
@@ -390,7 +392,7 @@
     <table>
         
         <tr><td>id</td>
-            <td>RU10</td></tr>
+            <td>RU9</td></tr>
         
         <tr><td>component</td>
             <td>Runtime</td></tr>
@@ -419,7 +421,7 @@
             <td>DONE</td></tr>
         
         <tr><td>comments</td>
-            <td>add redirect from /use-case-transport-load-item-from-truncated-reference as soon as that use case is deleted; rather somewhere else?</td></tr>
+            <td>rather somewhere else?</td></tr>
         
         <tr><td>actor</td>
             <td>Identity</td></tr>
@@ -460,7 +462,7 @@
 <p>This use case intends to load an entity by its <code class="language-plaintext highlighter-rouge">reference</code> received by a peer. Internally, it uses the specific use cases of each entity:</p>
 
 <ul>
-  <li>If the <code class="language-plaintext highlighter-rouge">reference</code> refers to a <a href="/integrate/data-model-overview#token">Token</a>, it fetches the Token just like the <a href="/use-case-transport-load-token-created-by-others">Load Token created by others</a> use case. For example, if the <code class="language-plaintext highlighter-rouge">content</code> of the Token is a TokenContentDeviceSharedSecret, a DeviceOnboardingInfo is returned after the successful execution of the use case. A TokenContentDeviceSharedSecret is created by the <a href="/use-case-transport-create-device-onboarding-token">Create Device Onboarding Token</a> use case.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">reference</code> refers to a <a href="/integrate/data-model-overview#token">Token</a>, it fetches the Token just like the <a href="/use-case-transport-load-token-created-by-others">Load Token created by others</a> use case. For example, if the <code class="language-plaintext highlighter-rouge">content</code> of the Token is a TokenContentDeviceSharedSecret, a DeviceOnboardingInfo is returned after the successful execution of the use case.</li>
   <li>If the <code class="language-plaintext highlighter-rouge">reference</code> refers to a <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a>, it fetches the RelationshipTemplate just like the <a href="/use-case-transport-load-relationshiptemplate-created-by-others">Load RelationshipTemplate created by others</a> use case.</li>
   <li>If the <code class="language-plaintext highlighter-rouge">reference</code> refers to a <a href="/integrate/data-model-overview#file">File</a>, it fetches the File just like the <a href="/use-case-transport-load-file">Load File</a> use case.</li>
 </ul>
@@ -476,7 +478,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:29+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-28T15:52:48+01:00">November 28, 2025</time></p>
 
       </footer>
 

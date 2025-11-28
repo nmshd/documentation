@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:29+01:00">
+  <meta property="article:published_time" content="2025-11-28T15:52:48+01:00">
 
 
 
@@ -324,6 +324,8 @@
             
               <li><a href="/integrate/migration-from-v5-to-v6">Migration From v5 to v6</a></li>
             
+              <li><a href="/integrate/migration-from-v6-to-v7">Migration From v6 to v7</a></li>
+            
           </ul>
           
         </li>
@@ -360,7 +362,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Exchange Messages">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:29+01:00">
+    <meta itemprop="datePublished" content="2025-11-28T15:52:48+01:00">
     
 
     <div class="page__inner-wrap">
@@ -387,7 +389,8 @@
         
         <!-- A general description of the requirement can be given here. -->
 
-<p>The Connector can send and receive Messages with attachments using REST requests and file IDs, which are first uploaded and encrypted on the Platform. Messages can be queried and downloaded, and the Connector pulls for new Messages periodically.</p>
+<p>The Connector can send and receive Messages with attachments using REST requests and file IDs, which are first uploaded and encrypted on the Platform.
+Messages can be queried and downloaded, and the Connector pulls for new Messages periodically.</p>
 
 <!-- This include inserts the table with the metadata  -->
 
@@ -436,13 +439,16 @@
 </div>
 -->
 
-<p>In order to send Messages to recipients, a REST request can be sent with the given <code class="language-plaintext highlighter-rouge">recipients</code> and Message <code class="language-plaintext highlighter-rouge">content</code>. Different Message content structures are possible and defined in the chapter Data Structures. Additionally, an array of file ids can be added for property <code class="language-plaintext highlighter-rouge">attachments</code> in order to send attachments.</p>
+<p>In order to send Messages to recipients, a REST request can be sent with the given <code class="language-plaintext highlighter-rouge">recipients</code> and Message <code class="language-plaintext highlighter-rouge">content</code>.
+Different Message content structures are possible and defined in the chapter Data Structures.
+Additionally, an array of file ids can be added for property <code class="language-plaintext highlighter-rouge">attachments</code> in order to send attachments.</p>
 
 <p><img src="/assets/diagrams/integrate/Connector_SendMessage.png" alt="Send Message Sequence Diagram" title="Send Message" /></p>
 
 <h2 id="upload-files">Upload Files</h2>
 
-<p>In order to submit attachments/files via Message, they have to be first uploaded to the Connector. The files are then encrypted and uploaded to the Platform, which results in a FileId for every file.
+<p>In order to submit attachments/files via Message, they have to be first uploaded to the Connector.
+The files are then encrypted and uploaded to the Platform, which results in a FileId for every file.
 These FileIds can then be used as attachments to send Messages with attachments.</p>
 
 <h2 id="get-messages">Get Messages</h2>
@@ -457,7 +463,8 @@ These FileIds can then be used as attachments to send Messages with attachments.
 
 <h2 id="receive-messages">Receive Messages</h2>
 
-<p>The Connector pulls occasionally for new Messages from the Platform and temporarily stores them in the database. They can then be fetched by the corresponding business systems by the REST API (pull) or by the defined HTTP endpoint (push).</p>
+<p>The Connector pulls occasionally for new Messages from the Platform and temporarily stores them in the database.
+They can then be fetched by the corresponding business systems by the REST API (pull) or by the defined HTTP endpoint (push).</p>
 
         
       </section>
@@ -469,7 +476,7 @@ These FileIds can then be used as attachments to send Messages with attachments.
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:29+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-28T15:52:48+01:00">November 28, 2025</time></p>
 
       </footer>
 

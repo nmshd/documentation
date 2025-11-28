@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:29+01:00">
+  <meta property="article:published_time" content="2025-11-28T15:52:48+01:00">
 
 
 
@@ -324,6 +324,8 @@
             
               <li><a href="/integrate/migration-from-v5-to-v6">Migration From v5 to v6</a></li>
             
+              <li><a href="/integrate/migration-from-v6-to-v7">Migration From v6 to v7</a></li>
+            
           </ul>
           
         </li>
@@ -359,8 +361,8 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Create Attributes for yourself">
-    <meta itemprop="description" content="This guide explains the end-to-end flow of creating an Attribute for your own Connector as its Integrator. As there are two types of Attributes, IdentityAttributes and RelationshipAttributes, a distinction must be made between them when creating an Attribute for yourself.">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:29+01:00">
+    <meta itemprop="description" content="This guide explains the end-to-end flow of creating an Attribute for your own Connector as its Integrator.As there are two types of Attributes, IdentityAttributes and RelationshipAttributes, a distinction must be made between them when creating an Attribute for yourself.">
+    <meta itemprop="datePublished" content="2025-11-28T15:52:48+01:00">
     
 
     <div class="page__inner-wrap">
@@ -381,26 +383,28 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#create-an-identityattribute-for-yourself">Create an IdentityAttribute for yourself</a><ul><li><a href="#input-for-creating-a-repositoryattribute">Input for creating a RepositoryAttribute</a></li><li><a href="#process-of-creating-a-repositoryattribute">Process of creating a RepositoryAttribute</a></li><li><a href="#example-of-creating-a-simple-identityattribute">Example of creating a simple IdentityAttribute</a></li><li><a href="#example-of-creating-a-complex-identityattribute">Example of creating a complex IdentityAttribute</a></li><li><a href="#whats-next">What’s next?</a></li></ul></li><li><a href="#create-a-relationshipattribute">Create a RelationshipAttribute</a><ul><li><a href="#utilization-of-a-createattributerequestitem">Utilization of a CreateAttributeRequestItem</a></li><li><a href="#utilization-of-a-readattributerequestitem">Utilization of a ReadAttributeRequestItem</a></li><li><a href="#utilization-of-a-proposeattributerequestitem">Utilization of a ProposeAttributeRequestItem</a></li><li><a href="#utilization-of-a-shareattributerequestitem">Utilization of a ShareAttributeRequestItem</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#create-an-identityattribute-for-yourself">Create an IdentityAttribute for yourself</a><ul><li><a href="#input-for-creating-an-ownidentityattribute">Input for creating an OwnIdentityAttribute</a></li><li><a href="#process-of-creating-an-ownidentityattribute">Process of creating an OwnIdentityAttribute</a></li><li><a href="#example-of-creating-a-simple-identityattribute">Example of creating a simple IdentityAttribute</a></li><li><a href="#example-of-creating-a-complex-identityattribute">Example of creating a complex IdentityAttribute</a></li><li><a href="#whats-next">What’s next?</a></li></ul></li><li><a href="#create-a-relationshipattribute">Create a RelationshipAttribute</a><ul><li><a href="#utilization-of-a-createattributerequestitem">Utilization of a CreateAttributeRequestItem</a></li><li><a href="#utilization-of-a-readattributerequestitem">Utilization of a ReadAttributeRequestItem</a></li><li><a href="#utilization-of-a-proposeattributerequestitem">Utilization of a ProposeAttributeRequestItem</a></li><li><a href="#utilization-of-a-shareattributerequestitem">Utilization of a ShareAttributeRequestItem</a></li></ul></li></ul>
             </nav>
           </aside>
         
-        <p>This guide explains the end-to-end flow of creating an <a href="/integrate/data-model-overview#attributes">Attribute</a> for your own Connector as its Integrator. As there are two types of Attributes, <a href="/integrate/data-model-overview#identityattribute">IdentityAttributes</a> and <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttributes</a>, a distinction must be made between them when creating an Attribute for yourself.</p>
+        <p>This guide explains the end-to-end flow of creating an <a href="/integrate/data-model-overview#attributes">Attribute</a> for your own Connector as its Integrator.
+As there are two types of Attributes, <a href="/integrate/data-model-overview#identityattribute">IdentityAttributes</a> and <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttributes</a>, a distinction must be made between them when creating an Attribute for yourself.</p>
 
 <h2 id="create-an-identityattribute-for-yourself">Create an IdentityAttribute for yourself</h2>
 
-<p>This section is about how to create an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> for your own Connector that is not initially shared with any other Identity. From a technical point of view, this corresponds to the creation of a <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> whose <code class="language-plaintext highlighter-rouge">content</code> is given by the IdentityAttribute that is intended to be created and whose <code class="language-plaintext highlighter-rouge">shareInfo</code> is undefined. Such a LocalAttribute is referred to as a RepositoryAttribute.</p>
+<p>This section is about how to create an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> for your own Connector that is not initially shared with any other Identity.
+From a technical point of view, this corresponds to the creation of an <a href="/integrate/data-model-overview#ownidentityattribute">OwnIdentityAttribute</a>.</p>
 
-<p class="notice--info">Since knowledge about IdentityAttributes is required in the following, you should take a look at our <a href="/integrate/attribute-introduction#identityattributes">IdentityAttribute introduction</a> before you continue reading this guide. In particular, a description of the two kinds of IdentityAttributes, the <a href="/integrate/attribute-introduction#simple-identityattributes">simple IdentityAttributes</a> and the <a href="/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttributes</a>, can be found there.</p>
+<p class="notice--info">Since knowledge about IdentityAttributes is required in the following, you should take a look at our <a href="/integrate/attribute-introduction#identityattributes">IdentityAttribute introduction</a> before you continue reading this guide.
+In particular, a description of the two kinds of IdentityAttributes, the <a href="/integrate/attribute-introduction#simple-identityattributes">simple IdentityAttributes</a> and the <a href="/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttributes</a>, can be found there.</p>
 
-<h3 id="input-for-creating-a-repositoryattribute">Input for creating a RepositoryAttribute</h3>
+<h3 id="input-for-creating-an-ownidentityattribute">Input for creating an OwnIdentityAttribute</h3>
 
-<p>To create a RepositoryAttribute, proceed as described in the <a href="/use-case-consumption-create-a-repositoryattribute">Create a RepositoryAttribute</a> use case documentation. As input for the creation of a RepositoryAttribute, the following <code class="language-plaintext highlighter-rouge">content</code> must be used:</p>
+<p>To create an OwnIdentityAttribute, proceed as described in the <a href="/use-case-consumption-create-an-ownidentityattribute">Create an OwnIdentityAttribute</a> use case documentation.
+As input for the creation of an OwnIdentityAttribute, the following <code class="language-plaintext highlighter-rouge">content</code> must be used:</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"validFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;start of IdentityAttribute's validity&gt;"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"validTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;end of IdentityAttribute's validity&gt;"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="c1">// IdentityAttribute value</span><span class="w">
       </span><span class="c1">...</span><span class="w">
@@ -411,20 +415,25 @@
 </span></code></pre></div></div>
 
 <p>You need to replace the placeholders marked with <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> appropriately.
-Note that the properties <code class="language-plaintext highlighter-rouge">validFrom</code>, <code class="language-plaintext highlighter-rouge">validTo</code> and <code class="language-plaintext highlighter-rouge">tags</code> are optional, so you can omit them.
+Note that the property <code class="language-plaintext highlighter-rouge">tags</code> is optional, so you can omit it.
 It is necessary that you insert one of the available <a href="/integrate/attribute-values#identity-attributes">IdentityAttributeValues</a> into the <code class="language-plaintext highlighter-rouge">value</code> property.
-If there is already an existing RepositoryAttribute with an undefined <code class="language-plaintext highlighter-rouge">succeededBy</code> property and which therefore represents the latest version, whose <code class="language-plaintext highlighter-rouge">content.value</code> exactly matches the specified <code class="language-plaintext highlighter-rouge">value</code> in the payload for creating a new RepositoryAttribute, an error with <a href="/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.runtime.attributes.cannotCreateDuplicateRepositoryAttribute</code> is thrown.
-This is to prevent several latest RepositoryAttributes with the same <code class="language-plaintext highlighter-rouge">content.value</code> from existing in parallel.</p>
+If there is already an existing OwnIdentityAttribute with an undefined <code class="language-plaintext highlighter-rouge">succeededBy</code> property and which therefore represents the latest version, whose <code class="language-plaintext highlighter-rouge">content.value</code> exactly matches the specified <code class="language-plaintext highlighter-rouge">value</code> in the payload for creating a new OwnIdentityAttribute, an error with <a href="/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.runtime.attributes.cannotCreateDuplicateOwnIdentityAttribute</code> is thrown.
+This is to prevent several latest OwnIdentityAttributes with the same <code class="language-plaintext highlighter-rouge">content.value</code> from existing in parallel.</p>
 
-<h3 id="process-of-creating-a-repositoryattribute">Process of creating a RepositoryAttribute</h3>
+<h3 id="process-of-creating-an-ownidentityattribute">Process of creating an OwnIdentityAttribute</h3>
 
-<p>As you can see from the diagram below, after you have entered the <a href="/integrate/create-attributes-for-yourself#input-for-creating-a-repositoryattribute">input for creating a RepositoryAttribute</a>, a check is performed whether the input values for the properties of the specified <a href="/integrate/attribute-values#identity-attributes">IdentityAttributeValue</a> meet the validation criteria documented on the <a href="/integrate/attribute-values">Attribute Values</a> page. If the validation is not successful, an <a href="/integrate/error-codes">error message</a> is sent in response. Otherwise, a RepositoryAttribute is created that contains the IdentityAttribute in its <code class="language-plaintext highlighter-rouge">content</code> property. If it is a <a href="/integrate/attribute-introduction#simple-identityattributes">simple IdentityAttribute</a>, a success response is sent directly. In the case of a <a href="/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttribute</a>, on the other hand, another RepositoryAttribute is created beforehand for each of its appropriate properties. These RepositoryAttributes for the properties are also referred to as children of the RepositoryAttribute belonging to the complex IdentityAttribute. The <code class="language-plaintext highlighter-rouge">id</code> of their parent is contained within their <code class="language-plaintext highlighter-rouge">parentId</code> property. Note that the successful creation of a LocalAttribute, and therefore in particular the creation of a RepositoryAttribute, triggers the <code class="language-plaintext highlighter-rouge">consumption.attributeCreated</code> <a href="/integrate/connector-events">Connector event</a>.</p>
+<p>As you can see from the diagram below, after you have entered the <a href="/integrate/create-attributes-for-yourself#input-for-creating-an-ownidentityattribute">input for creating an OwnIdentityAttribute</a>, a check is performed whether the input values for the properties of the specified <a href="/integrate/attribute-values#identity-attributes">IdentityAttributeValue</a> meet the validation criteria documented on the <a href="/integrate/attribute-values">Attribute Values</a> page.
+If the validation is not successful, an <a href="/integrate/error-codes">error message</a> is sent in response.
+Otherwise, an OwnIdentityAttribute is created that contains the IdentityAttribute in its <code class="language-plaintext highlighter-rouge">content</code> property.
+Regardless of whether it is a <a href="/integrate/attribute-introduction#simple-identityattributes">simple IdentityAttribute</a> or a <a href="/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttribute</a>, a success response is sent directly.
+Note that the successful creation of a LocalAttribute, and therefore in particular the creation of an OwnIdentityAttribute, triggers the <code class="language-plaintext highlighter-rouge">consumption.attributeCreated</code> <a href="/integrate/connector-events">Connector event</a>.</p>
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/310cea0e-6f6f-4ee0-9efd-55e180ec5dda" id="WT4OFNWd3bcS"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/0a610069-9c57-4480-aea0-57baefaef096" id="Fz3-jr0pKUQn"></iframe></div>
 
 <h3 id="example-of-creating-a-simple-identityattribute">Example of creating a simple IdentityAttribute</h3>
 
-<p>An example of a <a href="/integrate/attribute-introduction#simple-identityattributes">simple IdentityAttribute</a> is one of type <a href="/integrate/attribute-values#displayname">DisplayName</a>. To create one for your own Connector without specifying optional parameters, the following <code class="language-plaintext highlighter-rouge">content</code> must be used:</p>
+<p>An example of a <a href="/integrate/attribute-introduction#simple-identityattributes">simple IdentityAttribute</a> is one of type <a href="/integrate/attribute-values#displayname">DisplayName</a>.
+To create one for your own Connector without specifying optional parameters, the following <code class="language-plaintext highlighter-rouge">content</code> must be used:</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -436,11 +445,12 @@ This is to prevent several latest RepositoryAttributes with the same <code class
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Assuming that the input value for the Connector’s display name specified in the <code class="language-plaintext highlighter-rouge">value.value</code> property meets the <a href="/integrate/attribute-values#displayname">validation criterion</a>, which means that the entered name does not have more than 100 characters, the IdentityAttribute is saved as a RepositoryAttribute and a success response is sent.</p>
+<p>Assuming that the input value for the Connector’s display name specified in the <code class="language-plaintext highlighter-rouge">value.value</code> property meets the <a href="/integrate/attribute-values#displayname">validation criterion</a>, which means that the entered name does not have more than 100 characters, the IdentityAttribute is saved as an OwnIdentityAttribute and a success response is sent.</p>
 
 <h3 id="example-of-creating-a-complex-identityattribute">Example of creating a complex IdentityAttribute</h3>
 
-<p>An example of a <a href="/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttribute</a> is one of type <a href="/integrate/attribute-values#birthdate">BirthDate</a>. To create one for your own Connector without specifying optional parameters, the following <code class="language-plaintext highlighter-rouge">content</code> must be used:</p>
+<p>An example of a <a href="/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttribute</a> is one of type <a href="/integrate/attribute-values#birthdate">BirthDate</a>.
+To create one for your own Connector without specifying optional parameters, the following <code class="language-plaintext highlighter-rouge">content</code> must be used:</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -454,34 +464,50 @@ This is to prevent several latest RepositoryAttributes with the same <code class
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Assuming that the input values ​​for the properties <code class="language-plaintext highlighter-rouge">value.day</code>, <code class="language-plaintext highlighter-rouge">value.month</code> and <code class="language-plaintext highlighter-rouge">value.year</code> meet the <a href="/integrate/attribute-values#birthdate">validation criteria</a>, which means, for example, that the input value for <code class="language-plaintext highlighter-rouge">value.month</code> is an integer between 1 and 12, the IdentityAttribute is saved as a RepositoryAttribute. The properties <code class="language-plaintext highlighter-rouge">value.day</code>, <code class="language-plaintext highlighter-rouge">value.month</code> and <code class="language-plaintext highlighter-rouge">value.year</code> can each be understood as an additional simple IdentityAttribute of type <a href="/integrate/attribute-values#birthday">BirthDay</a>, <a href="/integrate/attribute-values#birthmonth">BirthMonth</a> and <a href="/integrate/attribute-values#birthyear">BirthYear</a>, respectively. For this reason, another RepositoryAttribute is created internally for each of these properties before a success response is sent. So for the RepositoryAttribute, which belongs to the complex IdentityAttribute of type BirthDate, a total of three children are created.</p>
+<p>Assuming that the input values ​​for the properties <code class="language-plaintext highlighter-rouge">value.day</code>, <code class="language-plaintext highlighter-rouge">value.month</code> and <code class="language-plaintext highlighter-rouge">value.year</code> meet the <a href="/integrate/attribute-values#birthdate">validation criteria</a>, which means, for example, that the input value for <code class="language-plaintext highlighter-rouge">value.month</code> is an integer between 1 and 12, the IdentityAttribute is saved as an OwnIdentityAttribute.</p>
 
 <h3 id="whats-next">What’s next?</h3>
 
-<p>When you have successfully created an IdentityAttribute for your own Connector, you will receive a success response. From the result, you can get the <code class="language-plaintext highlighter-rouge">id</code> of the corresponding RepositoryAttribute belonging to the IdentityAttribute. You will need this <code class="language-plaintext highlighter-rouge">id</code>, for example, if you want to share the underlying IdentityAttribute with other Identities later, as in the <a href="/integrate/share-attributes-with-peer">Share Attributes with peer</a> scenario.</p>
+<p>When you have successfully created an IdentityAttribute for your own Connector, you will receive a success response.
+From the result, you can get the <code class="language-plaintext highlighter-rouge">id</code> of the corresponding OwnIdentityAttribute belonging to the IdentityAttribute.
+You will need this <code class="language-plaintext highlighter-rouge">id</code>, for example, if you want to share the underlying IdentityAttribute with other Identities later, as in the <a href="/integrate/share-attributes-with-peer">Share Attributes with peer</a> scenario.</p>
 
 <h2 id="create-a-relationshipattribute">Create a RelationshipAttribute</h2>
 
-<p>If you want to create a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>, you must proceed differently than when <a href="/integrate/create-attributes-for-yourself#create-an-identityattribute-for-yourself">creating an IdentityAttribute for yourself</a>. This is because a RelationshipAttribute can only exist in the context of a <a href="/integrate/data-model-overview#relationship">Relationship</a> with a peer, which means that they must also agree to the creation of it. This is achieved by sending a <a href="/integrate/data-model-overview#request">Request</a> whose <code class="language-plaintext highlighter-rouge">items</code> property contains an appropriate <a href="/integrate/data-model-overview#requestitems">RequestItem</a>, which must be accepted by the peer. Depending on whether you or your peer should set the <a href="/integrate/attribute-values#relationship-attributes">RelationshipAttributeValue</a> and depending on other factors, a <a href="/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a>, <a href="/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>, <a href="/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a> or <a href="/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a> should be used for this.</p>
+<p>If you want to create a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>, you must proceed differently than when <a href="/integrate/create-attributes-for-yourself#create-an-identityattribute-for-yourself">creating an IdentityAttribute for yourself</a>.
+This is because a RelationshipAttribute can only exist in the context of a <a href="/integrate/data-model-overview#relationship">Relationship</a> with a peer, which means that they must also agree to the creation of it.
+This is achieved by sending a <a href="/integrate/data-model-overview#request">Request</a> whose <code class="language-plaintext highlighter-rouge">items</code> property contains an appropriate <a href="/integrate/data-model-overview#requestitems">RequestItem</a>, which must be accepted by the peer.
+Depending on whether you or your peer should set the <a href="/integrate/attribute-values#relationship-attributes">RelationshipAttributeValue</a> and depending on other factors, a <a href="/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a>, <a href="/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>, <a href="/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a> or <a href="/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a> should be used for this.</p>
 
-<p class="notice--info">From a technical point of view, the creation of a RelationshipAttribute corresponds to the creation of one <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> for yourself and one LocalAttribute for your peer, whereby their <code class="language-plaintext highlighter-rouge">content</code> is given by the RelationshipAttribute that is intended to be created and the <code class="language-plaintext highlighter-rouge">shareInfo</code> of both LocalAttributes contains a correspondingly suitable <a href="/integrate/data-model-overview#localattributeshareinfo">LocalAttributeShareInfo</a>.
-In terms of nomenclature, this pair of LocalAttributes consists of one own shared RelationshipAttribute and one peer shared RelationshipAttribute.</p>
+<p class="notice--info">From a technical point of view, the creation of a RelationshipAttribute corresponds to the creation of one <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> for yourself and one LocalAttribute for your peer, whereby their <code class="language-plaintext highlighter-rouge">content</code> is given by the RelationshipAttribute that is intended to be created.
+In terms of nomenclature, this pair of LocalAttributes consists of one <a href="/integrate/data-model-overview#ownrelationshipattribute">OwnRelationshipAttribute</a> and one <a href="/integrate/data-model-overview#peerrelationshipattribute">PeerRelationshipAttribute</a>.</p>
 
 <h3 id="utilization-of-a-createattributerequestitem">Utilization of a CreateAttributeRequestItem</h3>
 
-<p>You can use a <a href="/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> to create a RelationshipAttribute in the context of a Relationship between you and your peer if you want the RelationshipAttributeValue to be set by yourself. Your peer can only accept or reject the creation of the RelationshipAttribute, but cannot modify the RelationshipAttributeValue. A RelationshipAttribute that you want to create using a CreateAttributeRequestItem can be owned by yourself or by your peer. For full details on how to create a RelationshipAttribute using a CreateAttributeRequestItem, please refer to the <a href="/integrate/create-attributes-for-peer">Create Attributes for peer</a> guide.</p>
+<p>You can use a <a href="/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> to create a RelationshipAttribute in the context of a Relationship between you and your peer if you want the RelationshipAttributeValue to be set by yourself.
+Your peer can only accept or reject the creation of the RelationshipAttribute, but cannot modify the RelationshipAttributeValue.
+A RelationshipAttribute that you want to create using a CreateAttributeRequestItem can be owned by yourself or by your peer.
+For full details on how to create a RelationshipAttribute using a CreateAttributeRequestItem, please refer to the <a href="/integrate/create-attributes-for-peer">Create Attributes for peer</a> guide.</p>
 
 <h3 id="utilization-of-a-readattributerequestitem">Utilization of a ReadAttributeRequestItem</h3>
 
-<p>You can use a <a href="/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a> to create a RelationshipAttribute in the context of a Relationship between you and your peer if you want the RelationshipAttributeValue to be set by your peer. Even if it seems misleading to use a ReadAttributeRequestItem to create a RelationshipAttribute, this terminology makes sense insofar as the RelationshipAttributeValue should be read from the peer in order to be able to create the RelationshipAttribute. A RelationshipAttribute that you want to create using a ReadAttributeRequestItem can be owned by yourself, your peer or even a third party. For full details on how to create a RelationshipAttribute using a ReadAttributeRequestItem, please refer to the <a href="/integrate/read-attributes-from-peer">Read Attributes from peer</a> guide.</p>
+<p>You can use a <a href="/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a> to create a RelationshipAttribute in the context of a Relationship between you and your peer if you want the RelationshipAttributeValue to be set by your peer.
+Even if it seems misleading to use a ReadAttributeRequestItem to create a RelationshipAttribute, this terminology makes sense insofar as the RelationshipAttributeValue should be read from the peer in order to be able to create the RelationshipAttribute.
+A RelationshipAttribute that you want to create using a ReadAttributeRequestItem can be owned by yourself, your peer or even a third party.
+For full details on how to create a RelationshipAttribute using a ReadAttributeRequestItem, please refer to the <a href="/integrate/read-attributes-from-peer">Read Attributes from peer</a> guide.</p>
 
 <h3 id="utilization-of-a-proposeattributerequestitem">Utilization of a ProposeAttributeRequestItem</h3>
 
-<p>You can use a <a href="/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a> to create a RelationshipAttribute in the context of a Relationship between you and your peer if you want to propose a potentially suitable RelationshipAttributeValue to your peer, but your peer has the option to modify it before the RelationshipAttribute is created. A RelationshipAttribute that you want to create using a ProposeAttributeRequestItem must be owned by your peer. All details on how to create a RelationshipAttribute using a ProposeAttributeRequestItem can be found in the <a href="/integrate/propose-attributes-to-peer">Propose Attributes to peer</a> guide.</p>
+<p>You can use a <a href="/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a> to create a RelationshipAttribute in the context of a Relationship between you and your peer if you want to propose a potentially suitable RelationshipAttributeValue to your peer, but your peer has the option to modify it before the RelationshipAttribute is created.
+A RelationshipAttribute that you want to create using a ProposeAttributeRequestItem must be owned by your peer.
+All details on how to create a RelationshipAttribute using a ProposeAttributeRequestItem can be found in the <a href="/integrate/propose-attributes-to-peer">Propose Attributes to peer</a> guide.</p>
 
 <h3 id="utilization-of-a-shareattributerequestitem">Utilization of a ShareAttributeRequestItem</h3>
 
-<p>You can use a <a href="/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a> to create a RelationshipAttribute in the context of a Relationship between you and your peer if you want to use an existing RelationshipAttribute between you and a third party as the source for creating the new RelationshipAttribute. Your peer can only accept or reject the creation of it, but cannot modify it. A RelationshipAttribute that you want to create using a ShareAttributeRequestItem can be owned by yourself or the third party, but not by your peer. All details on how to create a RelationshipAttribute using a ShareAttributeRequestItem can be found in the <a href="/integrate/share-attributes-with-peer">Share Attributes with peer</a> guide.</p>
+<p>You can use a <a href="/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a> to create a RelationshipAttribute in the context of a Relationship between you and your peer if you want to use an existing RelationshipAttribute between you and a third party as the source for creating the new RelationshipAttribute.
+Your peer can only accept or reject the creation of it, but cannot modify it.
+A RelationshipAttribute that you want to create using a ShareAttributeRequestItem can be owned by yourself or the third party, but not by your peer.
+All details on how to create a RelationshipAttribute using a ShareAttributeRequestItem can be found in the <a href="/integrate/share-attributes-with-peer">Share Attributes with peer</a> guide.</p>
 
         
       </section>
@@ -493,7 +519,7 @@ In terms of nomenclature, this pair of LocalAttributes consists of one own share
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:29+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-28T15:52:48+01:00">November 28, 2025</time></p>
 
       </footer>
 

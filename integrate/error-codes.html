@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:29+01:00">
+  <meta property="article:published_time" content="2025-11-28T15:52:48+01:00">
 
 
 
@@ -324,6 +324,8 @@
             
               <li><a href="/integrate/migration-from-v5-to-v6">Migration From v5 to v6</a></li>
             
+              <li><a href="/integrate/migration-from-v6-to-v7">Migration From v6 to v7</a></li>
+            
           </ul>
           
         </li>
@@ -359,8 +361,8 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Error Codes">
-    <meta itemprop="description" content="Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker.">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:29+01:00">
+    <meta itemprop="description" content="Please find a list of enmeshed error codes below.Most often the errors occur on invalid input or actions.If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker.">
+    <meta itemprop="datePublished" content="2025-11-28T15:52:48+01:00">
     
 
     <div class="page__inner-wrap">
@@ -378,7 +380,9 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the <a href="https://github.com/nmshd/feedback/issues">enmeshed Issue Tracker</a>.</p>
+        <p>Please find a list of enmeshed error codes below.
+Most often the errors occur on invalid input or actions.
+If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the <a href="https://github.com/nmshd/feedback/issues">enmeshed Issue Tracker</a>.</p>
 
 <table>
   <thead>
@@ -417,104 +421,44 @@
       <td>The given payload is not a valid JSON object.</td>
     </tr>
     <tr>
-      <td>error.consumption.attributes.cannotSetDeletionInfoOfRepositoryAttributes <a name="error.consumption.attributes.cannotSetDeletionInfoOfRepositoryAttributes"></a></td>
-      <td><a href="/integrate/data-model-overview#localattribute">RepositoryAttributes</a> cannot have a <code class="language-plaintext highlighter-rouge">deletionInfo</code>, since they are not shared with a peer and can be deleted directly.</td>
+      <td>error.consumption.attributes.alreadyForwarded <a name="error.consumption.attributes.alreadyForwarded"></a></td>
+      <td>The Attribute is already forwarded to the peer.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.cannotSetAttributeDeletionInfo <a name="error.consumption.attributes.cannotSetAttributeDeletionInfo"></a></td>
+      <td>It isn’t possible to set the <code class="language-plaintext highlighter-rouge">deletionInfo</code> of the Attribute since it isn’t shared with the peer or already deleted by them.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.cannotSetForwardingDetailsForPeer <a name="error.consumption.attributes.cannotSetForwardingDetailsForPeer"></a></td>
+      <td>It isn’t possible to set the AttributeForwardingDetails for the Attribute since the peer is the peer of the Relationship in whose context the RelationshipAttribute exists.</td>
     </tr>
     <tr>
       <td>error.consumption.attributes.cannotSucceedAttributesWithASuccessor <a name="error.consumption.attributes.cannotSucceedAttributesWithASuccessor"></a></td>
       <td>It isn’t possible to <a href="/integrate/update-attributes-by-succession">succeed Attributes</a> which have already a successor. Instead, the successor has to be succeeded.</td>
     </tr>
     <tr>
-      <td>error.consumption.attributes.cannotSucceedAttributesWithDeletionInfo <a name="error.consumption.attributes.cannotSucceedAttributesWithDeletionInfo"></a></td>
-      <td>Attributes with a <code class="language-plaintext highlighter-rouge">deletionInfo</code> cannot be <a href="/integrate/update-attributes-by-succession">succeeded</a>, since the peer may have already deleted it or marked it for deletion.</td>
+      <td>error.consumption.attributes.cannotSucceedSharedAttributesDeletedByPeer <a name="error.consumption.attributes.cannotSucceedSharedAttributesDeletedByPeer"></a></td>
+      <td>It isn’t possible to <a href="/integrate/update-attributes-by-succession">succeed</a> shared Attributes that are already deleted by the peer. Instead, the successor must be shared.</td>
     </tr>
     <tr>
-      <td>error.consumption.attributes.cannotSucceedChildOfComplexAttribute <a name="error.consumption.attributes.cannotSucceedChildOfComplexAttribute"></a></td>
-      <td>The Attribute is a child Attribute of a <a href="/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttribute</a> and cannot be succeeded on its own. Instead, succeed the parent which will implicitly succeed all its children.</td>
+      <td>error.consumption.attributes.forbiddenCharactersInAttribute <a name="error.consumption.attributes.forbiddenCharactersInAttribute"></a></td>
+      <td>The <code class="language-plaintext highlighter-rouge">value</code> of the Attribute, that is tried to be created, contains forbidden characters.</td>
     </tr>
     <tr>
-      <td>error.consumption.attributes.invalidDeletionInfoOfOwnSharedAttribute <a name="error.consumption.attributes.invalidDeletionInfoOfOwnSharedAttribute"></a></td>
-      <td>The only valid values of the property <a href="/integrate/delete-attributes#delete-own-shared-attributes"><code class="language-plaintext highlighter-rouge">deletionStatus</code> for own shared Attributes</a> are <code class="language-plaintext highlighter-rouge">"DeletionRequestSent"</code>, <code class="language-plaintext highlighter-rouge">"DeletionRequestRejected"</code>, <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code> or <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.invalidDeletionInfoOfPeerSharedAttribute <a name="error.consumption.attributes.invalidDeletionInfoOfPeerSharedAttribute"></a></td>
-      <td>The only valid values of the property <a href="/integrate/delete-attributes#delete-peer-shared-attributes"><code class="language-plaintext highlighter-rouge">deletionStatus</code> for peer shared Attributes</a> are <code class="language-plaintext highlighter-rouge">"DeletedByOwner"</code> or <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.<br />invalidDeletionInfoOfThirdPartyRelationshipAttribute <a name="error.consumption.attributes.&lt;br&gt;invalidDeletionInfoOfThirdPartyRelationshipAttribute"></a></td>
-      <td>The only valid <code class="language-plaintext highlighter-rouge">deletionStatus</code> for <a href="/integrate/data-model-overview#relationshipattribute">ThirdPartyRelationshipAttributes</a> is <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code>, see <a href="/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer">‘Delete a ThirdPartyRelationshipAttribute’</a> for more details.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.invalidParentSuccessor <a name="error.consumption.attributes.invalidParentSuccessor"></a></td>
-      <td>The <a href="/integrate/update-attributes-by-succession#succeeding-a-repositoryattribute">complex parent successor of this Attribute</a> does not exist.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.isNotOwnSharedAttribute <a name="error.consumption.attributes.isNotOwnSharedAttribute"></a></td>
-      <td>The Attribute is not an <a href="/integrate/data-model-overview#localattribute">own shared Attribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.isNotPeerSharedAttribute <a name="error.consumption.attributes.isNotPeerSharedAttribute"></a></td>
-      <td>The Attribute is not a <a href="/integrate/data-model-overview#localattribute">peer shared Attribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.isNotRepositoryAttribute <a name="error.consumption.attributes.isNotRepositoryAttribute"></a></td>
-      <td>The given Attribute is not a <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.isNotSharedAttribute <a name="error.consumption.attributes.isNotSharedAttribute"></a></td>
-      <td>The Attribute is not a shared <a href="/integrate/data-model-overview#localattribute">Attribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.isNotThirdPartyRelationshipAttribute <a name="error.consumption.attributes.isNotThirdPartyRelationshipAttribute"></a></td>
-      <td>The Attribute is not a <a href="/integrate/data-model-overview#localattribute">ThirdPartyRelationshipAttribute</a>.</td>
+      <td>error.consumption.attributes.invalidTags <a name="error.consumption.attributes.invalidTags"></a></td>
+      <td>Some of the provided <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> <code class="language-plaintext highlighter-rouge">tags</code> are invalid.</td>
     </tr>
     <tr>
       <td>error.consumption.attributes.predecessorDoesNotExist <a name="error.consumption.attributes.predecessorDoesNotExist"></a></td>
       <td>The predecessor does not exist.</td>
     </tr>
     <tr>
-      <td>error.consumption.attributes.predecessorIsNotOwnSharedIdentityAttribute <a name="error.consumption.attributes.predecessorIsNotOwnSharedIdentityAttribute"></a></td>
-      <td>The predecessor is not an <a href="/integrate/data-model-overview#localattribute">own shared IdentityAttribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.predecessorIsNotOwnSharedRelationshipAttribute <a name="error.consumption.attributes.predecessorIsNotOwnSharedRelationshipAttribute"></a></td>
-      <td>The predecessor is not an <a href="/integrate/data-model-overview#localattribute">own shared RelationshipAttribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.predecessorIsNotPeerSharedIdentityAttribute <a name="error.consumption.attributes.predecessorIsNotPeerSharedIdentityAttribute"></a></td>
-      <td>The predecessor is not a <a href="/integrate/data-model-overview#localattribute">peer shared IdentityAttribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.predecessorIsNotPeerSharedRelationshipAttribute <a name="error.consumption.attributes.predecessorIsNotPeerSharedRelationshipAttribute"></a></td>
-      <td>The predecessor is not a <a href="/integrate/data-model-overview#localattribute">peer shared RelationshipAttribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.predecessorIsNotRepositoryAttribute <a name="error.consumption.attributes.predecessorIsNotRepositoryAttribute"></a></td>
-      <td>The predecessor is not a <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.<br />predecessorIsNotThirdPartyRelationshipAttribute <a name="error.consumption.attributes.&lt;br&gt;predecessorIsNotThirdPartyRelationshipAttribute"></a></td>
-      <td>The predecessor is not a <a href="/integrate/data-model-overview#localattribute">ThirdPartyRelationshipAttribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.predecessorSourceAttributeIsNotRepositoryAttribute <a name="error.consumption.attributes.predecessorSourceAttributeIsNotRepositoryAttribute"></a></td>
-      <td>The predecessor sourceAttribute is not a <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.predecessorSourceContentIsNotEqualToCopyContent <a name="error.consumption.attributes.predecessorSourceContentIsNotEqualToCopyContent"></a></td>
-      <td>The predecessor sourceAttribute <code class="language-plaintext highlighter-rouge">content</code> doesn’t match the <code class="language-plaintext highlighter-rouge">content</code> of the predecessor <a href="/integrate/update-attributes-by-succession#sharing-a-repositoryattribute">shared Attribute copy</a>.</td>
-    </tr>
-    <tr>
       <td>error.consumption.attributes.senderIsNotPeerOfSharedAttribute <a name="error.consumption.attributes.senderIsNotPeerOfSharedAttribute"></a></td>
       <td>The Sender of the <a href="/integrate/data-model-overview#notification">Notification</a> is not the peer you shared the Attribute with.</td>
     </tr>
     <tr>
-      <td>error.consumption.attributes.setPredecessorIdDoesNotMatchActualPredecessorId <a name="error.consumption.attributes.setPredecessorIdDoesNotMatchActualPredecessorId"></a></td>
-      <td>The predecessor’s <code class="language-plaintext highlighter-rouge">id</code> and the explicitly set value for the successor’s <code class="language-plaintext highlighter-rouge">succeeds</code> field don’t match.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.setDefaultRepositoryAttributesIsDisabled <a name="error.consumption.attributes.setDefaultRepositoryAttributesIsDisabled"></a></td>
-      <td>Setting default RepositoryAttributes is disabled for this Account.</td>
+      <td>error.consumption.attributes.setDefaultOwnIdentityAttributesIsDisabled <a name="error.consumption.attributes.setDefaultOwnIdentityAttributesIsDisabled"></a></td>
+      <td>Setting default OwnIdentityAttributes is disabled for this Account.</td>
     </tr>
     <tr>
       <td>error.consumption.attributes.successionMustChangeContent <a name="error.consumption.attributes.successionMustChangeContent"></a></td>
@@ -522,7 +466,7 @@
     </tr>
     <tr>
       <td>error.consumption.attributes.successionMustNotChangeContentType <a name="error.consumption.attributes.successionMustNotChangeContentType"></a></td>
-      <td>The successor Attribute’s <code class="language-plaintext highlighter-rouge">content</code> type does not match that of the predecessor. An <a href="/integrate/update-attributes-by-succession">Attribute succession</a> must not change the Attribute’s <code class="language-plaintext highlighter-rouge">content</code> type, i.e. an <a href="/integrate/data-model-overview#relationshipattribute">IdentityAttribute</a> must not be succeeded by a <a href="/integrate/data-model-overview#identityattribute">RelationshipAttribute</a> and v.v.</td>
+      <td>The successor Attribute’s <code class="language-plaintext highlighter-rouge">content</code> type does not match that of the predecessor. An <a href="/integrate/update-attributes-by-succession">Attribute succession</a> must not change the Attribute’s <code class="language-plaintext highlighter-rouge">content</code> type, i.e. an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> must not be succeeded by a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> and v.v.</td>
     </tr>
     <tr>
       <td>error.consumption.attributes.successionMustNotChangeKey <a name="error.consumption.attributes.successionMustNotChangeKey"></a></td>
@@ -537,14 +481,6 @@
       <td>The successor Attribute’s <code class="language-plaintext highlighter-rouge">owner</code> does not match that of the predecessor. An <a href="/integrate/update-attributes-by-succession">Attribute succession</a> must not change the Attribute’s <code class="language-plaintext highlighter-rouge">owner</code>.</td>
     </tr>
     <tr>
-      <td>error.consumption.attributes.successionMustNotChangePeer <a name="error.consumption.attributes.successionMustNotChangePeer"></a></td>
-      <td>The peer of the <a href="/integrate/update-attributes-by-succession#sharing-a-repositoryattribute">shared Attribute</a> must not change.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.successionMustNotChangeThirdParty <a name="error.consumption.attributes.successionMustNotChangeThirdParty"></a></td>
-      <td>The <code class="language-plaintext highlighter-rouge">thirdPartyAddress</code> of the <a href="/integrate/update-attributes-by-succession#sharing-a-repositoryattribute">shared Attribute</a> must not change.</td>
-    </tr>
-    <tr>
       <td>error.consumption.attributes.successionMustNotChangeValueType <a name="error.consumption.attributes.successionMustNotChangeValueType"></a></td>
       <td>The successor Attribute’s <code class="language-plaintext highlighter-rouge">value.@type</code> does not match that of the predecessor. An <a href="/integrate/update-attributes-by-succession">Attribute succession</a> must not change the Attribute’s <code class="language-plaintext highlighter-rouge">value.@type</code>.</td>
     </tr>
@@ -554,67 +490,23 @@
     </tr>
     <tr>
       <td>error.consumption.attributes.successorIsNotAValidAttribute <a name="error.consumption.attributes.successorIsNotAValidAttribute"></a></td>
-      <td>During the <a href="/integrate/update-attributes-by-succession#succeeding-a-repositoryattribute">creation of the successor</a> the validation failed.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.successorIsNotOwnSharedIdentityAttribute <a name="error.consumption.attributes.successorIsNotOwnSharedIdentityAttribute"></a></td>
-      <td>The successor is not an <a href="/integrate/data-model-overview#localattribute">own shared IdentityAttribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.successorIsNotOwnSharedRelationshipAttribute <a name="error.consumption.attributes.successorIsNotOwnSharedRelationshipAttribute"></a></td>
-      <td>The successor is not an <a href="/integrate/data-model-overview#localattribute">own shared RelationshipAttribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.successorIsNotPeerSharedIdentityAttribute <a name="error.consumption.attributes.successorIsNotPeerSharedIdentityAttribute"></a></td>
-      <td>The successor is not a <a href="/integrate/data-model-overview#localattribute">peer shared IdentityAttribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.successorIsNotPeerSharedRelationshipAttribute <a name="error.consumption.attributes.successorIsNotPeerSharedRelationshipAttribute"></a></td>
-      <td>The successor is not a <a href="/integrate/data-model-overview#localattribute">peer shared RelationshipAttribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.successorIsNotRepositoryAttribute <a name="error.consumption.attributes.successorIsNotRepositoryAttribute"></a></td>
-      <td>The successor is not a <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.successorIsNotThirdPartyRelationshipAttribute <a name="error.consumption.attributes.successorIsNotThirdPartyRelationshipAttribute"></a></td>
-      <td>The successor is not a <a href="/integrate/data-model-overview#localattribute">ThirdPartyRelationshipAttribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.successorMustNotHaveASuccessor <a name="error.consumption.attributes.successorMustNotHaveASuccessor"></a></td>
-      <td>The successor must not have a successor itself. That means the property <code class="language-plaintext highlighter-rouge">succeededBy</code> must be undefined.</td>
+      <td>During the <a href="/integrate/update-attributes-by-succession#succeeding-an-ownidentityattribute">creation of the successor</a> the validation failed.</td>
     </tr>
     <tr>
       <td>error.consumption.attributes.successorMustNotYetExist <a name="error.consumption.attributes.successorMustNotYetExist"></a></td>
       <td>The predecessor Attribute’s successor must not exist. It will be created by the succession handlers and must not be created manually.</td>
     </tr>
     <tr>
-      <td>error.consumption.attributes.successorSourceAttributeDoesNotExist <a name="error.consumption.attributes.successorSourceAttributeDoesNotExist"></a></td>
-      <td>The successor <code class="language-plaintext highlighter-rouge">sourceAttribute</code> does not exist.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.successorSourceAttributeIsNotRepositoryAttribute <a name="error.consumption.attributes.successorSourceAttributeIsNotRepositoryAttribute"></a></td>
-      <td>The successor <code class="language-plaintext highlighter-rouge">sourceAttribute</code> is not a <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.successorSourceAttributeIsNotSpecified <a name="error.consumption.attributes.successorSourceAttributeIsNotSpecified"></a></td>
-      <td>The <a href="/integrate/update-attributes-by-succession"><code class="language-plaintext highlighter-rouge">sourceAttribute</code></a> of the successor must be specified.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.successorSourceDoesNotSucceedPredecessorSource <a name="error.consumption.attributes.successorSourceDoesNotSucceedPredecessorSource"></a></td>
-      <td>The predecessor <a href="/integrate/update-attributes-by-succession"><code class="language-plaintext highlighter-rouge">sourceAttribute</code></a> is not succeeded by the successor sourceAttribute.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.successorSourceContentIsNotEqualToCopyContent <a name="error.consumption.attributes.successorSourceContentIsNotEqualToCopyContent"></a></td>
-      <td>The successor <a href="/integrate/update-attributes-by-succession"><code class="language-plaintext highlighter-rouge">sourceAttribute</code></a> <code class="language-plaintext highlighter-rouge">content</code> doesn’t match the <code class="language-plaintext highlighter-rouge">content</code> of the successor <a href="/integrate/update-attributes-by-succession#sharing-a-repositoryattribute">shared Attribute copy</a>.</td>
-    </tr>
-    <tr>
-      <td>error.consumption.attributes.wrongOwnerOfRepositoryAttribute <a name="error.consumption.attributes.wrongOwnerOfRepositoryAttribute"></a></td>
-      <td>A wrong <code class="language-plaintext highlighter-rouge">owner</code> was provided wanting to create a <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a>. You can only create RepositoryAttributes for yourself.</td>
+      <td>error.consumption.attributes.wrongOwnerOfAttribute <a name="error.consumption.attributes.wrongOwnerOfAttribute"></a></td>
+      <td>A wrong <code class="language-plaintext highlighter-rouge">owner</code> was provided wanting to create an <a href="/integrate/data-model-overview#localattribute">Attribute</a> of a specific type.</td>
     </tr>
     <tr>
       <td>error.consumption.attributes.wrongRelationshipStatusToSetDeletionInfo <a name="error.consumption.attributes.wrongRelationshipStatusToSetDeletionInfo"></a></td>
-      <td>In order to manually set the <code class="language-plaintext highlighter-rouge">deletionInfo</code> of an own shared or a peer shared <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a>, the corresponding <a href="/integrate/data-model-overview#relationship">Relationship</a> must have <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code> as <code class="language-plaintext highlighter-rouge">status</code>.</td>
+      <td>In order to manually set the <code class="language-plaintext highlighter-rouge">deletionInfo</code> of a shared <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> or associated <a href="/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a>, the corresponding <a href="/integrate/data-model-overview#relationship">Relationship</a> must have <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code> as <code class="language-plaintext highlighter-rouge">status</code>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.wrongTypeOfAttribute <a name="error.consumption.attributes.wrongTypeOfAttribute"></a></td>
+      <td>A wrong <a href="/integrate/data-model-overview#localattribute">Attribute</a> type was provided for performing this action.</td>
     </tr>
     <tr>
       <td>error.consumption.requests.attributeQueryMismatch <a name="error.consumption.requests.attributeQueryMismatch"></a></td>
@@ -705,52 +597,40 @@
       <td>The Runtime is already started. You should stop it first for a restart.</td>
     </tr>
     <tr>
-      <td>error.runtime.attributes.cannotCreateDuplicateRepositoryAttribute <a name="error.runtime.attributes.cannotCreateDuplicateRepositoryAttribute"></a></td>
-      <td>The <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a> cannot be created because it has the exact same <code class="language-plaintext highlighter-rouge">content.value</code> as an already existing RepositoryAttribute whose <code class="language-plaintext highlighter-rouge">succeededBy</code> property is undefined.</td>
+      <td>error.runtime.attributes.cannotCreateDuplicateOwnIdentityAttribute <a name="error.runtime.attributes.cannotCreateDuplicateOwnIdentityAttribute"></a></td>
+      <td>The OwnIdentityAttribute cannot be created because it has the exact same <code class="language-plaintext highlighter-rouge">content.value</code> as an already existing OwnIdentityAttribute whose <code class="language-plaintext highlighter-rouge">succeededBy</code> property is undefined.</td>
     </tr>
     <tr>
       <td>error.runtime.attributes.cannotDeleteSharedAttributeWhileRelationshipIsPending <a name="error.runtime.attributes.cannotDeleteSharedAttributeWhileRelationshipIsPending"></a></td>
-      <td>The shared Attribute cannot be deleted while the <a href="/integrate/data-model-overview#relationship">Relationship</a> to the <code class="language-plaintext highlighter-rouge">peer</code> has <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code>.</td>
-    </tr>
-    <tr>
-      <td>error.runtime.attributes.cannotSeparatelyDeleteChildOfComplexAttribute <a name="error.runtime.attributes.cannotSeparatelyDeleteChildOfComplexAttribute"></a></td>
-      <td>The given Attribute is a child of a <a href="/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttribute</a>. If you want to delete it, you must delete its parent.</td>
+      <td>The shared Attribute cannot be deleted while the <a href="/integrate/data-model-overview#relationship">Relationship</a> to the <code class="language-plaintext highlighter-rouge">peer</code> has <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code>. If you want to delete it now, you’ll have to accept, reject or revoke the pending Relationship.</td>
     </tr>
     <tr>
       <td>error.runtime.attributes.hasSuccessor <a name="error.runtime.attributes.hasSuccessor"></a></td>
       <td>The given Attribute already has a successor.</td>
     </tr>
     <tr>
-      <td>error.runtime.attributes.isNotOwnSharedAttribute <a name="error.runtime.attributes.isNotOwnSharedAttribute"></a></td>
-      <td>The given Attribute is not an <a href="/integrate/data-model-overview#localattribute">own shared Attribute</a>.</td>
+      <td>error.runtime.attributes.isNotOwnIdentityAttribute <a name="error.runtime.attributes.isNotOwnIdentityAttribute"></a></td>
+      <td>The given <a href="/integrate/data-model-overview#localattribute">Attribute</a> is not an OwnIdentityAttribute.</td>
     </tr>
     <tr>
-      <td>error.runtime.attributes.isNotPeerSharedAttribute <a name="error.runtime.attributes.isNotPeerSharedAttribute"></a></td>
-      <td>The given Attribute is not a <a href="/integrate/data-model-overview#localattribute">peer shared Attribute</a>.</td>
+      <td>error.runtime.attributes.isNotOwnRelationshipAttribute <a name="error.runtime.attributes.isNotOwnRelationshipAttribute"></a></td>
+      <td>The given <a href="/integrate/data-model-overview#localattribute">Attribute</a> is not an OwnRelationshipAttribute.</td>
     </tr>
     <tr>
-      <td>error.runtime.attributes.isNotRepositoryAttribute <a name="error.runtime.attributes.isNotRepositoryAttribute"></a></td>
-      <td>The given Attribute is not a <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a>.</td>
+      <td>error.runtime.attributes.setDefaultOwnIdentityAttributesIsDisabled <a name="error.runtime.attributes.setDefaultOwnIdentityAttributesIsDisabled"></a></td>
+      <td>Setting default OwnIdentityAttributes is disabled for this Account.</td>
     </tr>
     <tr>
-      <td>error.runtime.attributes.isNotThirdPartyRelationshipAttribute <a name="error.runtime.attributes.isNotThirdPartyRelationshipAttribute"></a></td>
-      <td>The given Attribute is not a <a href="/integrate/data-model-overview#localattribute">ThirdPartyRelationshipAttribute</a>.</td>
+      <td>error.runtime.attributes.successorOfOwnIdentityAttributeHasAlreadyBeenSharedWithPeer <a name="error.runtime.attributes.successorOfOwnIdentityAttributeHasAlreadyBeenSharedWithPeer"></a></td>
+      <td>A successor of the OwnIdentityAttribute has already been shared with the peer.</td>
     </tr>
     <tr>
-      <td>error.runtime.attributes.<br />noPreviousVersionOfRepositoryAttributeHasBeenSharedWithPeerBefore <a name="error.runtime.attributes.&lt;br&gt;noPreviousVersionOfRepositoryAttributeHasBeenSharedWithPeerBefore"></a></td>
-      <td>No previous version of the given <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a> has been shared with this peer before. If you wish to execute an initial sharing of this Attribute, <a href="/integrate/share-attributes-with-peer">use ‘ShareRepositoryAttribute’</a>.</td>
+      <td>error.runtime.attributes.ownIdentityAttributeHasAlreadyBeenSharedWithPeer <a name="error.runtime.attributes.ownIdentityAttributeHasAlreadyBeenSharedWithPeer"></a></td>
+      <td>The given OwnIdentityAttribute has already been shared with this peer.</td>
     </tr>
     <tr>
-      <td>error.runtime.attributes.setDefaultRepositoryAttributesIsDisabled <a name="error.runtime.attributes.setDefaultRepositoryAttributesIsDisabled"></a></td>
-      <td>Setting default RepositoryAttributes is disabled for this Account.</td>
-    </tr>
-    <tr>
-      <td>error.runtime.attributes.repositoryAttributeHasAlreadyBeenSharedWithPeer <a name="error.runtime.attributes.repositoryAttributeHasAlreadyBeenSharedWithPeer"></a></td>
-      <td>The given <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a> has already been shared with this peer.</td>
-    </tr>
-    <tr>
-      <td>error.runtime.cacheEmpty <a name="error.runtime.cacheEmpty"></a></td>
-      <td>The <code class="language-plaintext highlighter-rouge">cache</code> of a <a href="/integrate/data-model-overview#file">File</a>, an <a href="/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a>, a <a href="/integrate/data-model-overview#message">Message</a>, a <a href="/integrate/data-model-overview#relationship">Relationship</a>, a <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> or a <a href="/integrate/data-model-overview#token">Token</a> is empty.</td>
+      <td>error.runtime.attributes.peerHasNoPreviousVersionOfAttribute <a name="error.runtime.attributes.peerHasNoPreviousVersionOfAttribute"></a></td>
+      <td>The peer doesn’t have any previous version of the given <a href="/integrate/data-model-overview#localattribute">Attribute</a>. Either you haven’t shared it before or the peer has deleted it.</td>
     </tr>
     <tr>
       <td>error.runtime.challenges.invalidChallenge <a name="error.runtime.challenges.invalidChallenge"></a></td>
@@ -783,10 +663,6 @@
     <tr>
       <td>error.runtime.identityDeletionProcess.activeIdentityDeletionProcessAlreadyExists <a name="error.runtime.identityDeletionProcess.activeIdentityDeletionProcessAlreadyExists"></a></td>
       <td>There is already an active <a href="/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a>. You cannot start another, as there may only be one active IdentityDeletionProcess per <a href="/integrate/data-model-overview#identity">Identity</a>.</td>
-    </tr>
-    <tr>
-      <td>error.runtime.identityDeletionProcess.noApprovedIdentityDeletionProcess <a name="error.runtime.identityDeletionProcess.noApprovedIdentityDeletionProcess"></a></td>
-      <td><a href="/use-case-transport-get-active-identitydeletionprocess">No approved IdentityDeletionProcess was found</a>.</td>
     </tr>
     <tr>
       <td>error.runtime.identityMetadata.notFound <a name="error.runtime.identityMetadata.notFound"></a></td>
@@ -935,10 +811,6 @@
     <tr>
       <td>error.transport.datawallet.insufficientSupportedDatawalletVersion <a name="error.transport.datawallet.insufficientSupportedDatawalletVersion"></a></td>
       <td>The current SupportedDatawalletVersion is too low to perform the requested operation. This means that the datawallet of the <a href="/integrate/data-model-overview#identity">Identity</a> was upgraded by another device with a higher version. It is necessary to update the current device.</td>
-    </tr>
-    <tr>
-      <td>error.transport.datawallet.unsupportedModification <a name="error.transport.datawallet.unsupportedModification"></a></td>
-      <td>The following collections were received in CacheChanged datawallet modifications but are not supported by the current version of this library.</td>
     </tr>
     <tr>
       <td>error.transport.devices.alreadyOnboarded <a name="error.transport.devices.alreadyOnboarded"></a></td>
@@ -1093,7 +965,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:29+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-28T15:52:48+01:00">November 28, 2025</time></p>
 
       </footer>
 

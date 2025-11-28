@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:29+01:00">
+  <meta property="article:published_time" content="2025-11-28T15:52:48+01:00">
 
 
 
@@ -296,7 +296,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="enmeshed Runtime">
     <meta itemprop="description" content="enmeshed Runtime GitHub Repository">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:29+01:00">
+    <meta itemprop="datePublished" content="2025-11-28T15:52:48+01:00">
     
 
     <div class="page__inner-wrap">
@@ -430,7 +430,7 @@
 For this to work, each RequestItem must match a form that was previously configured.
 The configuration also states how the RequestItem is processed, i.e. if it is rejected or accepted and in the latter case which parameters are used to do so.</p>
 
-<p>If there is no suitable configuration for every <a href="/integrate/data-model-overview#requestitem">RequestItem</a> of a Request or at least one RequestItem has <code class="language-plaintext highlighter-rouge">requireManualDecision</code> set, the Decider Module will not be able to automatically decide the Request.
+<p>If there is no suitable configuration for every <a href="/integrate/data-model-overview#requestitem">RequestItem</a> of a Request or at least one RequestItem is an <a href="/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> or a <a href="/integrate/data-model-overview#consentrequestitem">ConsentRequestItem</a>, the Decider Module will not be able to automatically decide the Request.
 In this case, the <code class="language-plaintext highlighter-rouge">status</code> of the <a href="/integrate/data-model-overview#request">Request</a> is moved from <code class="language-plaintext highlighter-rouge">DecisionRequired</code> to <code class="language-plaintext highlighter-rouge">ManualDecisionRequired</code> and the user must manually decide the Request.</p>
 
 <h3 id="message-module">Message Module</h3>
@@ -455,7 +455,7 @@ In this case, the <code class="language-plaintext highlighter-rouge">status</cod
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:29+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-28T15:52:48+01:00">November 28, 2025</time></p>
 
       </footer>
 

@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:29+01:00">
+  <meta property="article:published_time" content="2025-11-28T15:52:48+01:00">
 
 
 
@@ -324,6 +324,8 @@
             
               <li><a href="/integrate/migration-from-v5-to-v6">Migration From v5 to v6</a></li>
             
+              <li><a href="/integrate/migration-from-v6-to-v7">Migration From v6 to v7</a></li>
+            
           </ul>
           
         </li>
@@ -360,7 +362,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Update Attributes by succession">
     <meta itemprop="description" content="The way enmeshed handles updates to your personal data is by succeeding old Attributes with new ones.Instead of simply replacing old data, a completely new Attribute is created which succeeds its predecessor.Thus, you and your peers are provided with a coherent history of all past versions.How the Attribute succession works in detail depends on the type of Attribute.">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:29+01:00">
+    <meta itemprop="datePublished" content="2025-11-28T15:52:48+01:00">
     
 
     <div class="page__inner-wrap">
@@ -381,7 +383,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#succeeding-own-identityattributes">Succeeding own IdentityAttributes</a><ul><li><a href="#creating-a-repositoryattribute">Creating a RepositoryAttribute</a></li><li><a href="#sharing-a-repositoryattribute">Sharing a RepositoryAttribute</a></li><li><a href="#succeeding-a-repositoryattribute">Succeeding a RepositoryAttribute</a></li><li><a href="#notifying-a-peer-about-a-repositoryattribute-succession">Notifying a peer about a RepositoryAttribute succession</a></li></ul></li><li><a href="#succeeding-own-relationshipattributes">Succeeding own RelationshipAttributes</a><ul><li><a href="#creating-and-sharing-a-relationshipattribute">Creating and sharing a RelationshipAttribute</a></li><li><a href="#succeeding-a-relationshipattribute-and-notifying-the-peer">Succeeding a RelationshipAttribute and notifying the peer</a></li></ul></li><li><a href="#whats-next">What’s next?</a></li></ul>
+              <ul class="toc__menu"><li><a href="#succeeding-own-identityattributes">Succeeding own IdentityAttributes</a><ul><li><a href="#creating-an-ownidentityattribute">Creating an OwnIdentityAttribute</a></li><li><a href="#sharing-an-ownidentityattribute">Sharing an OwnIdentityAttribute</a></li><li><a href="#succeeding-an-ownidentityattribute">Succeeding an OwnIdentityAttribute</a></li><li><a href="#notifying-a-peer-about-an-ownidentityattribute-succession">Notifying a peer about an OwnIdentityAttribute succession</a></li></ul></li><li><a href="#succeeding-own-relationshipattributes">Succeeding own RelationshipAttributes</a><ul><li><a href="#creating-and-sharing-a-relationshipattribute">Creating and sharing a RelationshipAttribute</a></li><li><a href="#succeeding-a-relationshipattribute-and-notifying-the-peer">Succeeding a RelationshipAttribute and notifying the peer</a></li></ul></li><li><a href="#whats-next">What’s next?</a></li></ul>
             </nav>
           </aside>
         
@@ -395,92 +397,90 @@ How the Attribute succession works in detail depends on the type of Attribute.</
 <p>When talking about <a href="/integrate/data-model-overview#identityattribute">IdentityAttributes</a>, we need to distinguish three cases:</p>
 
 <ul>
-  <li>The Identity maintains an unshared Attribute about itself. This IdentityAttribute is stored in the <code class="language-plaintext highlighter-rouge">content</code> field of a <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a>, whose <code class="language-plaintext highlighter-rouge">shareInfo</code> is undefined. Since this LocalAttribute is created for the Identity’s private repository of Attributes, it is referred to as <strong>RepositoryAttribute</strong>.</li>
-  <li>When sharing a RepositoryAttribute with a peer, a copy of the IdentityAttribute is created for the Sender and stored in the <code class="language-plaintext highlighter-rouge">content</code> field of a LocalAttribute with a defined <code class="language-plaintext highlighter-rouge">shareInfo</code>. We call this LocalAttribute an <strong>own shared IdentityAttribute</strong>.</li>
-  <li>Receiving a shared IdentityAttribute from a peer leads to the creation of a LocalAttribute with according <code class="language-plaintext highlighter-rouge">content</code> and a defined <code class="language-plaintext highlighter-rouge">shareInfo</code> for the Recipient. We call this LocalAttribute a <strong>peer shared IdentityAttribute</strong>.</li>
+  <li>The Identity maintains an unshared Attribute about itself.
+This IdentityAttribute is stored in the <code class="language-plaintext highlighter-rouge">content</code> field of an <a href="/integrate/data-model-overview#ownidentityattribute">OwnIdentityAttribute</a>.
+It is created for the Identity’s private repository of Attributes.</li>
+  <li>When sharing an OwnIdentityAttribute with a peer, associated <a href="/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a> are created.</li>
+  <li>Receiving a shared IdentityAttribute from a peer leads to the creation of a <a href="/integrate/data-model-overview#peeridentityattribute">PeerIdentityAttribute</a> with according <code class="language-plaintext highlighter-rouge">content</code> for the Recipient.</li>
 </ul>
 
 <p>Discussing the succession of IdentityAttributes requires some background knowledge about this differentiation and the behavior of shared Attributes.
 Hence, we will look at the process of creating, sharing and succeeding an IdentityAttribute step by step.</p>
 
-<h3 id="creating-a-repositoryattribute">Creating a RepositoryAttribute</h3>
+<h3 id="creating-an-ownidentityattribute">Creating an OwnIdentityAttribute</h3>
 
-<p>enmeshed allows you to store data about yourself in the form of IdentityAttributes.
+<p>enmeshed allows you to store data about yourself in the form of <a href="/integrate/data-model-overview#identityattribute">IdentityAttributes</a>.
 When <a href="/integrate/create-attributes-for-yourself">creating an IdentityAttribute</a>, it is not necessary to share it immediately with a peer.
-Instead, it will be stored in the <code class="language-plaintext highlighter-rouge">content</code> property of a LocalAttribute with an undefined <code class="language-plaintext highlighter-rouge">shareInfo</code>.
-We refer to these unshared LocalAttributes as RepositoryAttributes, since they make up your private repository of Attributes.</p>
+Instead, it will be stored in the <code class="language-plaintext highlighter-rouge">content</code> property of an <a href="/integrate/data-model-overview#ownidentityattribute">OwnIdentityAttribute</a>.</p>
 
-<p class="notice--info">In the following examples, the <code class="language-plaintext highlighter-rouge">createdAt</code> and <code class="language-plaintext highlighter-rouge">deletionInfo</code> properties of all occuring LocalAttributes is omitted, since they aren’t required for the explanation.</p>
+<p class="notice--info">In the following examples, some properties of the occuring <a href="/integrate/data-model-overview#localattribute">LocalAttributes</a> will be omitted if they aren’t required for the explanation.</p>
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/33654502-420f-41bd-801a-e0d4c1564df0" id="zs0-w2Ag-nJ4"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/7bcf7e2c-00cd-471b-9a58-3f3521d129f3" id="5dq.VFpnN6MB"></iframe></div>
 
-<h3 id="sharing-a-repositoryattribute">Sharing a RepositoryAttribute</h3>
+<h3 id="sharing-an-ownidentityattribute">Sharing an OwnIdentityAttribute</h3>
 
-<p>Now, in order to <a href="/integrate/share-attributes-with-peer">share a RepositoryAttribute</a>, you need to send an according <a href="/integrate/data-model-overview#request">Request</a> to the peer you want to share it with.
-If they <a href="/use-case-consumption-accept-incoming-request">accept your Request</a>, a new LocalAttribute will be created at the peer’s side.
-This peer shared IdentityAttribute has the same <code class="language-plaintext highlighter-rouge">content</code> like your RepositoryAttribute and, in addition, a defined <code class="language-plaintext highlighter-rouge">shareInfo</code> property.
-It stores the address of the <code class="language-plaintext highlighter-rouge">peer</code> who shared the Attribute with them, i.e. the <code class="language-plaintext highlighter-rouge">address</code> of your <a href="/integrate/data-model-overview#identity">Identity</a>, and a reference to the Request that was used to share the Attribute.
-Receiving the <a href="/integrate/data-model-overview#response">Response</a>, an own shared IdentityAttribute with equal <code class="language-plaintext highlighter-rouge">content</code> will be created at your side.
-Its <code class="language-plaintext highlighter-rouge">shareInfo</code> stores the same <code class="language-plaintext highlighter-rouge">requestReference</code> and the peer’s address, as well as the <code class="language-plaintext highlighter-rouge">id</code> of the RepositoryAttribute, whose <code class="language-plaintext highlighter-rouge">content</code> was copied, in the field <code class="language-plaintext highlighter-rouge">sourceAttribute</code>.</p>
+<p>Now, in order to <a href="/integrate/share-attributes-with-peer">share an OwnIdentityAttribute</a>, you need to send an according <a href="/integrate/data-model-overview#request">Request</a> to the peer you want to share it with.
+If they <a href="/use-case-consumption-accept-incoming-request">accept your Request</a>, a new <a href="/integrate/data-model-overview#peeridentityattribute">PeerIdentityAttribute</a> will be created at the peer’s side.
+This PeerIdentityAttribute has the same <code class="language-plaintext highlighter-rouge">content</code> like your <a href="/integrate/data-model-overview#ownidentityattribute">OwnIdentityAttribute</a> and, in addition, defined <code class="language-plaintext highlighter-rouge">peer</code> and <code class="language-plaintext highlighter-rouge">sourceReference</code> properties.
+They store the address of the <code class="language-plaintext highlighter-rouge">peer</code> who shared the Attribute with them, i.e. the <code class="language-plaintext highlighter-rouge">address</code> of your <a href="/integrate/data-model-overview#identity">Identity</a>, and a reference to the Request that was used to share the Attribute.
+Receiving the <a href="/integrate/data-model-overview#response">Response</a>, <a href="/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a> associated with your OwnIdentityAttribute will be created at your side.
+They store the same <code class="language-plaintext highlighter-rouge">sourceReference</code> and the peer’s address.</p>
 
-<p>Concluding, sharing an IdentityAttribute will create an own shared IdentityAttribute copy for every peer you shared the Attribute with at your side and a peer shared IdentityAttribute copy for each peer at their side.</p>
+<p>Concluding, sharing an IdentityAttribute will create AttributeForwardingDetails for every peer you shared the Attribute with at your side and a PeerIdentityAttribute for each peer at their side.</p>
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/c1195765-c1ca-46b4-9468-1735f4a018cc" id="_s0-VcxrpcCM"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/b23acc1c-2111-4dfa-8f6d-4fe203a6a2b2" id="Yeq.jI1BRTvp"></iframe></div>
 
-<h3 id="succeeding-a-repositoryattribute">Succeeding a RepositoryAttribute</h3>
+<h3 id="succeeding-an-ownidentityattribute">Succeeding an OwnIdentityAttribute</h3>
 
 <p>Next, let’s consider the case that the <code class="language-plaintext highlighter-rouge">value</code> of your <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> changes and you want to update it.
-To <a href="/use-case-consumption-succeed-a-repositoryattribute">succeed the RepositoryAttribute</a>, a new <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> with the updated <code class="language-plaintext highlighter-rouge">content</code> will be created.
+To <a href="/use-case-consumption-succeed-an-ownidentityattribute">succeed the OwnIdentityAttribute</a>, a new <a href="/integrate/data-model-overview#ownidentityattribute">OwnIdentityAttribute</a> with the updated <code class="language-plaintext highlighter-rouge">content</code> will be created.
 This successor stores the <code class="language-plaintext highlighter-rouge">id</code> of the old version, the predecessor, in its <code class="language-plaintext highlighter-rouge">succeeds</code> property.
 The predecessor is updated, too, such that its <code class="language-plaintext highlighter-rouge">succeededBy</code> property links to the successor.
-Consequently, the different versions of a LocalAttribute created by Attribute successions make up a doubly linked list.</p>
+Consequently, the different versions of an OwnIdentityAttribute created by Attribute successions make up a doubly linked list.</p>
 
-<p class="notice--info"><strong>Note:</strong>
-During the succession of a <a href="/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttribute</a> implicitly all its children will be succeeded, so it isn’t possible to succeed a child of a complex IdentityAttribute on its own.</p>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/ce6f5b05-001d-44d4-be3a-f0201b384d36" id="igq.Zo9SfPxR"></iframe></div>
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/8e81cd6b-240f-4e41-ae08-9eea13b32974" id="zt0-EawwJWIx"></iframe></div>
+<h3 id="notifying-a-peer-about-an-ownidentityattribute-succession">Notifying a peer about an OwnIdentityAttribute succession</h3>
 
-<h3 id="notifying-a-peer-about-a-repositoryattribute-succession">Notifying a peer about a RepositoryAttribute succession</h3>
-
-<p>After succeeding a RepositoryAttribute, you can check <a href="/use-case-consumption-get-shared-versions-of-an-attribute">with which of your peers you have previously shared the succeeded Attribute</a> to choose those, you’d like to <a href="/use-case-consumption-notify-peer-about-repositoryattribute-succession">notify about the succession</a>.
-Your own shared IdentityAttributes associated with the peers chosen will be succeeded in the same manner as your RepositoryAttribute before.
-Then, a <a href="/integrate/data-model-overview#notification">Notification</a> is sent to the peers, containing a <a href="/integrate/data-model-overview#peersharedattributesucceedednotificationitem">PeerSharedAttributeSucceededNotificationItem</a>.
-In the <code class="language-plaintext highlighter-rouge">successorContent</code> property of the latter the updated IdentityAttribute is transmitted and automatically a likewise succession at the peers’ side will be triggered, such that their LocalAttribute versions replicate the succession chain at your side.
+<p>After succeeding an OwnIdentityAttribute, you can check <a href="/use-case-consumption-get-versions-of-attribute-shared-with-peer">with which of your peers you have previously shared the succeeded Attribute</a> to choose those, you’d like to <a href="/use-case-consumption-notify-peer-about-ownidentityattribute-succession">notify about the succession</a>.
+<a href="/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a> associated with the successor will be created for each chosen peer.
+Then, a <a href="/integrate/data-model-overview#notification">Notification</a> is sent to the peers, containing a <a href="/integrate/data-model-overview#peerattributesucceedednotificationitem">PeerAttributeSucceededNotificationItem</a>.
+In the <code class="language-plaintext highlighter-rouge">successorContent</code> property of the latter the updated IdentityAttribute is transmitted and automatically a likewise succession at the peers’ side will be triggered, such that their <a href="/integrate/data-model-overview#peeridentityattribute">PeerIdentityAttribute</a> versions replicate the succession chain at your side.
 Please note that the Notification is queued if the <a href="/integrate/terminate-relationships#terminate-an-active-relationship">Relationship is currently terminated</a> but not yet <a href="/integrate/terminate-relationships#decompose-a-relationship">decomposed</a>.
 It can then only be received and processed if the <a href="/integrate/terminate-relationships#reactivate-a-terminated-relationship">Relationship is reactivated</a>.
 The Notification is also queued if the <a href="/integrate/delete-identities#effects-of-identity-deletion-on-relationships">peer is currently in deletion</a> but not yet deleted.
 It can then only be received and processed if the peer <a href="/use-case-transport-cancel-identitydeletionprocess">cancels its deletion</a>.</p>
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/079d7602-95af-4ddf-8fd5-cca5294038d9" id="Fv0-x9lenepV"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/b4eb8903-58fa-453e-8f10-8e3646250497" id="Khq.m5nY-72w"></iframe></div>
 
 <h2 id="succeeding-own-relationshipattributes">Succeeding own RelationshipAttributes</h2>
 
 <p><a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttributes</a> are, as the name suggests, always associated with a <a href="/integrate/data-model-overview#relationship">Relationship</a>.
 Thus, it is not possible to have unshared instances of them.
-Instead, you and your peer will always each have a LocalAttribute with the same RelationshipAttribute as <code class="language-plaintext highlighter-rouge">content</code>.
-We refer to the LocalAttribute of the <code class="language-plaintext highlighter-rouge">owner</code> as <strong>own shared RelationshipAttribute</strong> and to the peer’s LocalAttribute as <strong>peer shared RelationshipAttribute</strong>.</p>
+Instead, you and your peer will always each have a <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> with the same RelationshipAttribute as <code class="language-plaintext highlighter-rouge">content</code>.
+The LocalAttribute of the <code class="language-plaintext highlighter-rouge">owner</code> is an <a href="/integrate/data-model-overview#ownrelationshipattribute">OwnRelationshipAttribute</a> and the peer’s LocalAttribute is a <a href="/integrate/data-model-overview#peerrelationshipattribute">PeerRelationshipAttribute</a>.</p>
 
 <h3 id="creating-and-sharing-a-relationshipattribute">Creating and sharing a RelationshipAttribute</h3>
 
 <p>Wanting to <a href="/use-case-consumption-create-and-share-a-relationshipattribute">create a RelationshipAttribute</a> always involves sharing it directly with a peer.
 To this end, a Request containing a <a href="/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> with the RelationshipAttribute will be created and will be sent to the peer.
-Only if the peer accepts this Request will a LocalAttribute with the RelationshipAttribute as <code class="language-plaintext highlighter-rouge">content</code> be created at their side and after you receive their Response, at your side, too.
-Hence, you and your peer will always have an identical shared RelationshipAttribute, only differing in the LocalAttribute’s <code class="language-plaintext highlighter-rouge">shareInfo.peer</code> property.</p>
+Only if the peer accepts this Request, a <a href="/integrate/data-model-overview#peerrelationshipattribute">PeerRelationshipAttribute</a> with the RelationshipAttribute as <code class="language-plaintext highlighter-rouge">content</code> will be created at their side and, after you receive their Response, an <a href="/integrate/data-model-overview#ownrelationshipattribute">OwnRelationshipAttribute</a> will be created at your side.
+Hence, you and your peer will always have an identical shared RelationshipAttribute, only differing in the <code class="language-plaintext highlighter-rouge">peer</code> property.</p>
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/11244175-05b4-4225-b08f-7da48aa21e2f" id="gw0-8Yqzp0IL"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/3c07ae76-d010-45cf-8408-c5b20aad2869" id="ekq..g1qyvSY"></iframe></div>
 
 <h3 id="succeeding-a-relationshipattribute-and-notifying-the-peer">Succeeding a RelationshipAttribute and notifying the peer</h3>
 
 <p>Equally to IdentityAttributes, again only the <code class="language-plaintext highlighter-rouge">owner</code> can <a href="/use-case-consumption-succeed-a-relationshipattribute-and-notify-peer">succeed a RelationshipAttribute</a> to update its <code class="language-plaintext highlighter-rouge">value</code>.
-Doing so, a new version of the own shared RelationshipAttribute will be created at your side.
-The <code class="language-plaintext highlighter-rouge">succeeds</code> property of this LocalAttribute links to the old version, whose <code class="language-plaintext highlighter-rouge">succeededBy</code> property in turn is updated to the <code class="language-plaintext highlighter-rouge">id</code> of the newly created successor.
-Then, a Notification is sent automatically to the peer, which triggers the creation of a new peer shared RelationshipAttribute at their side, such that their LocalAttribute versions replicate the succession chain at your side.
+Doing so, a new version of the <a href="/integrate/data-model-overview#ownrelationshipattribute">OwnRelationshipAttribute</a> will be created at your side.
+The <code class="language-plaintext highlighter-rouge">succeeds</code> property of this OwnRelationshipAttribute links to the old version, whose <code class="language-plaintext highlighter-rouge">succeededBy</code> property in turn is updated to the <code class="language-plaintext highlighter-rouge">id</code> of the newly created successor.
+Then, a Notification is sent automatically to the peer, which triggers the creation of a new <a href="/integrate/data-model-overview#peerrelationshipattribute">PeerRelationshipAttribute</a> at their side, such that their PeerRelationshipAttribute versions replicate the succession chain at your side.
 Please note that the Notification is queued if the <a href="/integrate/terminate-relationships#terminate-an-active-relationship">Relationship is currently terminated</a> but not yet <a href="/integrate/terminate-relationships#decompose-a-relationship">decomposed</a>.
 It can then only be received and processed if the <a href="/integrate/terminate-relationships#reactivate-a-terminated-relationship">Relationship is reactivated</a>.
 Furthermore, the Notification is also queued if the <a href="/integrate/delete-identities#effects-of-identity-deletion-on-relationships">peer is currently in deletion</a> but not yet deleted.
 It can then only be received and processed if the peer <a href="/use-case-transport-cancel-identitydeletionprocess">cancels its deletion</a>.</p>
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/67c46978-696b-4adf-b04a-cf27d0438f53" id="ww0-.JinZtEX"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/875fec45-1dc4-4df3-b173-4d917366aaf9" id="zlq.Yjqk0Mu4"></iframe></div>
 
 <h2 id="whats-next">What’s next?</h2>
 
@@ -498,7 +498,7 @@ To do so, proceed as described in the guide on <a href="/integrate/delete-attrib
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:29+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-28T15:52:48+01:00">November 28, 2025</time></p>
 
       </footer>
 

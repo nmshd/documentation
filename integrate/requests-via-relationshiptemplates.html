@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:29+01:00">
+  <meta property="article:published_time" content="2025-11-28T15:52:48+01:00">
 
 
 
@@ -324,6 +324,8 @@
             
               <li><a href="/integrate/migration-from-v5-to-v6">Migration From v5 to v6</a></li>
             
+              <li><a href="/integrate/migration-from-v6-to-v7">Migration From v6 to v7</a></li>
+            
           </ul>
           
         </li>
@@ -360,7 +362,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Requests via RelationshipTemplates">
     <meta itemprop="description" content="This guide explains the end-to-end flow of sending a Request via a RelationshipTemplate and responding to it.Usually, this flow happens between a Connector and the App, but for simplicity and more transparency, two Connectors are used here.To try out the examples in this guide on your own, you therefore need two Connectors.">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:29+01:00">
+    <meta itemprop="datePublished" content="2025-11-28T15:52:48+01:00">
     
 
     <div class="page__inner-wrap">
@@ -389,13 +391,16 @@
 Usually, this flow happens between a <a href="/explore/connector">Connector</a> and the <a href="/explore/app">App</a>, but for simplicity and more transparency, two Connectors are used here.
 To try out the examples in this guide on your own, you therefore need two Connectors.</p>
 
-<p class="notice--info">You can use the <a href="/operate/setup-with-docker-compose">Connector Setup</a> guide if you need help installing the Connectors. Since understanding the process of sending a Request via a RelationshipTemplate requires knowledge about <a href="/integrate/data-model-overview#request">Requests</a> in general, you should also take a look at our <a href="/integrate/request-and-response-introduction">Request and Response introduction</a>.</p>
+<p class="notice--info">You can use the <a href="/operate/setup-with-docker-compose">Connector Setup</a> guide if you need help installing the Connectors.
+Since understanding the process of sending a Request via a RelationshipTemplate requires knowledge about <a href="/integrate/data-model-overview#request">Requests</a> in general, you should also take a look at our <a href="/integrate/request-and-response-introduction">Request and Response introduction</a>.</p>
 
 <p>On the first Connector, which is referred to as the Sender, you construct the Request and <a href="#create-the-relationshiptemplate">create the RelationshipTemplate</a> that contains the Request.
-The second Connector, which is referred to as the Recipient, <a href="#receive-the-request-by-loading-the-relationshiptemplate">receives the Request by loading the RelationshipTemplate</a>. The Recipient then <a href="#respond-to-the-request">responds to the Request</a>.
+The second Connector, which is referred to as the Recipient, <a href="#receive-the-request-by-loading-the-relationshiptemplate">receives the Request by loading the RelationshipTemplate</a>.
+The Recipient then <a href="#respond-to-the-request">responds to the Request</a>.
 Note that the Sender and the Recipient may or may not have already established a <a href="/integrate/data-model-overview#relationship">Relationship</a> at the beginning.</p>
 
-<p class="notice--info">A RelationshipTemplate is generally used to establish a Relationship between two Identities. A Request can be sent in this process of establishing a Relationship.
+<p class="notice--info">A RelationshipTemplate is generally used to establish a Relationship between two Identities.
+A Request can be sent in this process of establishing a Relationship.
 Nevertheless, a RelationshipTemplate can also be used to exchange Requests between Identities that have already established a Relationship.
 For more information on how to establish Relationships, refer to the <a href="/integrate/establish-relationships">Establish Relationships</a> scenario documentation.</p>
 
@@ -404,7 +409,8 @@ For more information on how to establish Relationships, refer to the <a href="/i
 <p>The Sender wants to construct a Request that it can send to the Recipient by inserting it into a RelationshipTemplate.
 Before the <a href="#create-the-relationshiptemplate">RelationshipTemplate is created</a>, the Sender should first check the Request’s validity by proceeding as described in the documentation of the <a href="/use-case-consumption-check-if-outgoing-request-can-be-created">Check if outgoing Request can be created</a> use case.
 To do this, the Request must be specified in the <code class="language-plaintext highlighter-rouge">content</code> property of the payload.
-In this guide, an example <a href="/integrate/data-model-overview#request">Request</a> is given that contains only a single <a href="/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> within its <code class="language-plaintext highlighter-rouge">items</code> property. However, you can use any Request that suits you.</p>
+In this guide, an example <a href="/integrate/data-model-overview#request">Request</a> is given that contains only a single <a href="/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> within its <code class="language-plaintext highlighter-rouge">items</code> property.
+However, you can use any Request that suits you.</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -421,15 +427,18 @@ In this guide, an example <a href="/integrate/data-model-overview#request">Reque
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p class="notice--info">If a Request is contained within a RelationshipTemplate, its validity is automatically checked when the <a href="#create-the-relationshiptemplate">RelationshipTemplate is created</a>. The RelationshipTemplate cannot be created if the Request is faulty.
+<p class="notice--info">If a Request is contained within a RelationshipTemplate, its validity is automatically checked when the <a href="#create-the-relationshiptemplate">RelationshipTemplate is created</a>.
+The RelationshipTemplate cannot be created if the Request is faulty.
 Nevertheless, the Request’s validity should be checked before attempting to create the RelationshipTemplate in order to obtain additional information about the reasons for the error in the case of a faulty Request.</p>
 
 <h2 id="create-the-relationshiptemplate">Create the RelationshipTemplate</h2>
 
-<p>Next, the Sender wants to create the RelationshipTemplate, which contains the Request it wants to send to the Recipient. To specify a Request within a RelationshipTemplate, a data object of type <a href="/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a> must be used within the <code class="language-plaintext highlighter-rouge">content</code> property of the <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a>.
+<p>Next, the Sender wants to create the RelationshipTemplate, which contains the Request it wants to send to the Recipient.
+To specify a Request within a RelationshipTemplate, a data object of type <a href="/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a> must be used within the <code class="language-plaintext highlighter-rouge">content</code> property of the <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a>.
 A Request can be specified in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property or the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property of the RelationshipTemplateContent.
 If no Relationship has yet been established between the Sender and the Recipient, the Recipient will receive the Request specified in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property when loading the RelationshipTemplate.
-However, if an active Relationship already exists, the Recipient will receive the Request specified in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property, if such is specified. The specification of a Request in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property is mandatory in contrast to the specification of a Request in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property.</p>
+However, if an active Relationship already exists, the Recipient will receive the Request specified in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property, if such is specified.
+The specification of a Request in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property is mandatory in contrast to the specification of a Request in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property.</p>
 
 <p class="notice--info">Note that the same Request can be specified in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property as in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property, but a different Request can also be used.
 These customization options are useful as the Recipient that loads the RelationshipTemplate may not be known in advance.
@@ -439,7 +448,8 @@ The creator of the RelationshipTemplate may have a Relationship to some of these
 
 <p>To create a RelationshipTemplate, the instructions of the <a href="/use-case-transport-create-own-relationshiptemplate">Create own RelationshipTemplate</a> use case documentation must be followed.
 A RelationshipTemplateContent needs to be specified in the <code class="language-plaintext highlighter-rouge">content</code> of the payload because the Sender wants to send the Recipient a Request via the RelationshipTemplate.
-In the payload example below, the <a href="#check-the-requests-validity">Request whose validity was already checked</a> is contained both within the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property and within the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property of the <a href="/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a>. The same Request should therefore be sent regardless of whether a Relationship to the Recipient already exists or not.</p>
+In the payload example below, the <a href="#check-the-requests-validity">Request whose validity was already checked</a> is contained both within the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property and within the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property of the <a href="/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a>.
+The same Request should therefore be sent regardless of whether a Relationship to the Recipient already exists or not.</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"maxNumberOfAllocations"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -475,7 +485,9 @@ In the payload example below, the <a href="#check-the-requests-validity">Request
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>If the <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> has been successfully created, the Sender receives a success response from which its <code class="language-plaintext highlighter-rouge">id</code> and <code class="language-plaintext highlighter-rouge">reference.truncated</code> can be read. Note that the creation of a RelationshipTemplate which contains a Request does not yet lead to the creation of a corresponding <a href="/integrate/data-model-overview#localrequest">LocalRequest</a>. This is only created after the Recipient of the Request has responded to it.</p>
+<p>If the <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> has been successfully created, the Sender receives a success response from which its <code class="language-plaintext highlighter-rouge">id</code> and <code class="language-plaintext highlighter-rouge">reference.truncated</code> can be read.
+Note that the creation of a RelationshipTemplate which contains a Request does not yet lead to the creation of a corresponding <a href="/integrate/data-model-overview#localrequest">LocalRequest</a>.
+This is only created after the Recipient of the Request has responded to it.</p>
 
 <table style="border: none" class="notice--warning">
     <tr>
@@ -494,11 +506,13 @@ In the payload example below, the <a href="#check-the-requests-validity">Request
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Loading the RelationshipTemplate triggers a process in the <a href="/explore/runtime">enmeshed Runtime</a> that creates a new incoming Request for the Recipient. Depending on whether a Relationship has already been established between the Sender and the Recipient, the Recipient receives the Request specified in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property or in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property of the <a href="/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a>.</p>
+<p>Loading the RelationshipTemplate triggers a process in the <a href="/explore/runtime">enmeshed Runtime</a> that creates a new incoming Request for the Recipient.
+Depending on whether a Relationship has already been established between the Sender and the Recipient, the Recipient receives the Request specified in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property or in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property of the <a href="/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a>.</p>
 
 <p class="notice--info">If a Relationship has already been established between the Sender and the Recipient and no Request has been specified in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property, the Recipient will not receive an incoming Request when the RelationshipTemplate is loaded.</p>
 
-<p>By proceeding as described in the <a href="/use-case-consumption-query-incoming-requests">Query incoming Requests</a> use case documentation and specifying <code class="language-plaintext highlighter-rouge">source.reference=&lt;ID of RelationshipTemplate&gt;</code> and <code class="language-plaintext highlighter-rouge">status=ManualDecisionRequired</code> as query parameters, the new incoming Request can be queried. The <code class="language-plaintext highlighter-rouge">result</code> contains the corresponding <a href="/integrate/data-model-overview#localrequest">LocalRequest</a>, from which you can read the <code class="language-plaintext highlighter-rouge">id</code> of the Request.</p>
+<p>By proceeding as described in the <a href="/use-case-consumption-query-incoming-requests">Query incoming Requests</a> use case documentation and specifying <code class="language-plaintext highlighter-rouge">source.reference=&lt;ID of RelationshipTemplate&gt;</code> and <code class="language-plaintext highlighter-rouge">status=ManualDecisionRequired</code> as query parameters, the new incoming Request can be queried.
+The <code class="language-plaintext highlighter-rouge">result</code> contains the corresponding <a href="/integrate/data-model-overview#localrequest">LocalRequest</a>, from which you can read the <code class="language-plaintext highlighter-rouge">id</code> of the Request.</p>
 
 <table style="border: none" class="notice--warning">
     <tr>
@@ -569,7 +583,7 @@ The Sender, then, can fetch it by <a href="/use-case-transport-synchronize-updat
 <p>However, if there is no active Relationship between the Connectors yet, a Relationship will be created, which has the <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Pending"</code> for now.
 Its creation content is of type <a href="/integrate/data-model-overview#relationshipcreationcontent">RelationshipCreationContent</a> and contains the Response to the Request.
 This Relationship is sent back to the Sender via a Message.
-Then, the Request is set to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Completed"</code> and you can <a href="/use-case-transport-query-relationships">query the Relationship</a> using the query parameter <code class="language-plaintext highlighter-rouge">template.id=&lt;ID of RelationshipTemplate&gt;</code>.
+Then, the Request is set to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Completed"</code> and you can <a href="/use-case-transport-query-relationships">query the Relationship</a> using the query parameter <code class="language-plaintext highlighter-rouge">templateId=&lt;ID of RelationshipTemplate&gt;</code>.
 As long as the Relationship is <code class="language-plaintext highlighter-rouge">"Pending"</code>, no new Request is created by <a href="#receive-the-request-by-loading-the-relationshiptemplate">loading the RelationshipTemplate</a>.</p>
 
 <p>The Sender can fetch the Relationship by <a href="/use-case-transport-synchronize-updates-of-backbone">synchronizing the updates of the Backbone</a>.
@@ -577,9 +591,7 @@ The new Relationship looks as follows:</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REL..."</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"template"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="c1">// ...</span><span class="w">
-  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"templateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RLT..."</span><span class="p">,</span><span class="w">
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:e:..."</span><span class="p">,</span><span class="w">
   </span><span class="nl">"creationContent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -620,7 +632,7 @@ The new Relationship looks as follows:</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:29+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-28T15:52:48+01:00">November 28, 2025</time></p>
 
       </footer>
 

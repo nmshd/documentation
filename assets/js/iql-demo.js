@@ -4,11 +4,11 @@
                 "use strict";
                 (r.r(t), r.d(t, { attributes: () => n }));
                 const n = [
-                    { value: { "@type": "PhoneNumber", value: "06221/215221" }, validFrom: "2011-01-01T00:00:00", validTo: "2013-01-01T00:00:00" },
-                    { value: { "@type": "PhoneNumber", value: "06221/553132" }, tags: ["emergency"], validFrom: "2021-02-03T00:00:00", validTo: "2024-01-01T00:00:00" },
+                    { value: { "@type": "PhoneNumber", value: "06221/215221" } },
+                    { value: { "@type": "PhoneNumber", value: "06221/553132" }, tags: ["emergency"] },
                     { value: { "@type": "Website", value: "https://enmeshed.eu" } },
-                    { value: { "@type": "GivenName", value: "Steven-Nicholas" }, validFrom: "2020-01-01T00:00:00", validTo: "2023-11-01T00:00:00" },
-                    { value: { "@type": "LastName", value: "O'Malley" }, validFrom: "2021-01-01T00:00:00", validTo: "2023-12-01T00:00:00" },
+                    { value: { "@type": "GivenName", value: "Steven-Nicholas" } },
+                    { value: { "@type": "LastName", value: "O'Malley" } },
                     {
                         value: {
                             "@type": "StreetAddress",
@@ -43,9 +43,7 @@
                             "urn:xbildung-de:unesco:codeliste:isced2011=647",
                             "content:edu.de.higher.certOfEnrolment",
                             "language:es"
-                        ],
-                        validFrom: "2021-01-01T00:00:00",
-                        validTo: "2023-01-01T00:00:00"
+                        ]
                     }
                 ];
             },
@@ -488,7 +486,6 @@
                                                                                 46 === e.charCodeAt(fe) ? ((u = y), fe++) : ((u = a), 0 === ge && Ae(z)),
                                                                                 u !== a && (s = Oe()) !== a ? (o = s) : ((fe = o), (o = a));
                                                                             o !== a;
-
                                                                         )
                                                                             (n.push(o),
                                                                                 (o = fe),
@@ -541,7 +538,6 @@
                                                 (e.substr(fe, 2) === A ? ((o = A), (fe += 2)) : ((o = a), 0 === ge && Ae(H)),
                                                 o === a && ((o = e.charAt(fe)), E.test(o) ? fe++ : ((o = a), 0 === ge && Ae(J))));
                                         o !== a;
-
                                     )
                                         (n.push(o),
                                             e.substr(fe, 2) === x ? ((o = x), (fe += 2)) : ((o = a), 0 === ge && Ae(_)),
@@ -559,7 +555,6 @@
                                                 (e.substr(fe, 2) === A ? ((n = A), (fe += 2)) : ((n = a), 0 === ge && Ae(H)),
                                                 n === a && ((n = e.charAt(fe)), w.test(n) ? fe++ : ((n = a), 0 === ge && Ae(W))));
                                         n !== a;
-
                                     )
                                         (r.push(n),
                                             e.substr(fe, 2) === x ? ((n = x), (fe += 2)) : ((n = a), 0 === ge && Ae(_)),

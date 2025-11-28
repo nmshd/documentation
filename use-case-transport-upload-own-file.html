@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:29+01:00">
+  <meta property="article:published_time" content="2025-11-28T15:52:48+01:00">
 
 
 
@@ -324,6 +324,8 @@
             
               <li><a href="/integrate/migration-from-v5-to-v6">Migration From v5 to v6</a></li>
             
+              <li><a href="/integrate/migration-from-v6-to-v7">Migration From v6 to v7</a></li>
+            
           </ul>
           
         </li>
@@ -360,7 +362,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Upload own File">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:29+01:00">
+    <meta itemprop="datePublished" content="2025-11-28T15:52:48+01:00">
     
 
     <div class="page__inner-wrap">
@@ -445,7 +447,7 @@
         <tr></tr>
         
         <tr><td>api_route_regex</td>
-            <td>POST /api/v2/Files/Own</td></tr>
+            <td>POST /api/core/v1/Files/Own</td></tr>
         
         <tr><td>published</td>
             <td>default</td></tr>
@@ -473,7 +475,7 @@ In the latter case, the <a href="/use-case-transport-create-token-for-file">Toke
   <li>Optionally, <code class="language-plaintext highlighter-rouge">expiresAt</code> can be specified, which describes the ISODateTime the File expires.</li>
   <li>Optionally, a <code class="language-plaintext highlighter-rouge">title</code> can be provided for the File.</li>
   <li>Optionally, a <code class="language-plaintext highlighter-rouge">description</code> can be provided for the File.</li>
-  <li>Optionally, <code class="language-plaintext highlighter-rouge">tags</code> can be provided for the File.</li>
+  <li>Optionally, <code class="language-plaintext highlighter-rouge">tags</code> can be provided for the File. If an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> with <a href="/integrate/attribute-values#identityfilereference">IdentityFileReference</a> as <code class="language-plaintext highlighter-rouge">value.@type</code> is created for the File during <a href="/integrate/exchange-files-using-attributes#transfer-the-ownership-of-a-file-to-a-peer">transferring the ownership of the File to a peer</a>, it will have these <code class="language-plaintext highlighter-rouge">tags</code> as well. For this reason, a tag is valid if it is contained in the <a href="/integrate/data-model-overview#attributetagcollection">AttributeTagCollection</a> for the <code class="language-plaintext highlighter-rouge">value.@type</code> IdentityFileReference and starts with the prefix <code class="language-plaintext highlighter-rouge">bkb:</code> or if it starts with the custom tag prefix <code class="language-plaintext highlighter-rouge">x:</code> or <code class="language-plaintext highlighter-rouge">X:</code>, the prefix <code class="language-plaintext highlighter-rouge">urn:</code>, the prefix <code class="language-plaintext highlighter-rouge">language:</code> followed by a valid ISO 639 language code or the prefix <code class="language-plaintext highlighter-rouge">mimetype:</code> followed by a valid MIME type matching the pattern <code class="language-plaintext highlighter-rouge">^[a-z-*]+/[a-z-*]+$</code>.</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
@@ -491,6 +493,7 @@ In the latter case, the <a href="/use-case-transport-create-token-for-file">Toke
 <ul>
   <li>The parameters are malformed.</li>
   <li>The file size is too big.</li>
+  <li>Invalid <code class="language-plaintext highlighter-rouge">tags</code> were provided. A tag is invalid if it is neither contained in the <a href="/integrate/data-model-overview#attributetagcollection">AttributeTagCollection</a> for the <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> <code class="language-plaintext highlighter-rouge">value.@type</code> <a href="/integrate/attribute-values#identityfilereference">IdentityFileReference</a> and starts with the prefix <code class="language-plaintext highlighter-rouge">bkb:</code> nor starts with the custom tag prefix <code class="language-plaintext highlighter-rouge">x:</code> or <code class="language-plaintext highlighter-rouge">X:</code>, the prefix <code class="language-plaintext highlighter-rouge">urn:</code>, the prefix <code class="language-plaintext highlighter-rouge">language:</code> followed by a valid ISO 639 language code nor the prefix <code class="language-plaintext highlighter-rouge">mimetype:</code> followed by a valid MIME type matching the pattern <code class="language-plaintext highlighter-rouge">^[a-z-*]+/[a-z-*]+$</code>.</li>
 </ul>
   <h2>How to execute this use case with the Connector?</h2>
 
@@ -512,7 +515,7 @@ This use case can be executed with the REST API of the Connector which you can <
     theme="light"
     bg-color="#f9f9fb"
     
-    match-paths="^POST /api/v2/Files/Own$"
+    match-paths="^POST /api/core/v1/Files/Own$"
     
     match-type="regex"
 ></rapi-doc-mini>
@@ -529,7 +532,7 @@ This use case can be executed with the REST API of the Connector which you can <
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:29+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-28T15:52:48+01:00">November 28, 2025</time></p>
 
       </footer>
 

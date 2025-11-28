@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:29+01:00">
+  <meta property="article:published_time" content="2025-11-28T15:52:48+01:00">
 
 
 
@@ -324,6 +324,8 @@
             
               <li><a href="/integrate/migration-from-v5-to-v6">Migration From v5 to v6</a></li>
             
+              <li><a href="/integrate/migration-from-v6-to-v7">Migration From v6 to v7</a></li>
+            
           </ul>
           
         </li>
@@ -360,7 +362,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Use Cases">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:29+01:00">
+    <meta itemprop="datePublished" content="2025-11-28T15:52:48+01:00">
     
 
     <div class="page__inner-wrap">
@@ -534,7 +536,7 @@
     
     <tr>
         <td>
-            <a href="/use-case-anonymous-load-token-by-truncated-reference-without-having-an-account"> Load Token by truncated reference (without having an account) </a>
+            <a href="/use-case-anonymous-load-token-by-reference-without-having-an-account"> Load Token by reference (without having an account) </a>
         </td>
         <td class="layer-list">Anonymous</td>
         <td class="actor-list">Identity</td>
@@ -556,7 +558,7 @@
     
     <tr>
         <td>
-            <a href="/use-case-consumption-change-default-repositoryattribute"> Change default RepositoryAttribute </a>
+            <a href="/use-case-consumption-change-default-ownidentityattribute"> Change default OwnIdentityAttribute </a>
         </td>
         <td class="layer-list">Consumption</td>
         <td class="actor-list">Identity</td>
@@ -600,7 +602,7 @@
     
     <tr>
         <td>
-            <a href="/use-case-consumption-check-if-repositoryattribute-can-be-created"> Check if RepositoryAttribute can be created </a>
+            <a href="/use-case-consumption-check-if-ownidentityattribute-can-be-created"> Check if OwnIdentityAttribute can be created </a>
         </td>
         <td class="layer-list">Consumption</td>
         <td class="actor-list">Identity</td>
@@ -611,18 +613,7 @@
     
     <tr>
         <td>
-            <a href="/use-case-consumption-create-a-repositoryattribute"> Create a RepositoryAttribute </a>
-        </td>
-        <td class="layer-list">Consumption</td>
-        <td class="actor-list">Identity</td>
-        <td class="category-list">Attributes</td>
-        <td class="component-list">Runtime</td>
-        <!-- <td class="status-list">DONE</td> -->
-    </tr>
-    
-    <tr>
-        <td>
-            <a href="/use-case-consumption-create-a-shared-attribute-copy"> Create a shared Attribute copy </a>
+            <a href="/use-case-consumption-create-an-ownidentityattribute"> Create an OwnIdentityAttribute </a>
         </td>
         <td class="layer-list">Consumption</td>
         <td class="actor-list">Identity</td>
@@ -666,51 +657,7 @@
     
     <tr>
         <td>
-            <a href="/use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer"> Delete a peer shared Attribute and notify peer </a>
-        </td>
-        <td class="layer-list">Consumption</td>
-        <td class="actor-list">Identity</td>
-        <td class="category-list">Attributes</td>
-        <td class="component-list">Runtime</td>
-        <!-- <td class="status-list">DONE</td> -->
-    </tr>
-    
-    <tr>
-        <td>
-            <a href="/use-case-consumption-delete-a-repositoryattribute"> Delete a RepositoryAttribute </a>
-        </td>
-        <td class="layer-list">Consumption</td>
-        <td class="actor-list">Identity</td>
-        <td class="category-list">Attributes</td>
-        <td class="component-list">Runtime</td>
-        <!-- <td class="status-list">DONE</td> -->
-    </tr>
-    
-    <tr>
-        <td>
-            <a href="/use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer"> Delete a third party owned RelationshipAttribute and notify peer </a>
-        </td>
-        <td class="layer-list">Consumption</td>
-        <td class="actor-list">Identity</td>
-        <td class="category-list">Attributes</td>
-        <td class="component-list">Runtime</td>
-        <!-- <td class="status-list">DONE</td> -->
-    </tr>
-    
-    <tr>
-        <td>
-            <a href="/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer"> Delete a ThirdPartyRelationshipAttribute and notify peer </a>
-        </td>
-        <td class="layer-list">Consumption</td>
-        <td class="actor-list">Identity</td>
-        <td class="category-list">Attributes</td>
-        <td class="component-list">Runtime</td>
-        <!-- <td class="status-list">DONE</td> -->
-    </tr>
-    
-    <tr>
-        <td>
-            <a href="/use-case-consumption-delete-an-own-shared-attribute-and-notify-peer"> Delete an own shared Attribute and notify peer </a>
+            <a href="/use-case-consumption-delete-an-attribute-and-notify"> Delete an Attribute and notify </a>
         </td>
         <td class="layer-list">Consumption</td>
         <td class="actor-list">Identity</td>
@@ -798,17 +745,6 @@
     
     <tr>
         <td>
-            <a href="/use-case-consumption-get-attributelistener"> Get AttributeListener </a>
-        </td>
-        <td class="layer-list">Consumption</td>
-        <td class="actor-list">Identity</td>
-        <td class="category-list">AttributeListeners</td>
-        <td class="component-list">Runtime</td>
-        <!-- <td class="status-list">PRERELEASE</td> -->
-    </tr>
-    
-    <tr>
-        <td>
             <a href="/use-case-consumption-get-attributes"> Get Attributes </a>
         </td>
         <td class="layer-list">Consumption</td>
@@ -821,6 +757,17 @@
     <tr>
         <td>
             <a href="/use-case-consumption-get-attributetagcollection"> Get AttributeTagCollection </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes</td>
+        <td class="component-list">Runtime</td>
+        <!-- <td class="status-list">DONE</td> -->
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-get-forwardingdetails-for-attribute"> Get ForwardingDetails for Attribute </a>
         </td>
         <td class="layer-list">Consumption</td>
         <td class="actor-list">Identity</td>
@@ -864,7 +811,7 @@
     
     <tr>
         <td>
-            <a href="/use-case-consumption-get-own-shared-attributes"> Get own shared Attributes </a>
+            <a href="/use-case-consumption-get-own-attributes-shared-with-peer"> Get own Attributes shared with peer </a>
         </td>
         <td class="layer-list">Consumption</td>
         <td class="actor-list">Identity</td>
@@ -875,7 +822,7 @@
     
     <tr>
         <td>
-            <a href="/use-case-consumption-get-peer-shared-attributes"> Get peer shared Attributes </a>
+            <a href="/use-case-consumption-get-ownidentityattributes"> Get OwnIdentityAttributes </a>
         </td>
         <td class="layer-list">Consumption</td>
         <td class="actor-list">Identity</td>
@@ -886,18 +833,7 @@
     
     <tr>
         <td>
-            <a href="/use-case-consumption-get-repositoryattributes"> Get RepositoryAttributes </a>
-        </td>
-        <td class="layer-list">Consumption</td>
-        <td class="actor-list">Identity</td>
-        <td class="category-list">Attributes</td>
-        <td class="component-list">Runtime</td>
-        <!-- <td class="status-list">DONE</td> -->
-    </tr>
-    
-    <tr>
-        <td>
-            <a href="/use-case-consumption-get-shared-versions-of-an-attribute"> Get shared versions of an Attribute </a>
+            <a href="/use-case-consumption-get-peer-attributes"> Get peer Attributes </a>
         </td>
         <td class="layer-list">Consumption</td>
         <td class="actor-list">Identity</td>
@@ -919,7 +855,7 @@
     
     <tr>
         <td>
-            <a href="/use-case-consumption-notify-peer-about-repositoryattribute-succession"> Notify peer about RepositoryAttribute succession </a>
+            <a href="/use-case-consumption-get-versions-of-attribute-shared-with-peer"> Get versions of Attribute shared with peer </a>
         </td>
         <td class="layer-list">Consumption</td>
         <td class="actor-list">Identity</td>
@@ -930,13 +866,13 @@
     
     <tr>
         <td>
-            <a href="/use-case-consumption-query-attributelisteners"> Query AttributeListeners </a>
+            <a href="/use-case-consumption-notify-peer-about-ownidentityattribute-succession"> Notify peer about OwnIdentityAttribute succession </a>
         </td>
         <td class="layer-list">Consumption</td>
         <td class="actor-list">Identity</td>
-        <td class="category-list">AttributeListeners</td>
+        <td class="category-list">Attributes</td>
         <td class="component-list">Runtime</td>
-        <!-- <td class="status-list">PRERELEASE</td> -->
+        <!-- <td class="status-list">DONE</td> -->
     </tr>
     
     <tr>
@@ -974,7 +910,7 @@
     
     <tr>
         <td>
-            <a href="/use-case-consumption-share-a-repositoryattribute"> Share a RepositoryAttribute </a>
+            <a href="/use-case-consumption-share-an-ownidentityattribute"> Share an OwnIdentityAttribute </a>
         </td>
         <td class="layer-list">Consumption</td>
         <td class="actor-list">Identity</td>
@@ -996,7 +932,7 @@
     
     <tr>
         <td>
-            <a href="/use-case-consumption-succeed-a-repositoryattribute"> Succeed a RepositoryAttribute </a>
+            <a href="/use-case-consumption-succeed-an-ownidentityattribute"> Succeed an OwnIdentityAttribute </a>
         </td>
         <td class="layer-list">Consumption</td>
         <td class="actor-list">Identity</td>
@@ -1337,17 +1273,6 @@
     
     <tr>
         <td>
-            <a href="/use-case-transport-create-device-onboarding-token"> Create Device Onboarding Token </a>
-        </td>
-        <td class="layer-list">Transport</td>
-        <td class="actor-list">Identity</td>
-        <td class="category-list">Devices</td>
-        <td class="component-list">Runtime</td>
-        <!-- <td class="status-list">DONE</td> -->
-    </tr>
-    
-    <tr>
-        <td>
             <a href="/use-case-transport-create-own-relationshiptemplate"> Create own RelationshipTemplate </a>
         </td>
         <td class="layer-list">Transport</td>
@@ -1502,17 +1427,6 @@
     
     <tr>
         <td>
-            <a href="/use-case-transport-get-device-onboarding-info"> Get Device Onboarding Info </a>
-        </td>
-        <td class="layer-list">Transport</td>
-        <td class="actor-list">Identity</td>
-        <td class="category-list">Devices</td>
-        <td class="component-list">Runtime</td>
-        <!-- <td class="status-list">DONE</td> -->
-    </tr>
-    
-    <tr>
-        <td>
             <a href="/use-case-transport-get-device"> Get Device </a>
         </td>
         <td class="layer-list">Transport</td>
@@ -1657,17 +1571,6 @@
     <tr>
         <td>
             <a href="/use-case-transport-load-item-from-reference"> Load item from reference </a>
-        </td>
-        <td class="layer-list">Transport</td>
-        <td class="actor-list">Identity</td>
-        <td class="category-list">Account</td>
-        <td class="component-list">Runtime</td>
-        <!-- <td class="status-list">QUESTIONS</td> -->
-    </tr>
-    
-    <tr>
-        <td>
-            <a href="/use-case-transport-load-item-from-truncated-reference"> Load item from truncated reference </a>
         </td>
         <td class="layer-list">Transport</td>
         <td class="actor-list">Identity</td>
@@ -1971,7 +1874,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:29+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-28T15:52:48+01:00">November 28, 2025</time></p>
 
       </footer>
 
