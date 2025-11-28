@@ -74,6 +74,8 @@ The step-by-step instructions can be consulted to start the migration to version
 - The properties `approvedAt` and `approvedByDevice` of the [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) have been removed.
   Furthermore, renaming `"Approved"` to `"Active"` resulted in a change of an IdentityDeletionProcess `status`.
 - All data structures around the Attribute listener feature, including the LocalAttributeListener, the RegisterAttributeListenerRequestItem, and the RegisterAttributeListenerAcceptResponseItem, were removed.
+- AffiliationOrganization, AffiliationRole, AffiliationUnit, BirthCity, BirthCountry, BirthDay, BirthMonth, BirthState, BirthYear, City, Country, HouseNumber, State, Street, and ZipCode can no longer be used as `value.@type` of [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) as there is no child Attribute feature anymore.
+  Sharing individual components of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes) will be possible again in future releases.
 - With the new [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) concept, an Attribute copy is no longer created when an Attribute is [shared]({% link _docs_integrate/share-attributes-with-peer.md %}).
   Furthermore, LocalAttribute subtypes have been introduced to help distinguish between different kinds of LocalAttributes.
   - RepositoryAttributes were renamed to [OwnIdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute).
@@ -94,7 +96,6 @@ The step-by-step instructions can be consulted to start the migration to version
   - To better align with the `initialAttributePeer` property of the [ThirdPartyRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattribute), the `thirdPartyAddress` property of the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) and the [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem) has been renamed to `initialAttributePeer`.
     Furthermore, the `sourceAttributeId` property of the ShareAttributeRequestItem has been renamed to `attributeId`.
   - The `parentId` property of the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) was removed as there is no child Attribute feature anymore.
-    Sharing individual components of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes) will be possible again in future releases.
 
 ### Changed Behavior of Known Features
 
