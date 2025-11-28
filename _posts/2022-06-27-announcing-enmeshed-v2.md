@@ -36,7 +36,7 @@ If you need a compatibility of V1 and V2, please contact us [here](https://www.j
 
 During the development of enmeshed V2 we will continue to publish new versions of the Connector and the app.
 
-If you are curious you can already check out one of the early [Connector versions](https://github.com/nmshd/cns-connector/pkgs/container/connector/versions) tagged as `alpha`. Keep in mind that these are highly experimental and shouldn't be used in production scenarios, because there can be API changes at any time.
+If you are curious you can already check out one of the early [Connector versions](https://github.com/nmshd/connector/pkgs/container/connector/versions) tagged as `alpha`. Keep in mind that these are highly experimental and shouldn't be used in production scenarios, because there can be API changes at any time.
 
 ## Feedback
 
