@@ -84,9 +84,8 @@ This can be done by using a suitable [Request]({% link _docs_integrate/data-mode
 
 #### PeerIdentityAttributes
 
-When an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is shared by its `owner`, [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) are created in the wallet of the `owner`.
-They make it possible to record with whom an IdentityAttribute has been shared.
-The `id` of the OwnIdentityAttribute is stored in their `attributeId` property and the `address` of the peer with whom the IdentityAttribute is shared is contained within their `peer` property.
+When an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is shared by its `owner`, [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) associated with the OwnIdentityAttribute are created in the wallet of the `owner`.
+They make it possible to record with whom an IdentityAttribute has been shared as the `address` of the peer with whom the IdentityAttribute is shared is contained within their `peer` property.
 If an IdentityAttribute is shared by its `owner` with several peers, a corresponding number of AttributeForwardingDetails is generated.
 If the OwnIdentityAttribute is [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-emitted-attributes), the associated AttributeForwardingDetails are deleted as well.
 
@@ -140,8 +139,8 @@ Within the `peer` property of the PeerRelationshipAttribute, the `address` of th
 #### ThirdPartyRelationshipAttributes
 
 Note that it is possible to share a RelationshipAttribute with peers who are not involved in the Relationship in which the RelationshipAttribute exists, provided that the `confidentiality` of the RelationshipAttribute is not `"private"`.
-The sharing of a RelationshipAttribute with such a peer leads to the creation of [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) in the wallet of the Identity who has the source RelationshipAttribute.
-They contain the `address` of this peer within their `peer` property and the `id` of the source RelationshipAttribute within their `attributeId` property.
+The sharing of a RelationshipAttribute with such a peer leads to the creation of associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) in the wallet of the Identity who has the source RelationshipAttribute.
+They contain the `address` of this peer within their `peer` property.
 If the source RelationshipAttribute is [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-emitted-attributes), the associated AttributeForwardingDetails will be deleted as well.
 The source RelationshipAttribute is either an [OwnRelationshipAttribute](#ownrelationshipattributes-and-peerrelationshipattributes) or a [PeerRelationshipAttribute](#ownrelationshipattributes-and-peerrelationshipattributes).
 

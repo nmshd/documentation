@@ -46,7 +46,7 @@ required_by:
 If you wish to share one of your [OwnIdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) with a peer, this use case allows you to do so.
 Internally, a [Request]({% link _docs_integrate/data-model-overview.md %}#request) with a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) will be created and will be sent via [Message]({% link _docs_integrate/data-model-overview.md %}#message) to the peer.
 Assuming your peer accepts the Request, at their side a [PeerIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#peeridentityattribute) will be created.
-The corresponding [Response]({% link _docs_integrate/data-model-overview.md %}#response) informs you about their acceptance and creates [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails), with their `attributeId` property set to the `id` of the OwnIdentityAttribute to represent their association.
+The corresponding [Response]({% link _docs_integrate/data-model-overview.md %}#response) informs you about their acceptance and creates [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) associated with the OwnIdentityAttribute.
 
 Please note further, that this use case is meant to be used to share a version of an OwnIdentityAttribute for the first time.
 If you have already shared another version of a succeeded Attribute with the peer and you want to let them know about the changes to its `value`, use the [Notify peer about OwnIdentityAttribute succession use case]({% link _docs_use-cases/use-case-consumption-notify-peer-about-ownidentityattribute-succession.md %}).

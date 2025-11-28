@@ -411,7 +411,7 @@ In the [Attribute introduction]({% link _docs_integrate/attribute-introduction.m
 
 If an Identity [creates an IdentityAttribute for itself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself), it is referred to as an OwnIdentityAttribute.
 The Identity can share an [IdentityAttribute](#identityattribute) of itself with another Identity by [exchanging]({% link _docs_integrate/attribute-introduction.md %}#attribute-management-options) it using a suitable [Request]({% link _docs_integrate/data-model-overview.md %}#request).
-In that case, [AttributeForwardingDetails](#attributeforwardingdetails) are created, with their `attributeId` property set to the `id` of the OwnIdentityAttribute to represent their association.
+In that case, [AttributeForwardingDetails](#attributeforwardingdetails) associated with the OwnIdentityAttribute are created.
 
 | Name        | Type                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ----------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -508,7 +508,7 @@ The [creation of a RelationshipAttribute]({% link _docs_integrate/create-attribu
 ### ThirdPartyRelationshipAttribute
 
 A [RelationshipAttribute](#relationshipattribute) can be forwarded to a peer which is not involved in the [Relationship](#relationship) in which the RelationshipAttribute exists if its `confidentiality` is not set to `"private"`.
-For the Identity which forwards its [OwnRelationshipAttribute](#ownrelationshipattribute) or [PeerRelationshipAttribute](#peerrelationshipattribute) to a peer, [AttributeForwardingDetails](#attributeforwardingdetails) are created, with their `attributeId` property set to the `id` of the source RelationshipAttribute to represent their association.
+For the Identity which forwards its [OwnRelationshipAttribute](#ownrelationshipattribute) or [PeerRelationshipAttribute](#peerrelationshipattribute) to a peer, [AttributeForwardingDetails](#attributeforwardingdetails) associated with the source RelationshipAttribute are created.
 A ThirdPartyRelationshipAttribute is created for the Identity which received the forwarded RelationshipAttribute.
 
 | Name                 | Type                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -532,7 +532,6 @@ This also makes it possible to notify that peer if the LocalAttribute changes.
 
 | Name            | Type                                                                           | Description                                                                                                                                          |
 | --------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| attributeId     | `string`                                                                       | The `id` of the [LocalAttribute](#localattribute) that was shared.                                                                                   |
 | peer            | `string`                                                                       | The `address` of the [Identity](#identity) the LocalAttribute was shared with.                                                                       |
 | sourceReference | `string`                                                                       | The `id` of the [LocalRequest](#localrequest) or [LocalNotification](#localnotification) the LocalAttribute was sent with.                           |
 | sharedAt        | `string`                                                                       | A timestamp that describes when the corresponding Attribute was shared.                                                                              |
@@ -822,7 +821,7 @@ An AcceptResponseItem can be received as answer to an [AuthenticationRequestItem
 ##### AttributeAlreadySharedAcceptResponseItem
 
 An AttributeAlreadySharedAcceptResponseItem can be received as answer to a [ReadAttributeRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#readattributerequestitem) or [ProposeAttributeRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#proposeattributerequestitem).
-It is generated if the Recipient of the RequestItem responds to it with an existing Attribute they already shared with the Sender in case the corresponding AttributeForwardingDetails of the own [LocalAttribute](#localattribute) don't have `"DeletedByRecipient"` as `deletionInfo.deletionStatus`.
+It is generated if the Recipient of the RequestItem responds to it with an existing Attribute they already shared with the Sender in case the corresponding [AttributeForwardingDetails](#attributeforwardingdetails) of the own [LocalAttribute](#localattribute) don't have `"DeletedByRecipient"` as `deletionInfo.deletionStatus`.
 If `"ToBeDeletedByRecipient"` was previously the `deletionInfo.deletionStatus`, the `deletionInfo` will be reset to undefined.
 Instead of creating further AttributeForwardingDetails, the `id` of the already existing shared LocalAttributes is returned.
 Note that the `id` of the own/peer Attribute of the Sender matches the `id` of the corresponding peer/own Attribute of the Recipient.
@@ -836,7 +835,7 @@ Note that the `id` of the own/peer Attribute of the Sender matches the `id` of t
 ##### AttributeSuccessionAcceptResponseItem
 
 An AttributeSuccessionAcceptResponseItem can be received as answer to a [ReadAttributeRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#readattributerequestitem) or [ProposeAttributeRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#proposeattributerequestitem).
-It is generated if the Recipient of the RequestItem responds to it with an existing Attribute that is a successor of an Attribute they already shared with the Sender in case the corresponding AttributeForwardingDetails of the own [LocalAttribute](#localattribute) don't have `"DeletedByRecipient"` as `deletionInfo.deletionStatus`.
+It is generated if the Recipient of the RequestItem responds to it with an existing Attribute that is a successor of an Attribute they already shared with the Sender in case the corresponding [AttributeForwardingDetails](#attributeforwardingdetails) of the own [LocalAttribute](#localattribute) don't have `"DeletedByRecipient"` as `deletionInfo.deletionStatus`.
 Instead of creating an independent peer Attribute, internally an [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}) is performed.
 The `id` of the already existing shared LocalAttribute predecessor is returned, as well as the `id` and `content` of the newly created successor.
 Receiving an AttributeSuccessionAcceptResponseItem, the respective shared LocalAttribute of the Sender of the Request is automatically succeeded accordingly.
