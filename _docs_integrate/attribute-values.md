@@ -65,7 +65,8 @@ Inside of the organization the person can have a role and it can be assigned to 
 
 ## BankAccount
 
-The bank account of a natural person.
+The bank account information of an account holder, including the IBAN and an optional BIC.
+The BIC is optional because, within the SEPA area, the bank can be derived directly from the IBAN.
 
 **Properties**
 
