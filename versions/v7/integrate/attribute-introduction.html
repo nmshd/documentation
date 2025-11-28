@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-18T13:21:44+01:00">
+  <meta property="article:published_time" content="2025-11-28T15:51:06+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Attribute introduction">
     <meta itemprop="description" content="This guide provides an introduction to Attributes in the enmeshed context.Attributes are used to store information about Identities or data that is relevant in a Relationship between Identities.There are therefore two types of Attributes, the IdentityAttributes and the RelationshipAttributes, which are designed for these different purposes.Both have in common that they have a value property that contains the actual value of the Attribute, whereby it is possible to select from a long list of possible Attribute value types.They define the format, the validation rules and the information display for the stored data.Furthermore, an Attribute is technically stored as the content of a LocalAttribute, in whose other properties metadata can be found.">
-    <meta itemprop="datePublished" content="2025-11-18T13:21:44+01:00">
+    <meta itemprop="datePublished" content="2025-11-28T15:51:06+01:00">
     
 
     <div class="page__inner-wrap">
@@ -388,7 +388,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#identityattributes">IdentityAttributes</a><ul><li><a href="#identityattribute-value-types">IdentityAttribute value types</a><ul><li><a href="#simple-identityattributes">Simple IdentityAttributes</a></li><li><a href="#complex-identityattributes">Complex IdentityAttributes</a></li></ul></li><li><a href="#localattributes-and-identityattributes">LocalAttributes and IdentityAttributes</a><ul><li><a href="#repositoryattributes">RepositoryAttributes</a></li><li><a href="#own-shared-and-peer-shared-identityattributes">Own shared and peer shared IdentityAttributes</a></li></ul></li></ul></li><li><a href="#relationshipattributes">RelationshipAttributes</a><ul><li><a href="#relationshipattribute-value-types">RelationshipAttribute value types</a></li><li><a href="#localattributes-and-relationshipattributes">LocalAttributes and RelationshipAttributes</a><ul><li><a href="#own-shared-and-peer-shared-relationshipattributes">Own shared and peer shared RelationshipAttributes</a></li><li><a href="#emitted-and-received-thirdpartyrelationshipattributes">Emitted and received ThirdPartyRelationshipAttributes</a></li></ul></li></ul></li><li><a href="#attribute-management-options">Attribute management options</a><ul><li><a href="#create-attributes-for-yourself">Create Attributes for yourself</a></li><li><a href="#share-attributes-with-peer">Share Attributes with peer</a></li><li><a href="#read-attributes-from-peer">Read Attributes from peer</a></li><li><a href="#create-attributes-for-peer">Create Attributes for peer</a></li><li><a href="#propose-attributes-to-peer">Propose Attributes to peer</a></li><li><a href="#update-attributes-by-succession">Update Attributes by succession</a></li><li><a href="#delete-attributes">Delete Attributes</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#identityattributes">IdentityAttributes</a><ul><li><a href="#identityattribute-value-types">IdentityAttribute value types</a><ul><li><a href="#simple-identityattributes">Simple IdentityAttributes</a></li><li><a href="#complex-identityattributes">Complex IdentityAttributes</a></li></ul></li><li><a href="#localattributes-and-identityattributes">LocalAttributes and IdentityAttributes</a><ul><li><a href="#ownidentityattributes">OwnIdentityAttributes</a></li><li><a href="#peeridentityattributes">PeerIdentityAttributes</a></li></ul></li></ul></li><li><a href="#relationshipattributes">RelationshipAttributes</a><ul><li><a href="#relationshipattribute-value-types">RelationshipAttribute value types</a></li><li><a href="#localattributes-and-relationshipattributes">LocalAttributes and RelationshipAttributes</a><ul><li><a href="#ownrelationshipattributes-and-peerrelationshipattributes">OwnRelationshipAttributes and PeerRelationshipAttributes</a></li><li><a href="#thirdpartyrelationshipattributes">ThirdPartyRelationshipAttributes</a></li></ul></li></ul></li><li><a href="#attribute-management-options">Attribute management options</a><ul><li><a href="#create-attributes-for-yourself">Create Attributes for yourself</a></li><li><a href="#share-attributes-with-peer">Share Attributes with peer</a></li><li><a href="#read-attributes-from-peer">Read Attributes from peer</a></li><li><a href="#create-attributes-for-peer">Create Attributes for peer</a></li><li><a href="#propose-attributes-to-peer">Propose Attributes to peer</a></li><li><a href="#update-attributes-by-succession">Update Attributes by succession</a></li><li><a href="#delete-attributes">Delete Attributes</a></li></ul></li></ul>
             </nav>
           </aside>
         
@@ -424,65 +424,42 @@ Using <code class="language-plaintext highlighter-rouge">tags</code> helps to di
 
 <h4 id="simple-identityattributes">Simple IdentityAttributes</h4>
 
-<p>A simple IdentityAttribute is an IdentityAttribute with an <a href="/versions/v7/integrate/attribute-values#identity-attributes">IdentityAttribute value type</a> for which none of its properties correspond to another IdentityAttribute value type.
-In most cases, the IdentityAttribute value type then only has a single property, which often also has the name <code class="language-plaintext highlighter-rouge">value</code>.
+<p>A simple IdentityAttribute is an IdentityAttribute with an <a href="/versions/v7/integrate/attribute-values#identity-attributes">IdentityAttribute value type</a> which only has a single property with the name <code class="language-plaintext highlighter-rouge">value</code>.
 This property stores the actual value of the IdentityAttribute.
-In other words, it could be said that simple IdentityAttributes are not composite of other IdentityAttributes.
 Examples of simple IdentityAttributes are IdentityAttributes with IdentityAttribute value type <a href="/versions/v7/integrate/attribute-values#displayname">DisplayName</a> or <a href="/versions/v7/integrate/attribute-values#emailaddress">EMailAddress</a>.</p>
 
 <h4 id="complex-identityattributes">Complex IdentityAttributes</h4>
 
-<p>A complex IdentityAttribute is an IdentityAttribute with an <a href="/versions/v7/integrate/attribute-values#identity-attributes">IdentityAttribute value type</a> for which at least one property corresponds to another IdentityAttribute value type.
-An IdentityAttribute value type that contains such a property can be recognized by whether another IdentityAttribute value type is mentioned in its table in the <a href="/versions/v7/integrate/attribute-values#identity-attributes">documentation</a> with regard to the validation of the property.
-Examples of complex IdentityAttributes are IdentityAttributes with IdentityAttribute value type <a href="/versions/v7/integrate/attribute-values#birthdate">BirthDate</a> or <a href="/versions/v7/integrate/attribute-values#streetaddress">StreetAddress</a>.
-When <a href="/versions/v7/integrate/create-attributes-for-yourself#example-of-creating-a-complex-identityattribute">creating a complex IdentityAttribute for yourself</a>, there is an important detail to note in contrast to the <a href="/versions/v7/integrate/create-attributes-for-yourself#example-of-creating-a-simple-identityattribute">creation of a simple IdentityAttribute for yourself</a>.
-Creating an IdentityAttribute for yourself always leads to the creation of a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> whose <code class="language-plaintext highlighter-rouge">shareInfo</code> property is undefined and whose <code class="language-plaintext highlighter-rouge">content</code> is given by the IdentityAttribute owned by yourself.
-Such a LocalAttribute is also referred to as a RepositoryAttribute.
-If a RepositoryAttribute is created that contains a complex IdentityAttribute within its <code class="language-plaintext highlighter-rouge">content</code> property, additional RepositoryAttributes are automatically created for each property of its IdentityAttribute value type that corresponds to another IdentityAttribute value type.
-These RepositoryAttributes are also referred to as children of the RepositoryAttribute belonging to the complex IdentityAttribute.
-The creation of these RepositoryAttributes makes it possible to share individual components of a complex IdentityAttribute.
-For example, if an IdentityAttribute of type <a href="/versions/v7/integrate/attribute-values#birthdate">BirthDate</a> has been created, it is possible to share only the <code class="language-plaintext highlighter-rouge">year</code> of birth with peers, instead of the full date of birth.
-The corresponding IdentityAttribute of type <a href="/versions/v7/integrate/attribute-values#birthyear">BirthYear</a> does not have to be created manually, but is created automatically after the IdentityAttribute of type <a href="/versions/v7/integrate/attribute-values#birthdate">BirthDate</a> has been created.</p>
-
-<p class="notice--info">Please note that when creating a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> that contains a complex IdentityAttribute in its <code class="language-plaintext highlighter-rouge">content</code> property, additional LocalAttributes are only created automatically if the LocalAttribute is a RepositoryAttribute.
-However, if the LocalAttribute is an own shared IdentityAttribute or a peer shared IdentityAttribute, no additional LocalAttributes are created.
-More details on the terminology related to <a href="/versions/v7/integrate/attribute-introduction#localattributes-and-identityattributes">LocalAttributes and IdentityAttributes</a> can be found in the next section.</p>
+<p>A complex IdentityAttribute is an IdentityAttribute with an <a href="/versions/v7/integrate/attribute-values#identity-attributes">IdentityAttribute value type</a> which has multiple properties instead of only one <code class="language-plaintext highlighter-rouge">value</code> property.
+Examples of complex IdentityAttributes are IdentityAttributes with IdentityAttribute value type <a href="/versions/v7/integrate/attribute-values#birthdate">BirthDate</a> or <a href="/versions/v7/integrate/attribute-values#streetaddress">StreetAddress</a>.</p>
 
 <h3 id="localattributes-and-identityattributes">LocalAttributes and IdentityAttributes</h3>
 
 <p>From a technical perspective, an IdentityAttribute is always stored as the <code class="language-plaintext highlighter-rouge">content</code> of a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a>.
-Depending on the values of certain properties of the LocalAttribute, a LocalAttribute whose <code class="language-plaintext highlighter-rouge">content</code> is given by an IdentityAttribute is also referred to as a <strong>RepositoryAttribute</strong>, an <strong>own shared IdentityAttribute</strong> or a <strong>peer shared IdentityAttribute</strong>.</p>
+A LocalAttribute whose <code class="language-plaintext highlighter-rouge">content</code> is given by an IdentityAttribute can be an <a href="#ownidentityattributes">OwnIdentityAttribute</a> or a <a href="#peeridentityattributes">PeerIdentityAttribute</a>.</p>
 
-<h4 id="repositoryattributes">RepositoryAttributes</h4>
+<h4 id="ownidentityattributes">OwnIdentityAttributes</h4>
 
-<p>As already mentioned in the section on <a href="/versions/v7/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttributes</a>, a RepositoryAttribute is a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> whose <code class="language-plaintext highlighter-rouge">content</code> is given by an IdentityAttribute owned by yourself and whose <code class="language-plaintext highlighter-rouge">shareInfo</code> property is undefined.</p>
+<p>When an Identity <a href="/versions/v7/integrate/create-attributes-for-yourself#create-an-identityattribute-for-yourself">creates an IdentityAttribute for itself</a>, an <a href="/versions/v7/integrate/data-model-overview#ownidentityattribute">OwnIdentityAttribute</a> is created.
+Its <code class="language-plaintext highlighter-rouge">content</code> is given by the IdentityAttribute owned by the Identity.</p>
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/62b3b352-a6d7-4826-8693-e8527b0370e4" id="zVGxoOkr.UEQ"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/f22fa64d-6565-4e8e-bc37-7747aaa578f5" id="Ix2-71mPhs~V"></iframe></div>
 
-<p>A RepositoryAttribute is created when an Identity <a href="/versions/v7/integrate/create-attributes-for-yourself#create-an-identityattribute-for-yourself">creates an IdentityAttribute for itself</a>.
-If the IdentityAttribute is a complex IdentityAttribute, RepositoryAttributes are also created for the properties of the IdentityAttribute value type that correspond to other IdentityAttribute value types.
-An Identity may share the underlying IdentityAttribute of a RepositoryAttribute with a peer.
+<p>An Identity may share the underlying IdentityAttribute of an OwnIdentityAttribute with a peer.
 This can be done by using a suitable <a href="/versions/v7/integrate/data-model-overview#request">Request</a>.</p>
 
-<h4 id="own-shared-and-peer-shared-identityattributes">Own shared and peer shared IdentityAttributes</h4>
+<h4 id="peeridentityattributes">PeerIdentityAttributes</h4>
 
-<p>When <a href="#attribute-management-options">exchanging the underlying IdentityAttribute of a RepositoryAttribute with a peer</a>, two corresponding copies of the RepositoryAttribute, the own shared IdentityAttribute and the peer shared IdentityAttribute, are created.
-This makes it possible to record with whom an IdentityAttribute has been shared or from whom an IdentityAttribute has been received.
-When an <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a> is shared by its <code class="language-plaintext highlighter-rouge">owner</code>, an own shared IdentityAttribute is created as a copy of the associated RepositoryAttribute in the wallet of the <code class="language-plaintext highlighter-rouge">owner</code>.
-An own shared IdentityAttribute is a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> for which, in contrast to the RepositoryAttribute, the <code class="language-plaintext highlighter-rouge">shareInfo</code> property is set.
-The <code class="language-plaintext highlighter-rouge">content</code> of the own shared IdentityAttribute is the same as that of the RepositoryAttribute.
-The <code class="language-plaintext highlighter-rouge">address</code> of the peer with whom the IdentityAttribute is shared is contained within its <code class="language-plaintext highlighter-rouge">shareInfo.peer</code> property.
-Furthermore, the <code class="language-plaintext highlighter-rouge">id</code> of the RepositoryAttribute used as the source is stored in its <code class="language-plaintext highlighter-rouge">shareInfo.sourceAttribute</code> property.
-This is the case as long as the RepositoryAttribute used as the source has not been <a href="/versions/v7/integrate/delete-attributes#delete-repositoryattributes">deleted</a>.
-If an IdentityAttribute is shared by its <code class="language-plaintext highlighter-rouge">owner</code> with several peers, a corresponding number of own shared IdentityAttributes are generated.</p>
+<p>When an <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a> is shared by its <code class="language-plaintext highlighter-rouge">owner</code>, <a href="/versions/v7/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a> associated with the OwnIdentityAttribute are created in the wallet of the <code class="language-plaintext highlighter-rouge">owner</code>.
+They make it possible to record with whom an IdentityAttribute has been shared as the <code class="language-plaintext highlighter-rouge">address</code> of the peer with whom the IdentityAttribute is shared is contained within their <code class="language-plaintext highlighter-rouge">peer</code> property.
+If an IdentityAttribute is shared by its <code class="language-plaintext highlighter-rouge">owner</code> with several peers, a corresponding number of AttributeForwardingDetails is generated.
+If the OwnIdentityAttribute is <a href="/versions/v7/integrate/delete-attributes#delete-emitted-attributes">deleted</a>, the associated AttributeForwardingDetails are deleted as well.</p>
 
-<div style="width: 640px; height: 600px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:600px" src="https://lucid.app/documents/embedded/95394e3a-b857-4165-9b1a-824ad81e04d9" id="QViE651IOP3n"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/13632447-aad6-483c-826e-d69b5b7d6015" id="-I2-nxKO9t9T"></iframe></div>
 
-<p>If an <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a> is shared by its <code class="language-plaintext highlighter-rouge">owner</code>, this not only leads to the creation of an own shared IdentityAttribute as a copy of the associated RepositoryAttribute for the <code class="language-plaintext highlighter-rouge">owner</code> of the IdentityAttribute, but also to the creation of a peer shared IdentityAttribute for the peer with whom the IdentityAttribute was shared.
-A peer shared IdentityAttribute is a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> for which the <code class="language-plaintext highlighter-rouge">shareInfo</code> property is set.
-The <code class="language-plaintext highlighter-rouge">address</code> of the <code class="language-plaintext highlighter-rouge">owner</code> of the IdentityAttribute is contained within its <code class="language-plaintext highlighter-rouge">shareInfo.peer</code> property.
-The <code class="language-plaintext highlighter-rouge">shareInfo.sourceAttribute</code> property of a peer shared IdentityAttribute is always undefined, as the RepositoryAttribute used as the source is only stored locally for the <code class="language-plaintext highlighter-rouge">owner</code> of the IdentityAttribute.
-Furthermore, note that the <code class="language-plaintext highlighter-rouge">id</code> of a peer shared IdentityAttribute is always the same as the <code class="language-plaintext highlighter-rouge">id</code> of the associated own shared IdentityAttribute.
+<p>If an <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a> is shared by its <code class="language-plaintext highlighter-rouge">owner</code>, this not only leads to the creation of associated AttributeForwardingDetails for the <code class="language-plaintext highlighter-rouge">owner</code> of the IdentityAttribute, but also to the creation of a <a href="/versions/v7/integrate/data-model-overview#peeridentityattribute">PeerIdentityAttribute</a> for the peer with whom the IdentityAttribute was shared.
+The <code class="language-plaintext highlighter-rouge">address</code> of the <code class="language-plaintext highlighter-rouge">owner</code> of the IdentityAttribute is contained within its <code class="language-plaintext highlighter-rouge">peer</code> property.
+Furthermore, note that the <code class="language-plaintext highlighter-rouge">id</code> of a PeerIdentityAttribute is always the same as the <code class="language-plaintext highlighter-rouge">id</code> of the associated OwnIdentityAttribute.
 To ensure the privacy of an Identity’s data, the IdentityAttribute shared by its <code class="language-plaintext highlighter-rouge">owner</code> with a peer cannot be shared by that peer with a third party.</p>
 
 <h2 id="relationshipattributes">RelationshipAttributes</h2>
@@ -491,7 +468,7 @@ To ensure the privacy of an Identity’s data, the IdentityAttribute shared by i
 Both Identities involved in the Relationship must agree to its creation.
 In the context of a single Relationship, each RelationshipAttribute has its unique <code class="language-plaintext highlighter-rouge">key</code> for identification.
 RelationshipAttributes can be shared with peers who are not involved in the Relationship in which the RelationshipAttribute exists as long as their <code class="language-plaintext highlighter-rouge">confidentiality</code> is not <code class="language-plaintext highlighter-rouge">"private"</code>.
-Such sharing leads to the creation of ThirdPartyRelationshipAttributes.</p>
+Such sharing leads to the creation of <a href="#thirdpartyrelationshipattributes">ThirdPartyRelationshipAttributes</a>.</p>
 
 <p class="notice--info">For information on how to establish Relationships, refer to the <a href="/versions/v7/integrate/establish-relationships">Establish Relationships</a> scenario documentation.</p>
 
@@ -507,43 +484,36 @@ Accordingly, with the <a href="/versions/v7/integrate/request-persistent-consent
 <h3 id="localattributes-and-relationshipattributes">LocalAttributes and RelationshipAttributes</h3>
 
 <p>From a technical perspective, a RelationshipAttribute is always stored as the <code class="language-plaintext highlighter-rouge">content</code> of a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a>.
-Depending on the values of certain properties of the LocalAttribute, a LocalAttribute whose <code class="language-plaintext highlighter-rouge">content</code> is given by a RelationshipAttribute is also referred to as an <strong>own shared RelationshipAttribute</strong>, a <strong>peer shared RelationshipAttribute</strong>, an <strong>emitted ThirdPartyRelationshipAttribute</strong> or a <strong>received ThirdPartyRelationshipAttribute</strong>.
-For the simple initial creation of a RelationshipAttribute within a given Relationship, the terms <a href="#own-shared-and-peer-shared-relationshipattributes">own shared RelationshipAttribute and peer shared RelationshipAttribute</a> are relevant.
-The terms <a href="#emitted-and-received-shared-thirdpartyrelationshipattributes">emitted ThirdPartyRelationshipAttribute and received ThirdPartyRelationshipAttribute</a> are used if an existing RelationshipAttribute from one Relationship is shared with a peer from another Relationship.</p>
+A LocalAttribute whose <code class="language-plaintext highlighter-rouge">content</code> is given by a RelationshipAttribute can be an <a href="#ownrelationshipattributes-and-peerrelationshipattributes">OwnRelationshipAttribute</a>, a <a href="#ownrelationshipattributes-and-peerrelationshipattributes">PeerRelationshipAttribute</a> or a <a href="#thirdpartyrelationshipattributes">ThirdPartyRelationshipAttribute</a>.
+For the simple initial creation of a RelationshipAttribute within a given Relationship, the terms <a href="#ownrelationshipattributes-and-peerrelationshipattributes">OwnRelationshipAttribute and PeerRelationshipAttribute</a> are relevant.
+The term <a href="#thirdpartyrelationshipattributes">ThirdPartyRelationshipAttribute</a> is used if an existing RelationshipAttribute from one Relationship is shared with a peer from another Relationship.</p>
 
-<h4 id="own-shared-and-peer-shared-relationshipattributes">Own shared and peer shared RelationshipAttributes</h4>
+<h4 id="ownrelationshipattributes-and-peerrelationshipattributes">OwnRelationshipAttributes and PeerRelationshipAttributes</h4>
 
 <p>A <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> can only exist in the context of a Relationship and must therefore be stored locally for both Identities involved in the Relationship.
 Accordingly, the <a href="/versions/v7/integrate/create-attributes-for-yourself#create-a-relationshipattribute">creation of a RelationshipAttribute</a> corresponds to the creation of one <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> for its <code class="language-plaintext highlighter-rouge">owner</code> and one LocalAttribute for the peer with whom the <code class="language-plaintext highlighter-rouge">owner</code> has established the Relationship in whose context the RelationshipAttribute is to exist.
-The own shared RelationshipAttribute is the LocalAttribute of the <code class="language-plaintext highlighter-rouge">owner</code> of the RelationshipAttribute and the peer’s LocalAttribute is referred to as a peer shared RelationshipAttribute.</p>
+The <a href="/versions/v7/integrate/data-model-overview#ownrelationshipattribute">OwnRelationshipAttribute</a> is the LocalAttribute of the <code class="language-plaintext highlighter-rouge">owner</code> of the RelationshipAttribute and the peer’s LocalAttribute is referred to as a <a href="/versions/v7/integrate/data-model-overview#peerrelationshipattribute">PeerRelationshipAttribute</a>.</p>
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/dd79b31c-0404-48bb-9773-9b989801c03c" id="RbDyLSjh7BzY"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/fafb91f9-5b8e-4314-a86b-ac2107d0c39b" id="K72-4MVDLyCI"></iframe></div>
 
-<p>Of course, the <code class="language-plaintext highlighter-rouge">shareInfo</code> property of the own shared RelationshipAttribute is set.
-Within the <code class="language-plaintext highlighter-rouge">shareInfo.peer</code> property, the <code class="language-plaintext highlighter-rouge">address</code> of the peer to whom the RelationshipAttribute’s <code class="language-plaintext highlighter-rouge">owner</code> has established the Relationship in whose context the RelationshipAttribute exists is specified.
-If the RelationshipAttribute is initially created for a specific Relationship and does not originate from another RelationshipAttribute, the <code class="language-plaintext highlighter-rouge">shareInfo.sourceAttribute</code> property is undefined.
-The peer shared RelationshipAttribute is the peer’s <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> and forms the counterpart of the own shared RelationshipAttribute.
-The <code class="language-plaintext highlighter-rouge">id</code> of a peer shared RelationshipAttribute is always the same as the <code class="language-plaintext highlighter-rouge">id</code> of the associated own shared RelationshipAttribute.
-As with the own shared RelationshipAttribute, the <code class="language-plaintext highlighter-rouge">shareInfo</code> property of a peer shared RelationshipAttribute is of course set.
-Within the <code class="language-plaintext highlighter-rouge">shareInfo.peer</code> property, the <code class="language-plaintext highlighter-rouge">address</code> of the <code class="language-plaintext highlighter-rouge">owner</code> of the RelationshipAttribute is specified.
-Furthermore, the <code class="language-plaintext highlighter-rouge">shareInfo.sourceAttribute</code> property of a peer shared RelationshipAttribute is undefined.
-Also, for both the own shared and peer shared RelationshipAttribute, there is no <code class="language-plaintext highlighter-rouge">initialAttributePeer</code> property, as it is only used for ThirdPartyRelationshipAttributes.</p>
+<p>Within the <code class="language-plaintext highlighter-rouge">peer</code> property of the OwnRelationshipAttribute, the <code class="language-plaintext highlighter-rouge">address</code> of the peer to whom the RelationshipAttribute’s <code class="language-plaintext highlighter-rouge">owner</code> has established the Relationship in whose context the RelationshipAttribute exists is specified.
+The PeerRelationshipAttribute is the peer’s <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> and forms the counterpart of the OwnRelationshipAttribute.
+The <code class="language-plaintext highlighter-rouge">id</code> of a PeerRelationshipAttribute is always the same as the <code class="language-plaintext highlighter-rouge">id</code> of the associated OwnRelationshipAttribute.
+Within the <code class="language-plaintext highlighter-rouge">peer</code> property of the PeerRelationshipAttribute, the <code class="language-plaintext highlighter-rouge">address</code> of the <code class="language-plaintext highlighter-rouge">owner</code> of the RelationshipAttribute is specified.</p>
 
-<h4 id="emitted-and-received-thirdpartyrelationshipattributes">Emitted and received ThirdPartyRelationshipAttributes</h4>
+<h4 id="thirdpartyrelationshipattributes">ThirdPartyRelationshipAttributes</h4>
 
 <p>Note that it is possible to share a RelationshipAttribute with peers who are not involved in the Relationship in which the RelationshipAttribute exists, provided that the <code class="language-plaintext highlighter-rouge">confidentiality</code> of the RelationshipAttribute is not <code class="language-plaintext highlighter-rouge">"private"</code>.
-The sharing of a RelationshipAttribute with such a peer leads to the creation of a so-called emitted ThirdPartyRelationshipAttribute in the wallet of the Identity who has the source RelationshipAttribute.
-An emitted ThirdPartyRelationshipAttribute is a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> similar to an own shared RelationshipAttribute that contains the <code class="language-plaintext highlighter-rouge">address</code> of this peer within its <code class="language-plaintext highlighter-rouge">shareInfo.peer</code> property.
-As it originates from another own shared RelationshipAttribute that exists in the context of a different Relationship, it contains the <code class="language-plaintext highlighter-rouge">id</code> of the source RelationshipAttribute within its <code class="language-plaintext highlighter-rouge">shareInfo.sourceAttribute</code> property.
-This is the case as long as the own shared RelationshipAttribute used as the source has not been <a href="/versions/v7/integrate/delete-attributes#delete-own-shared-attributes">deleted</a>.
-Furthermore, in the <code class="language-plaintext highlighter-rouge">initialAttributePeer</code> property, the <code class="language-plaintext highlighter-rouge">address</code> of the peer of the source RelationshipAttribute is stored.</p>
+The sharing of a RelationshipAttribute with such a peer leads to the creation of associated <a href="/versions/v7/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a> in the wallet of the Identity who has the source RelationshipAttribute.
+They contain the <code class="language-plaintext highlighter-rouge">address</code> of this peer within their <code class="language-plaintext highlighter-rouge">peer</code> property.
+If the source RelationshipAttribute is <a href="/versions/v7/integrate/delete-attributes#delete-emitted-attributes">deleted</a>, the associated AttributeForwardingDetails will be deleted as well.
+The source RelationshipAttribute is either an <a href="#ownrelationshipattributes-and-peerrelationshipattributes">OwnRelationshipAttribute</a> or a <a href="#ownrelationshipattributes-and-peerrelationshipattributes">PeerRelationshipAttribute</a>.</p>
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/5c9fc0f6-b5e4-4bfd-90b9-a046447ad47e" id="SsblHmOED0qR"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/c667865f-6cdb-443a-abcd-28d50d839d2a" id="c92-bMMibJ7p"></iframe></div>
 
-<p>In the wallet of the peer with whom the underlying RelationshipAttribute of the source RelationshipAttribute was shared, a so-called received ThirdPartyRelationshipAttribute is created.
-It is a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> similar to a peer shared RelationshipAttribute that can be interpreted as the counterpart of an emitted ThirdPartyRelationshipAttribute.
-As for the emitted ThirdPartyRelationshipAttribute, the <code class="language-plaintext highlighter-rouge">initialAttributePeer</code> property of the received ThirdPartyRelationshipAttribute is set to the peer of the source RelationshipAttribute.
-Lastly, the <code class="language-plaintext highlighter-rouge">shareInfo.sourceAttribute</code> property of a received ThirdPartyRelationshipAttribute is always undefined, as the source RelationshipAttribute can only be available locally to the emitter of the ThirdPartyRelationshipAttribute.</p>
+<p>In the wallet of the peer with whom the underlying RelationshipAttribute of the source RelationshipAttribute was shared, a so-called <a href="/versions/v7/integrate/data-model-overview#thirdpartyrelationshipattribute">ThirdPartyRelationshipAttribute</a> is created.
+The <code class="language-plaintext highlighter-rouge">initialAttributePeer</code> property of the ThirdPartyRelationshipAttribute is set to the peer of the source RelationshipAttribute.
+The <code class="language-plaintext highlighter-rouge">id</code> of a ThirdPartyRelationshipAttribute is always the same as the <code class="language-plaintext highlighter-rouge">id</code> of the associated source RelationshipAttribute.</p>
 
 <h2 id="attribute-management-options">Attribute management options</h2>
 
@@ -590,8 +560,8 @@ The peers with whom the Identity may have shared the Attribute can be notified a
 
 <p>An Identity may have created an Attribute for itself or received an Attribute from a peer that it does not need any longer.
 In both cases, it can <a href="/versions/v7/integrate/delete-attributes">delete the Attribute</a>.
-If an Identity has shared an Attribute that is owned by itself with a peer, it can <a href="/versions/v7/integrate/delete-attributes#request-the-deletion-of-own-attributes-from-peer">request the deletion of this Attribute from the peer</a> in order to withdraw their permission to use the Attribute.
-Of course, the associated <a href="/versions/v7/integrate/delete-attributes#delete-own-shared-attributes">own shared Attribute can be deleted</a>, too.</p>
+If an Identity has shared an Attribute with a peer, it can <a href="/versions/v7/integrate/delete-attributes#request-the-deletion-of-emitted-attributes-from-recipient">request the deletion of this Attribute from its recipient</a> in order to withdraw their permission to use the Attribute.
+Of course, the associated <a href="/versions/v7/integrate/delete-attributes#delete-emitted-attributes">emitted Attribute can be deleted</a>, too.</p>
 
         
       </section>
@@ -603,7 +573,7 @@ Of course, the associated <a href="/versions/v7/integrate/delete-attributes#dele
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-18T13:21:44+01:00">November 18, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-28T15:51:06+01:00">November 28, 2025</time></p>
 
       </footer>
 

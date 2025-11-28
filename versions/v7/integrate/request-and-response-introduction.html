@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-18T13:21:44+01:00">
+  <meta property="article:published_time" content="2025-11-28T15:51:06+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Request and Response introduction">
     <meta itemprop="description" content="Requests are the main instrument in enmeshed to interact with other Identities.They enable various business processes, e.g. creating, sharing or receiving Attributes, asking a peer for authentication or consent, and much more.Also, parts of a vaster business process can be implemented with them, like querying all personal information of a user to fill out a tax form.">
-    <meta itemprop="datePublished" content="2025-11-18T13:21:44+01:00">
+    <meta itemprop="datePublished" content="2025-11-28T15:51:06+01:00">
     
 
     <div class="page__inner-wrap">
@@ -402,7 +402,7 @@ The Request-Response flow allows to establish transactional behavior between Ide
 
 <h2 id="requests">Requests</h2>
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/03ed5248-af12-4a50-bac1-73831f2c3cf9" id="d~qRE5C7Dqig"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/ce5f3058-6659-4949-a2fa-7c024a0b2ea9" id="T7Y-AH0IjR.x"></iframe></div>
 
 <h3 id="structure-of-requests">Structure of Requests</h3>
 
@@ -489,7 +489,7 @@ All details on how to use the CreateAttributeRequestItem and examples of use cas
 
 <h4 id="deleteattributerequestitem">DeleteAttributeRequestItem</h4>
 
-<p>If you want to <a href="/versions/v7/integrate/delete-attributes#request-the-deletion-of-own-attributes-from-peer">request the deletion of an own Attribute from a peer</a>, the <a href="/versions/v7/integrate/data-model-overview#deleteattributerequestitem">DeleteAttributeRequestItem</a> must be used.</p>
+<p>If you want to <a href="/versions/v7/integrate/delete-attributes#request-the-deletion-of-emitted-attributes-from-recipient">request the deletion of an emitted Attribute from its recipient</a>, the <a href="/versions/v7/integrate/data-model-overview#deleteattributerequestitem">DeleteAttributeRequestItem</a> must be used.</p>
 
 <p>Depending on whether the DeleteAttributeRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
 
@@ -546,8 +546,8 @@ All details on how to use the ProposeAttributeRequestItem and examples of use ca
 
 <ul>
   <li>After accepting this RequestItem with a new Attribute or an existing one that isn’t shared with the peer already neither itself nor any of its predecessing versions, a <a href="/versions/v7/integrate/data-model-overview#proposeattributeacceptresponseitem">ProposeAttributeAcceptResponseItem</a> will be transferred.</li>
-  <li>After accepting this RequestItem with an existing Attribute that was shared with the peer already, an <a href="/versions/v7/integrate/data-model-overview#attributealreadysharedacceptresponseitem">AttributeAlreadySharedAcceptResponseItem</a> will be transferred, given that the own shared LocalAttribute doesn’t have <code class="language-plaintext highlighter-rouge">"DeletedByRecipient"</code> or <code class="language-plaintext highlighter-rouge">"ToBeDeletedByRecipient"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.</li>
-  <li>After accepting this RequestItem with an existing Attribute of which a predecessor was shared with the peer already, an <a href="/versions/v7/integrate/data-model-overview#attributesuccessionacceptresponseitem">AttributeSuccessionAcceptResponseItem</a> will be transferred, given that the own shared predecessor doesn’t have <code class="language-plaintext highlighter-rouge">"DeletedByRecipient"</code> or <code class="language-plaintext highlighter-rouge">"ToBeDeletedByRecipient"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.</li>
+  <li>After accepting this RequestItem with an existing Attribute that was shared with the peer already, an <a href="/versions/v7/integrate/data-model-overview#attributealreadysharedacceptresponseitem">AttributeAlreadySharedAcceptResponseItem</a> will be transferred, given that the associated <a href="/versions/v7/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a> don’t have <code class="language-plaintext highlighter-rouge">"DeletedByRecipient"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.</li>
+  <li>After accepting this RequestItem with an existing Attribute of which a predecessor was shared with the peer already, an <a href="/versions/v7/integrate/data-model-overview#attributesuccessionacceptresponseitem">AttributeSuccessionAcceptResponseItem</a> will be transferred, given that the associated <a href="/versions/v7/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a> don’t have <code class="language-plaintext highlighter-rouge">"DeletedByRecipient"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.</li>
   <li>After rejecting this RequestItem, a <a href="/versions/v7/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
   <li>In case of an error, an <a href="/versions/v7/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
 </ul>
@@ -569,8 +569,8 @@ All details on how to use the ReadAttributeRequestItem and examples of use cases
 
 <ul>
   <li>After accepting this RequestItem with a new Attribute or an existing one that isn’t shared with the peer already neither itself nor any of its predecessing versions, a <a href="/versions/v7/integrate/data-model-overview#readattributeacceptresponseitem">ReadAttributeAcceptResponseItem</a> will be transferred.</li>
-  <li>After accepting this RequestItem with an existing Attribute that was shared with the peer already, an <a href="/versions/v7/integrate/data-model-overview#attributealreadysharedacceptresponseitem">AttributeAlreadySharedAcceptResponseItem</a> will be transferred, given that the own shared LocalAttribute doesn’t have <code class="language-plaintext highlighter-rouge">DeletedByPeer</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.</li>
-  <li>After accepting this RequestItem with an existing Attribute of which a predecessor was shared with the peer already, an <a href="/versions/v7/integrate/data-model-overview#attributesuccessionacceptresponseitem">AttributeSuccessionAcceptResponseItem</a> will be transferred, given that the own shared predecessor doesn’t have <code class="language-plaintext highlighter-rouge">"DeletedByRecipient"</code> or <code class="language-plaintext highlighter-rouge">"ToBeDeletedByRecipient"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.</li>
+  <li>After accepting this RequestItem with an existing Attribute that was shared with the peer already, an <a href="/versions/v7/integrate/data-model-overview#attributealreadysharedacceptresponseitem">AttributeAlreadySharedAcceptResponseItem</a> will be transferred, given that the associated <a href="/versions/v7/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a> don’t have <code class="language-plaintext highlighter-rouge">"DeletedByRecipient"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.</li>
+  <li>After accepting this RequestItem with an existing Attribute of which a predecessor was shared with the peer already, an <a href="/versions/v7/integrate/data-model-overview#attributesuccessionacceptresponseitem">AttributeSuccessionAcceptResponseItem</a> will be transferred, given that the associated <a href="/versions/v7/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a> don’t have <code class="language-plaintext highlighter-rouge">"DeletedByRecipient"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.</li>
   <li>After rejecting this RequestItem, a <a href="/versions/v7/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
   <li>In case of an error, an <a href="/versions/v7/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
 </ul>
@@ -699,7 +699,7 @@ A screenshot from the App showing how the Request is displayed to the App user i
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;tag of shared display name&gt;"</span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"sourceAttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ID of source RepositoryAttribute&gt;"</span><span class="w">
+      </span><span class="nl">"attributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ID of source OwnIdentityAttribute&gt;"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -758,7 +758,7 @@ If a RequestItem is accepted, an <a href="/versions/v7/integrate/data-model-over
 Depending on the kind of RequestItem, it might be a specific AcceptResponseItem, extending the base AcceptResponseItem to answer to RequestItems demanding additional information.
 For example, a ReadAttributeRequestItem is accepted using a <a href="/versions/v7/integrate/data-model-overview#readattributeacceptresponseitem">ReadAttributeAcceptResponseItem</a>, additionally transmitting information about the respective Attribute.</p>
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/95b2ef47-7044-4ccd-a2f2-381cbd39231d" id="qUbBRbvLjxvP"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/ee05d3a9-d8a8-4096-8f92-ee1fa4300577" id="W1Y-VwMz6n.a"></iframe></div>
 
 <p>If a RequestItem is rejected, however, a <a href="/versions/v7/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> is created.
 Lastly, in case the enmeshed Runtime detects a problem, an <a href="/versions/v7/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> is generated.
@@ -851,7 +851,7 @@ Once the company accepts the new Relationship, they can exchange Messages or oth
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-18T13:21:44+01:00">November 18, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-28T15:51:06+01:00">November 28, 2025</time></p>
 
       </footer>
 

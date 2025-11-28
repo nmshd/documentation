@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-18T13:21:44+01:00">
+  <meta property="article:published_time" content="2025-11-28T15:51:06+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Share an OwnIdentityAttribute">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2025-11-18T13:21:44+01:00">
+    <meta itemprop="datePublished" content="2025-11-28T15:51:06+01:00">
     
 
     <div class="page__inner-wrap">
@@ -463,7 +463,7 @@
 <p>If you wish to share one of your <a href="/versions/v7/integrate/data-model-overview#ownidentityattribute">OwnIdentityAttributes</a> with a peer, this use case allows you to do so.
 Internally, a <a href="/versions/v7/integrate/data-model-overview#request">Request</a> with a <a href="/versions/v7/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a> will be created and will be sent via <a href="/versions/v7/integrate/data-model-overview#message">Message</a> to the peer.
 Assuming your peer accepts the Request, at their side a <a href="/versions/v7/integrate/data-model-overview#peeridentityattribute">PeerIdentityAttribute</a> will be created.
-The corresponding <a href="/versions/v7/integrate/data-model-overview#response">Response</a> informs you about their acceptance and creates <a href="/versions/v7/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a>, with their <code class="language-plaintext highlighter-rouge">attributeId</code> property set to the <code class="language-plaintext highlighter-rouge">id</code> of the OwnIdentityAttribute to represent their association.</p>
+The corresponding <a href="/versions/v7/integrate/data-model-overview#response">Response</a> informs you about their acceptance and creates <a href="/versions/v7/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a> associated with the OwnIdentityAttribute.</p>
 
 <p class="notice--info">Please note further, that this use case is meant to be used to share a version of an OwnIdentityAttribute for the first time.
 If you have already shared another version of a succeeded Attribute with the peer and you want to let them know about the changes to its <code class="language-plaintext highlighter-rouge">value</code>, use the <a href="/versions/v7/use-case-consumption-notify-peer-about-ownidentityattribute-succession">Notify peer about OwnIdentityAttribute succession use case</a>.</p>
@@ -488,7 +488,7 @@ If you have already shared another version of a succeeded Attribute with the pee
   <li>The Request cannot be created if the <code class="language-plaintext highlighter-rouge">peer</code> is unknown.</li>
   <li>The Request cannot be created if the <code class="language-plaintext highlighter-rouge">attributeId</code> doesn&#8217;t belong to an OwnIdentityAttribute.</li>
   <li>The Request cannot be created if the OwnIdentityAttribute has already been shared with the peer and it doesn&#8217;t have <code class="language-plaintext highlighter-rouge">"DeletedByRecipient"</code> or <code class="language-plaintext highlighter-rouge">"ToBeDeletedByRecipient"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.</li>
-  <li>The Request cannot be created if another version of the OwnIdentityAttribute regarding succession has already been shared with the peer, unless the latest shared version has <code class="language-plaintext highlighter-rouge">"DeletedByRecipient"</code> or <code class="language-plaintext highlighter-rouge">"ToBeDeletedByRecipient"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.</li>
+  <li>The Request cannot be created if another version of the OwnIdentityAttribute regarding succession has already been shared with the peer, unless the latest shared version has <code class="language-plaintext highlighter-rouge">"DeletedByRecipient"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.</li>
   <li>The Request cannot be created if the parameters are malformed.</li>
 </ul>
  
@@ -503,7 +503,7 @@ If you have already shared another version of a succeeded Attribute with the pee
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-18T13:21:44+01:00">November 18, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-28T15:51:06+01:00">November 28, 2025</time></p>
 
       </footer>
 

@@ -162,7 +162,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Delete Attributes",
-        "excerpt":"The exact process of deleting an Attribute depends on the kind of Attribute at hand. Creating an Attribute, we must distinguish between IdentityAttributes and RelationshipAttributes. In the former case, a so-called RepositoryAttribute is created, which is a LocalAttribute without shareInfo, that you are the owner of. Afterwards, you may share...","categories": [],
+        "excerpt":"The exact process of deleting an Attribute depends on the kind of Attribute at hand. Creating an Attribute, we must distinguish between IdentityAttributes and RelationshipAttributes. In the former case, a so-called OwnIdentityAttribute is created. Afterwards, you may share it with a peer, which yields the creation of associated AttributeForwardingDetails. Doing...","categories": [],
         "tags": [],
         "url": "/versions/v7/integrate/delete-attributes",
         "teaser": null

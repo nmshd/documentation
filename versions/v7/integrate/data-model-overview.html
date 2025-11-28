@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-18T13:21:44+01:00">
+  <meta property="article:published_time" content="2025-11-28T15:51:06+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2025-11-18T13:21:44+01:00">
+    <meta itemprop="datePublished" content="2025-11-28T15:51:06+01:00">
     
 
     <div class="page__inner-wrap">
@@ -403,7 +403,7 @@
 <p>The following diagram gives you an overview of all the existing types and how they are connected to each other.
 The subsequent chapters describe these types in more detail.</p>
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/f32afee5-014a-4cfb-9a9f-91c974b77d9a" id="ksXuAN~ZRo~g"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/4584d461-3663-4d10-bd2c-6163fc08f93a" id="eH0-~Maj3tYM"></iframe></div>
 <p>(note that you can click on each type in order to navigate to the paragraph with the corresponding description)</p>
 
 <p>At a first glance the amount of types is overwhelming.
@@ -1458,7 +1458,7 @@ In the <a href="/versions/v7/integrate/attribute-introduction">Attribute introdu
 
 <p>If an Identity <a href="/versions/v7/integrate/create-attributes-for-yourself#create-an-identityattribute-for-yourself">creates an IdentityAttribute for itself</a>, it is referred to as an OwnIdentityAttribute.
 The Identity can share an <a href="#identityattribute">IdentityAttribute</a> of itself with another Identity by <a href="/versions/v7/integrate/attribute-introduction#attribute-management-options">exchanging</a> it using a suitable <a href="/versions/v7/integrate/data-model-overview#request">Request</a>.
-In that case, <a href="#attributeforwardingdetails">AttributeForwardingDetails</a> are created, with their <code class="language-plaintext highlighter-rouge">attributeId</code> property set to the <code class="language-plaintext highlighter-rouge">id</code> of the OwnIdentityAttribute to represent their association.</p>
+In that case, <a href="#attributeforwardingdetails">AttributeForwardingDetails</a> associated with the OwnIdentityAttribute are created.</p>
 
 <table>
   <thead>
@@ -1761,7 +1761,7 @@ The <a href="/versions/v7/integrate/create-attributes-for-yourself#create-a-rela
 <h3 id="thirdpartyrelationshipattribute">ThirdPartyRelationshipAttribute</h3>
 
 <p>A <a href="#relationshipattribute">RelationshipAttribute</a> can be forwarded to a peer which is not involved in the <a href="#relationship">Relationship</a> in which the RelationshipAttribute exists if its <code class="language-plaintext highlighter-rouge">confidentiality</code> is not set to <code class="language-plaintext highlighter-rouge">"private"</code>.
-For the Identity which forwards its <a href="#ownrelationshipattribute">OwnRelationshipAttribute</a> or <a href="#peerrelationshipattribute">PeerRelationshipAttribute</a> to a peer, <a href="#attributeforwardingdetails">AttributeForwardingDetails</a> are created, with their <code class="language-plaintext highlighter-rouge">attributeId</code> property set to the <code class="language-plaintext highlighter-rouge">id</code> of the source RelationshipAttribute to represent their association.
+For the Identity which forwards its <a href="#ownrelationshipattribute">OwnRelationshipAttribute</a> or <a href="#peerrelationshipattribute">PeerRelationshipAttribute</a> to a peer, <a href="#attributeforwardingdetails">AttributeForwardingDetails</a> associated with the source RelationshipAttribute are created.
 A ThirdPartyRelationshipAttribute is created for the Identity which received the forwarded RelationshipAttribute.</p>
 
 <table>
@@ -1841,11 +1841,6 @@ This also makes it possible to notify that peer if the LocalAttribute changes.</
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>attributeId</td>
-      <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>The <code class="language-plaintext highlighter-rouge">id</code> of the <a href="#localattribute">LocalAttribute</a> that was shared.</td>
-    </tr>
     <tr>
       <td>peer</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
@@ -2543,9 +2538,9 @@ Furthermore, all details on how to use the ShareAttributeRequestItem and example
       <td>The <a href="#attributes">Attribute</a> to be shared can be an IdentityAttribute or a RelationshipAttribute. It is therefore not a <a href="#localattribute">LocalAttribute</a> itself, but its <code class="language-plaintext highlighter-rouge">content</code>. An overview of the possible kinds of Attributes that can be shared is provided by the table of the <a href="/versions/v7/integrate/share-attributes-with-peer#combinations-and-usage-scenarios-of-shareattributerequestitem">combinations and usage scenarios of the ShareAttributeRequestItem</a>.</td>
     </tr>
     <tr>
-      <td>sourceAttributeId</td>
+      <td>attributeId</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>The <code class="language-plaintext highlighter-rouge">id</code> of the <a href="#localattribute">LocalAttribute</a> which is the source of the shared <a href="#attributes">Attribute</a>. This will be used later to reference the <code class="language-plaintext highlighter-rouge">sourceAttribute</code> from its shared copy.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">id</code> of the <a href="#localattribute">LocalAttribute</a> which is the source of the shared <a href="#attributes">Attribute</a>. If the recipient <a href="/versions/v7/use-case-consumption-accept-incoming-request">accepts</a> the ShareAttributeRequestItem, a LocalAttribute with the same <code class="language-plaintext highlighter-rouge">id</code> will be created for them.</td>
     </tr>
     <tr>
       <td>initialAttributePeer</td>
@@ -2727,7 +2722,7 @@ For more information, please consult the respective chapter of the <a href="/ver
 <h5 id="attributealreadysharedacceptresponseitem">AttributeAlreadySharedAcceptResponseItem</h5>
 
 <p>An AttributeAlreadySharedAcceptResponseItem can be received as answer to a <a href="/versions/v7/integrate/request-and-response-introduction#readattributerequestitem">ReadAttributeRequestItem</a> or <a href="/versions/v7/integrate/request-and-response-introduction#proposeattributerequestitem">ProposeAttributeRequestItem</a>.
-It is generated if the Recipient of the RequestItem responds to it with an existing Attribute they already shared with the Sender in case the corresponding AttributeForwardingDetails of the own <a href="#localattribute">LocalAttribute</a> don’t have <code class="language-plaintext highlighter-rouge">"DeletedByRecipient"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.
+It is generated if the Recipient of the RequestItem responds to it with an existing Attribute they already shared with the Sender in case the corresponding <a href="#attributeforwardingdetails">AttributeForwardingDetails</a> of the own <a href="#localattribute">LocalAttribute</a> don’t have <code class="language-plaintext highlighter-rouge">"DeletedByRecipient"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.
 If <code class="language-plaintext highlighter-rouge">"ToBeDeletedByRecipient"</code> was previously the <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>, the <code class="language-plaintext highlighter-rouge">deletionInfo</code> will be reset to undefined.
 Instead of creating further AttributeForwardingDetails, the <code class="language-plaintext highlighter-rouge">id</code> of the already existing shared LocalAttributes is returned.
 Note that the <code class="language-plaintext highlighter-rouge">id</code> of the own/peer Attribute of the Sender matches the <code class="language-plaintext highlighter-rouge">id</code> of the corresponding peer/own Attribute of the Recipient.</p>
@@ -2762,7 +2757,7 @@ Note that the <code class="language-plaintext highlighter-rouge">id</code> of th
 <h5 id="attributesuccessionacceptresponseitem">AttributeSuccessionAcceptResponseItem</h5>
 
 <p>An AttributeSuccessionAcceptResponseItem can be received as answer to a <a href="/versions/v7/integrate/request-and-response-introduction#readattributerequestitem">ReadAttributeRequestItem</a> or <a href="/versions/v7/integrate/request-and-response-introduction#proposeattributerequestitem">ProposeAttributeRequestItem</a>.
-It is generated if the Recipient of the RequestItem responds to it with an existing Attribute that is a successor of an Attribute they already shared with the Sender in case the corresponding AttributeForwardingDetails of the own <a href="#localattribute">LocalAttribute</a> don’t have <code class="language-plaintext highlighter-rouge">"DeletedByRecipient"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.
+It is generated if the Recipient of the RequestItem responds to it with an existing Attribute that is a successor of an Attribute they already shared with the Sender in case the corresponding <a href="#attributeforwardingdetails">AttributeForwardingDetails</a> of the own <a href="#localattribute">LocalAttribute</a> don’t have <code class="language-plaintext highlighter-rouge">"DeletedByRecipient"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.
 Instead of creating an independent peer Attribute, internally an <a href="/versions/v7/integrate/update-attributes-by-succession">Attribute succession</a> is performed.
 The <code class="language-plaintext highlighter-rouge">id</code> of the already existing shared LocalAttribute predecessor is returned, as well as the <code class="language-plaintext highlighter-rouge">id</code> and <code class="language-plaintext highlighter-rouge">content</code> of the newly created successor.
 Receiving an AttributeSuccessionAcceptResponseItem, the respective shared LocalAttribute of the Sender of the Request is automatically succeeded accordingly.</p>
@@ -4175,7 +4170,7 @@ There is the <a href="/versions/v7/use-case-consumption-upsert-identitymetadata"
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-18T13:21:44+01:00">November 18, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-28T15:51:06+01:00">November 28, 2025</time></p>
 
       </footer>
 

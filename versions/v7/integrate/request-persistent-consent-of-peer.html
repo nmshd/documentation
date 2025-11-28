@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-18T13:21:44+01:00">
+  <meta property="article:published_time" content="2025-11-28T15:51:06+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Request persistent consent of peer">
     <meta itemprop="description" content="This guide explains how an Identity can obtain the persistent consent of one of its peers on a particular issue.Technically, this form of consent is stored by a RelationshipAttribute with Consent as value.@type, that exists in the context of their Relationship and that is usually owned by the peer.">
-    <meta itemprop="datePublished" content="2025-11-18T13:21:44+01:00">
+    <meta itemprop="datePublished" content="2025-11-28T15:51:06+01:00">
     
 
     <div class="page__inner-wrap">
@@ -520,9 +520,8 @@ In doing so, the <a href="/versions/v7/integrate/data-model-overview#acceptreque
 <p class="notice--info">If the Recipient does not want to agree to the issue that the Sender wants the Recipient to agree to, it can of course also reject the corresponding <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> by using the <a href="/versions/v7/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a>, as long as its value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">false</code>, or <a href="/versions/v7/use-case-consumption-reject-incoming-request">reject the incoming Request</a> as a whole.</p>
 
 <p>Accepting the CreateAttributeRequestItem leads to the creation of the <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> with Consent as <code class="language-plaintext highlighter-rouge">value.@type</code>.
-Technically, this is stored as the <code class="language-plaintext highlighter-rouge">content</code> of a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a>.
-As the Recipient is the <code class="language-plaintext highlighter-rouge">owner</code> of the underlying RelationshipAttribute in the example studied, the LocalAttribute is also referred to as own shared RelationshipAttribute.
-Based on this, an appropriate AcceptResponseItem of type <a href="/versions/v7/integrate/data-model-overview#createattributeacceptresponseitem">CreateAttributeAcceptResponseItem</a> is generated, which incorporates the <code class="language-plaintext highlighter-rouge">id</code> of the created own shared RelationshipAttribute in its <code class="language-plaintext highlighter-rouge">attributeId</code> property.
+Technically, this is stored as the <code class="language-plaintext highlighter-rouge">content</code> of an <a href="/versions/v7/integrate/data-model-overview#ownrelationshipattribute">OwnRelationshipAttribute</a>, as the Recipient is the <code class="language-plaintext highlighter-rouge">owner</code> of the underlying RelationshipAttribute in the example studied.
+Based on this, an appropriate AcceptResponseItem of type <a href="/versions/v7/integrate/data-model-overview#createattributeacceptresponseitem">CreateAttributeAcceptResponseItem</a> is generated, which incorporates the <code class="language-plaintext highlighter-rouge">id</code> of the created OwnRelationshipAttribute in its <code class="language-plaintext highlighter-rouge">attributeId</code> property.
 This will be contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#response">Response</a> to the Request for persistent consent that will be transferred to the Sender.</p>
 
 <h3 id="receive-the-response-to-the-request">Receive the Response to the Request</h3>
@@ -532,9 +531,9 @@ In order for the Sender to receive the Recipient’s Response to the Request, it
 
 <p class="notice--info">Please note that the required synchronization of both Identities can also be automated by using the <a href="/versions/v7/operate/modules#sync">Sync Module</a>.</p>
 
-<p>The accepted CreateAttributeRequestItem leads to the creation of a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> for the Sender, a so-called peer shared RelationshipAttribute.
+<p>The accepted CreateAttributeRequestItem leads to the creation of a <a href="/versions/v7/integrate/data-model-overview#peerrelationshipattribute">PeerRelationshipAttribute</a> for the Sender.
 Its <code class="language-plaintext highlighter-rouge">content</code> is given by the <code class="language-plaintext highlighter-rouge">attribute</code> specified within the <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a>, in other words by the <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> with Consent as <code class="language-plaintext highlighter-rouge">value.@type</code>, which is owned by the Recipient.
-It represents the necessary counterpart to the Recipient’s own shared RelationshipAttribute.</p>
+It represents the necessary counterpart to the Recipient’s OwnRelationshipAttribute.</p>
 
 <h2 id="whats-next">What’s next?</h2>
 
@@ -553,7 +552,7 @@ For more details, the documentation of the <a href="/versions/v7/integrate/reque
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-18T13:21:44+01:00">November 18, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-28T15:51:06+01:00">November 28, 2025</time></p>
 
       </footer>
 
