@@ -94,7 +94,7 @@ If this value is set, there has been a change of the surname throughout the life
 
 ## BirthPlace
 
-The BirthPlace consists of the BirthCity and BirthCountry and can optionally include a BirthState (e.g. if the BirthCity is ambiguous within the BirthCountry).
+The BirthPlace consists of the birth city and birth country and can optionally include a birth state (e.g. if the birth city is ambiguous within the birth country).
 
 **Properties**
 
