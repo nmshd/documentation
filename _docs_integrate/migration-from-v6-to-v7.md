@@ -74,6 +74,8 @@ The step-by-step instructions can be consulted to start the migration to version
 - The properties `approvedAt` and `approvedByDevice` of the [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) have been removed.
   Furthermore, renaming `"Approved"` to `"Active"` resulted in a change of an IdentityDeletionProcess `status`.
 - All data structures around the Attribute listener feature, including the LocalAttributeListener, the RegisterAttributeListenerRequestItem, and the RegisterAttributeListenerAcceptResponseItem, were removed.
+- AffiliationOrganization, AffiliationRole, AffiliationUnit, BirthCity, BirthCountry, BirthDay, BirthMonth, BirthState, BirthYear, City, Country, HouseNumber, State, Street, and ZipCode can no longer be used as `value.@type` of [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) as there is no child Attribute feature anymore.
+  Sharing individual components of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes) will be possible again in future releases.
 - With the new [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) concept, an Attribute copy is no longer created when an Attribute is [shared]({% link _docs_integrate/share-attributes-with-peer.md %}).
   Furthermore, LocalAttribute subtypes have been introduced to help distinguish between different kinds of LocalAttributes.
   - RepositoryAttributes were renamed to [OwnIdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute).
@@ -92,8 +94,8 @@ The step-by-step instructions can be consulted to start the migration to version
     The [PeerAttributeSucceededNotificationItem]({% link _docs_integrate/data-model-overview.md %}#peerattributesucceedednotificationitem) replaces the PeerSharedAttributeSucceededNotificationItem.
     The OwnSharedAttributeDeletedByOwnerNotificationItem, the PeerSharedAttributeDeletedByPeerNotificationItem and the ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem have been replaced by the [OwnAttributeDeletedByOwnerNotificationItem]({% link _docs_integrate/data-model-overview.md %}#ownattributedeletedbyownernotificationitem), the [PeerRelationshipAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#peerrelationshipattributedeletedbypeernotificationitem) and the [ForwardedAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#forwardedattributedeletedbypeernotificationitem).
   - To better align with the `initialAttributePeer` property of the [ThirdPartyRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattribute), the `thirdPartyAddress` property of the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) and the [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem) has been renamed to `initialAttributePeer`.
+    Furthermore, the `sourceAttributeId` property of the ShareAttributeRequestItem has been renamed to `attributeId`.
   - The `parentId` property of the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) was removed as there is no child Attribute feature anymore.
-    Sharing individual components of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes) will be possible again in future releases.
 
 ### Changed Behavior of Known Features
 
@@ -159,7 +161,7 @@ As an Integrator of a Connector, the following changes do not need to be taken i
 Some [use cases]({% link _docs_integrate/use-cases.md %}) of the Runtime that were previously marked as deprecated and replaced by new ones have now been removed.
 However, the Connector routes associated with these use cases are not affected by these replacements and can still be used.
 
-- The nomenclature of [ThirdPartyRelationshipAttributes]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes) has already changed in version 6.
+- The nomenclature of [ThirdPartyRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattribute) has already changed in version 6.
   In particular, the term third party owned RelationshipAttribute has become obsolete.
   For this reason, the [Delete a ThirdPartyRelationshipAttribute and notify peer]({% link _docs_use-cases/use-case-consumption-delete-an-attribute-and-notify.md %}) use case was already added in version 6 and the use case of deleting a third party owned RelationshipAttribute and notifying the peer was marked as deprecated.
   It has now been deleted with the update to version 7.

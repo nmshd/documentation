@@ -61,10 +61,10 @@ After [uploading a File](#upload-a-file), a certain kind of [Attribute]({% link 
 To be more precise, this is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type`.
 An IdentityFileReference stores the value of the `reference.truncated` property of the File within its `value` property.
 By [sending a suitable Request]({% link _docs_integrate/share-attributes-with-peer.md %}#send-and-receive-the-request), this IdentityAttribute can be shared with a `peer` of an already existing [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) or in the process of [establishing a Relationship]({% link _docs_integrate/establish-relationships.md %}).
-If the peer accepts the Request, a peer shared IdentityAttribute will be created for them and they will gain read access to the underlying File, that was [uploaded to the Backbone](#upload-a-file).
-For the sender an own shared IdentityAttribute will be created.
+If the peer accepts the Request, a [PeerIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#peeridentityattribute) will be created for them and they will gain read access to the underlying File, that was [uploaded to the Backbone](#upload-a-file).
+For the sender, [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) associated with their [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) will be created.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/849a579c-15c6-4b9a-a652-ea51c31bb622" id="bJaM.8pgwNP3"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/7301a611-47ce-43fd-ac61-b3becf77c306" id="uEc.tXofzNzF"></iframe></div>
 
 ## Create an IdentityFileReference
 
@@ -127,8 +127,8 @@ Instead, the ownership of the File needs to be transferred to the recipient.
 To this end, firstly the sender needs to [upload the File](#upload-a-file) to the Backbone.
 Then, an appropriate [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem) must be sent to the peer, who shall become the new owner of the File.
 If they accept it, the ownership of the File on the Backbone will be transferred to them.
-Additionally, a [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be created for the recipient, whose `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type`.
-Moreover, this RepositoryAttribute will be shared with the sender, i.e. an own shared IdentityAttribute will be created for the recipient and a peer shared IdentityAttribute will be created for the sender.
+Additionally, an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be created for the recipient, whose `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type`.
+Moreover, this OwnIdentityAttribute will be shared with the sender, i.e. associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) will be created for the recipient and a [PeerIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#peeridentityattribute) will be created for the sender.
 
 ## Request for Transferring the Ownership of a File
 
@@ -217,13 +217,13 @@ If the recipient agrees to receive the ownership of one of the sender's Files, t
 The [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) must be used for this.
 The acceptance of a TransferFileOwnershipRequestItem leads to the transfer of the ownership of the File on the Backbone.
 Thereby, the `ownershipToken` of the File is regenerated.
-Additionally, a [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be created for the recipient, whose `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type`.
+Additionally, an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be created for the recipient, whose `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type`.
 If the File has `tags`, the IdentityAttribute will have the same `tags`.
 The `value` of the IdentityFileReference is the value of `reference.truncated` of the File that is now owned by the recipient.
 Also, if the File has any `tags`, they will become `tags` of the IdentityAttribute.
-Moreover, the newly created RepositoryAttribute of the recipient will be shared with the sender, i.e. an own shared IdentityAttribute will be created for the recipient.
+Moreover, the newly created OwnIdentityAttribute of the recipient will be shared with the sender, i.e. associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) will be created for the recipient.
 Based on this, an appropriate AcceptResponseItem of type [TransferFileOwnershipAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershipacceptresponseitem) is generated.
-It contains the `id` and the `content` of the created own shared IdentityAttribute in its `attributeId` and `attribute` property, respectively.
+It contains the `id` and the `content` of the OwnIdentityAttribute in its `attributeId` and `attribute` property, respectively.
 This ResponseItem will appear within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for transferring the ownership of Files, which will be sent back to the sender.
 
 ### Reject a TransferFileOwnershipRequestItem
@@ -247,8 +247,8 @@ To view the Response to the Request, proceed as described in the [Query outgoing
 
 The Integrator of the sender can now get the Response of the recipient from the `response.content` property of the result.
 In the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) is a [TransferFileOwnershipAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershipacceptresponseitem) for each accepted TransferFileOwnershipRequestItem and a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) for each rejected TransferFileOwnershipRequestItem included.
-Note that each accepted TransferFileOwnershipRequestItem leads to the creation of an appropriate [peer shared IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) of the sender.
-The `content` and `id` of the LocalAttribute are the underlying `attribute` and `attributeId` of the TransferFileOwnershipAcceptResponseItem, respectively.
+Note that each accepted TransferFileOwnershipRequestItem leads to the creation of an appropriate [PeerIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#peeridentityattribute) of the sender.
+Its `content` and `id` are the underlying `attribute` and `attributeId` of the TransferFileOwnershipAcceptResponseItem, respectively.
 
 In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) can also be included in the Response.
 If the Request for transferring the ownership of Files contains a RequestItemGroup in its `items` property, the Response to this Request contains a corresponding [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) in its `items` property.

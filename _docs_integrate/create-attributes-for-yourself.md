@@ -31,17 +31,16 @@ As there are two types of Attributes, [IdentityAttributes]({% link _docs_integra
 ## Create an IdentityAttribute for yourself
 
 This section is about how to create an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) for your own Connector that is not initially shared with any other Identity.
-From a technical point of view, this corresponds to the creation of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `content` is given by the IdentityAttribute that is intended to be created and whose `shareInfo` is undefined.
-Such a LocalAttribute is referred to as a RepositoryAttribute.
+From a technical point of view, this corresponds to the creation of an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute).
 
 Since knowledge about IdentityAttributes is required in the following, you should take a look at our [IdentityAttribute introduction]({% link _docs_integrate/attribute-introduction.md %}#identityattributes) before you continue reading this guide.
 In particular, a description of the two kinds of IdentityAttributes, the [simple IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#simple-identityattributes) and the [complex IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), can be found there.
 {: .notice--info}
 
-### Input for creating a RepositoryAttribute
+### Input for creating an OwnIdentityAttribute
 
-To create a RepositoryAttribute, proceed as described in the [Create an OwnIdentityAttribute]({% link _docs_use-cases/use-case-consumption-create-an-ownidentityattribute.md %}) use case documentation.
-As input for the creation of a RepositoryAttribute, the following `content` must be used:
+To create an OwnIdentityAttribute, proceed as described in the [Create an OwnIdentityAttribute]({% link _docs_use-cases/use-case-consumption-create-an-ownidentityattribute.md %}) use case documentation.
+As input for the creation of an OwnIdentityAttribute, the following `content` must be used:
 
 ```jsonc
 {
@@ -58,20 +57,18 @@ As input for the creation of a RepositoryAttribute, the following `content` must
 You need to replace the placeholders marked with `<...>` appropriately.
 Note that the property `tags` is optional, so you can omit it.
 It is necessary that you insert one of the available [IdentityAttributeValues]({% link _docs_integrate/attribute-values.md %}#identity-attributes) into the `value` property.
-If there is already an existing RepositoryAttribute with an undefined `succeededBy` property and which therefore represents the latest version, whose `content.value` exactly matches the specified `value` in the payload for creating a new RepositoryAttribute, an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.runtime.attributes.cannotCreateDuplicateOwnIdentityAttribute` is thrown.
-This is to prevent several latest RepositoryAttributes with the same `content.value` from existing in parallel.
+If there is already an existing OwnIdentityAttribute with an undefined `succeededBy` property and which therefore represents the latest version, whose `content.value` exactly matches the specified `value` in the payload for creating a new OwnIdentityAttribute, an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.runtime.attributes.cannotCreateDuplicateOwnIdentityAttribute` is thrown.
+This is to prevent several latest OwnIdentityAttributes with the same `content.value` from existing in parallel.
 
-### Process of creating a RepositoryAttribute
+### Process of creating an OwnIdentityAttribute
 
-As you can see from the diagram below, after you have entered the [input for creating a RepositoryAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#input-for-creating-a-repositoryattribute), a check is performed whether the input values for the properties of the specified [IdentityAttributeValue]({% link _docs_integrate/attribute-values.md %}#identity-attributes) meet the validation criteria documented on the [Attribute Values]({% link _docs_integrate/attribute-values.md %}) page.
+As you can see from the diagram below, after you have entered the [input for creating an OwnIdentityAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#input-for-creating-an-ownidentityattribute), a check is performed whether the input values for the properties of the specified [IdentityAttributeValue]({% link _docs_integrate/attribute-values.md %}#identity-attributes) meet the validation criteria documented on the [Attribute Values]({% link _docs_integrate/attribute-values.md %}) page.
 If the validation is not successful, an [error message]({% link _docs_integrate/error-codes.md %}) is sent in response.
-Otherwise, a RepositoryAttribute is created that contains the IdentityAttribute in its `content` property.
-If it is a [simple IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#simple-identityattributes), a success response is sent directly.
-In the case of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), on the other hand, another RepositoryAttribute is created beforehand for each of its appropriate properties.
-These RepositoryAttributes for the properties are also referred to as children of the RepositoryAttribute belonging to the complex IdentityAttribute.
-Note that the successful creation of a LocalAttribute, and therefore in particular the creation of a RepositoryAttribute, triggers the `consumption.attributeCreated` [Connector event]({% link _docs_integrate/connector-events.md %}).
+Otherwise, an OwnIdentityAttribute is created that contains the IdentityAttribute in its `content` property.
+Regardless of whether it is a [simple IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#simple-identityattributes) or a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), a success response is sent directly.
+Note that the successful creation of a LocalAttribute, and therefore in particular the creation of an OwnIdentityAttribute, triggers the `consumption.attributeCreated` [Connector event]({% link _docs_integrate/connector-events.md %}).
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/310cea0e-6f6f-4ee0-9efd-55e180ec5dda" id="WT4OFNWd3bcS"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/0a610069-9c57-4480-aea0-57baefaef096" id="Fz3-jr0pKUQn"></iframe></div>
 
 ### Example of creating a simple IdentityAttribute
 
@@ -89,7 +86,7 @@ To create one for your own Connector without specifying optional parameters, the
 }
 ```
 
-Assuming that the input value for the Connector's display name specified in the `value.value` property meets the [validation criterion]({% link _docs_integrate/attribute-values.md %}#displayname), which means that the entered name does not have more than 100 characters, the IdentityAttribute is saved as a RepositoryAttribute and a success response is sent.
+Assuming that the input value for the Connector's display name specified in the `value.value` property meets the [validation criterion]({% link _docs_integrate/attribute-values.md %}#displayname), which means that the entered name does not have more than 100 characters, the IdentityAttribute is saved as an OwnIdentityAttribute and a success response is sent.
 
 ### Example of creating a complex IdentityAttribute
 
@@ -109,15 +106,12 @@ To create one for your own Connector without specifying optional parameters, the
 }
 ```
 
-Assuming that the input values ​​for the properties `value.day`, `value.month` and `value.year` meet the [validation criteria]({% link _docs_integrate/attribute-values.md %}#birthdate), which means, for example, that the input value for `value.month` is an integer between 1 and 12, the IdentityAttribute is saved as a RepositoryAttribute.
-The properties `value.day`, `value.month` and `value.year` can each be understood as an additional simple IdentityAttribute of type [BirthDay]({% link _docs_integrate/attribute-values.md %}#birthday), [BirthMonth]({% link _docs_integrate/attribute-values.md %}#birthmonth) and [BirthYear]({% link _docs_integrate/attribute-values.md %}#birthyear), respectively.
-For this reason, another RepositoryAttribute is created internally for each of these properties before a success response is sent.
-So for the RepositoryAttribute, which belongs to the complex IdentityAttribute of type BirthDate, a total of three children are created.
+Assuming that the input values ​​for the properties `value.day`, `value.month` and `value.year` meet the [validation criteria]({% link _docs_integrate/attribute-values.md %}#birthdate), which means, for example, that the input value for `value.month` is an integer between 1 and 12, the IdentityAttribute is saved as an OwnIdentityAttribute.
 
 ### What's next?
 
 When you have successfully created an IdentityAttribute for your own Connector, you will receive a success response.
-From the result, you can get the `id` of the corresponding RepositoryAttribute belonging to the IdentityAttribute.
+From the result, you can get the `id` of the corresponding OwnIdentityAttribute belonging to the IdentityAttribute.
 You will need this `id`, for example, if you want to share the underlying IdentityAttribute with other Identities later, as in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) scenario.
 
 ## Create a RelationshipAttribute
@@ -128,7 +122,7 @@ This is achieved by sending a [Request]({% link _docs_integrate/data-model-overv
 Depending on whether you or your peer should set the [RelationshipAttributeValue]({% link _docs_integrate/attribute-values.md %}#relationship-attributes) and depending on other factors, a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem), [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) or [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) should be used for this.
 
 From a technical point of view, the creation of a RelationshipAttribute corresponds to the creation of one [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for yourself and one LocalAttribute for your peer, whereby their `content` is given by the RelationshipAttribute that is intended to be created.
-In terms of nomenclature, this pair of LocalAttributes consists of one own shared RelationshipAttribute and one peer shared RelationshipAttribute.
+In terms of nomenclature, this pair of LocalAttributes consists of one [OwnRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) and one [PeerRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute).
 {: .notice--info}
 
 ### Utilization of a CreateAttributeRequestItem

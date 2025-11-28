@@ -37,7 +37,6 @@ And every Identity can understand/use/fill/query these Attribute Value types of 
 
 Most Attribute Value types are atomic, which means that they have only one property called `value` (e.g. [`EMailAddress`](#emailaddress), [`DisplayName`](#displayname), [`PhoneNumber`](#phonenumber)).
 But there are also more complex Attribute Value types which consist of multiple properties with a strong correlation (e.g. [`StreetAddress`](#streetaddress), [`PersonName`](#personname)).
-These properties can (but don't have to) contain other Attribute Values.
 
 # Valid Characters in Attributes
 
@@ -57,128 +56,25 @@ Inside of the organization the person can have a role and it can be assigned to 
 
 **Properties**
 
-| Name           | Type            | Required | Validation                                                |
-| -------------- | --------------- | :------: | --------------------------------------------------------- |
-| `@type`        | `"Affiliation"` |    ✓     |                                                           |
-| `role`         | `string`        |    ✗     | see [`AffiliationRole`](#affiliationrole)                 |
-| `organization` | `string`        |    ✓     | see [`AffiliationOrganization`](#affiliationorganization) |
-| `unit`         | `string`        |    ✗     | see [`AffiliationUnit`](#affiliationunit)                 |
-
-## AffiliationOrganization
-
-The organization the person is affiliated to.
-
-It is not recommended to send an AffiliationOrganization to another Identity by its own.
-Instead, send an [`Affiliation`](#affiliation) with the `organization` property set.
-{: .notice--warning}
-
-**Properties**
-
-| Name    | Type                        | Required | Validation       |
-| ------- | --------------------------- | :------: | ---------------- |
-| `@type` | `"AffiliationOrganization"` |    ✓     |                  |
-| `value` | `string`                    |    ✓     | max. length: 100 |
-
-**Validation**
-
-## AffiliationRole
-
-The role the person has in the organization.
-
-It is not recommended to send an AffiliationRole to another Identity by its own.
-Instead, send an [`Affiliation`](#affiliation) with the `role` property set.
-{: .notice--warning}
-
-**Properties**
-
-| Name    | Type                | Required | Validation       |
-| ------- | ------------------- | :------: | ---------------- |
-| `@type` | `"AffiliationRole"` |    ✓     |                  |
-| `value` | `string`            |    ✓     | max. length: 100 |
-
-## AffiliationUnit
-
-The organization unit the person is affiliated to.
-
-It is not recommended to send an AffiliationUnit to another Identity by its own.
-Instead, send an [`Affiliation`](#affiliation) with the `unit` property set.
-{: .notice--warning}
-
-**Properties**
-
-| Name    | Type                | Required | Validation       |
-| ------- | ------------------- | :------: | ---------------- |
-| `@type` | `"AffiliationUnit"` |    ✓     |                  |
-| `value` | `string`            |    ✓     | max. length: 100 |
-
-## BirthCity
-
-The city of birth.
-
-It is not recommended to send a BirthCity to another Identity by its own.
-Instead, send a [`BirthPlace`](#birthplace) with the `city` property set.
-{: .notice--warning}
-
-**Properties**
-
-| Name    | Type          | Required | Validation       |
-| ------- | ------------- | :------: | ---------------- |
-| `@type` | `"BirthCity"` |    ✓     |                  |
-| `value` | `string`      |    ✓     | max. length: 100 |
-
-## BirthCountry
-
-The country of birth.
-
-It is not recommended to send a BirthCountry to another Identity by its own.
-Instead, send a [`BirthPlace`](#birthplace) with the `country` property set.
-{: .notice--warning}
-
-**Properties**
-
-| Name    | Type             | Required | Validation                                                                                                                  |
-| ------- | ---------------- | :------: | --------------------------------------------------------------------------------------------------------------------------- |
-| `@type` | `"BirthCountry"` |    ✓     |                                                                                                                             |
-| `value` | `string`         |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
+| Name           | Type            | Required | Validation       |
+| -------------- | --------------- | :------: | ---------------- |
+| `@type`        | `"Affiliation"` |    ✓     |                  |
+| `role`         | `string`        |    ✗     | max. length: 100 |
+| `organization` | `string`        |    ✓     | max. length: 100 |
+| `unit`         | `string`        |    ✗     | max. length: 100 |
 
 ## BirthDate
 
-The birth date of a natural person.
+The birth date of a natural person in the Gregorian calendar.
 
 **Properties**
 
-| Name    | Type          | Required | Validation                      |
-| ------- | ------------- | :------: | ------------------------------- |
-| `@type` | `"BirthDate"` |    ✓     |                                 |
-| `day`   | `number`      |    ✓     | see [`BirthDay`](#birthday)     |
-| `month` | `number`      |    ✓     | see [`BirthMonth`](#birthmonth) |
-| `year`  | `number`      |    ✓     | see [`BirthYear`](#birthyear)   |
-
-## BirthDay
-
-The day of birth.
-
-It is not recommended to send a BirthDay to another Identity by its own.
-Instead, send a [`BirthDate`](#birthdate) with the `day` property set.
-{: .notice--warning}
-
-| Name    | Type         | Required | Validation                              |
-| ------- | ------------ | :------: | --------------------------------------- |
-| `@type` | `"BirthDay"` |    ✓     |                                         |
-| `value` | `number`     |    ✓     | min: 1<br>max: 31<br>must be an integer |
-
-## BirthMonth
-
-The month of birth.
-
-It is not recommended to send a BirthMonth to another Identity by its own.
-Instead, send a [`BirthDate`](#birthdate) with the `month` property set.
-{: .notice--warning}
-
-| Name    | Type           | Required | Validation                              |
-| ------- | -------------- | :------: | --------------------------------------- |
-| `@type` | `"BirthMonth"` |    ✓     |                                         |
-| `value` | `number`       |    ✓     | min: 1<br>max: 12<br>must be an integer |
+| Name    | Type          | Required | Validation                                |
+| ------- | ------------- | :------: | ----------------------------------------- |
+| `@type` | `"BirthDate"` |    ✓     |                                           |
+| `day`   | `number`      |    ✓     | min: 1<br>max: 31<br>must be an integer   |
+| `month` | `number`      |    ✓     | min: 1<br>max: 12<br>must be an integer   |
+| `year`  | `number`      |    ✓     | min: 1<br>max: 9999<br>must be an integer |
 
 ## BirthName
 
@@ -197,44 +93,16 @@ If this value is set, there has been a change of the surname throughout the life
 
 ## BirthPlace
 
-The BirthPlace consists of the BirthCity and BirthCountry and can optionally include a BirthState (e.g. if the BirthCity is ambiguous within the BirthCountry).
+The BirthPlace consists of the birth city and birth country and can optionally include a birth state (e.g. if the birth city is ambiguous within the birth country).
 
 **Properties**
 
-| Name      | Type           | Required | Validation                      |
-| --------- | -------------- | :------: | ------------------------------- |
-| `@type`   | `"BirthPlace"` |    ✓     |                                 |
-| `city`    | `string`       |  ✓ see   | [`BirthCity`](#birthcity)       |
-| `country` | `string`       |  ✓ see   | [`BirthCountry`](#birthcountry) |
-| `state`   | `string`       |  ✗ see   | [`BirthState`](#birthstate)     |
-
-## BirthState
-
-The state of birth.
-
-It is not recommended to send a BirthState to another Identity by its own.
-Instead, send a [`BirthPlace`](#birthplace) with the `state` property set.
-{: .notice--warning}
-
-**Properties**
-
-| Name    | Type           | Required | Validation       |
-| ------- | -------------- | :------: | ---------------- |
-| `@type` | `"BirthState"` |    ✓     |                  |
-| `value` | `string`       |    ✓     | max. length: 100 |
-
-## BirthYear
-
-The year of birth in the Gregorian calendar.
-
-It is not recommended to send a BirthYear to another Identity by its own.
-Instead, send a [`BirthDate`](#birthdate) with the `year` property set.
-{: .notice--warning}
-
-| Name    | Type          | Required | Validation                                |
-| ------- | ------------- | :------: | ----------------------------------------- |
-| `@type` | `"BirthYear"` |    ✓     |                                           |
-| `value` | `number`      |    ✓     | min: 1<br>max: 9999<br>must be an integer |
+| Name      | Type           | Required | Validation                                                                                                                  |
+| --------- | -------------- | :------: | --------------------------------------------------------------------------------------------------------------------------- |
+| `@type`   | `"BirthPlace"` |    ✓     |                                                                                                                             |
+| `city`    | `string`       |    ✓     | max. length: 100                                                                                                            |
+| `country` | `string`       |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
+| `state`   | `string`       |    ✗     | max. length: 100                                                                                                            |
 
 ## Citizenship
 
@@ -248,22 +116,6 @@ Thus, the Citizenship usually refers to the country you have a passport from.
 | `@type` | `"Citizenship"` |    ✓     |                                                                                                                             |
 | `value` | `string`        |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
 
-## City
-
-The name of a city.
-This is usually used as part of a [`DeliveryBoxAddress`](#deliveryboxaddress), [`PostOfficeBoxAddress`](#postofficeboxaddress) or [`StreetAddress`](#streetaddress).
-
-It is not recommended to send a City to another Identity by its own.
-Instead, send a [`DeliveryBoxAddress`](#deliveryboxaddress), [`PostOfficeBoxAddress`](#postofficeboxaddress) or [`StreetAddress`](#streetaddress) with the `city` property set.
-{: .notice--warning}
-
-**Properties**
-
-| Name    | Type     | Required | Validation       |
-| ------- | -------- | :------: | ---------------- |
-| `@type` | `"City"` |    ✓     |                  |
-| `value` | `string` |    ✓     | max. length: 100 |
-
 ## CommunicationLanguage
 
 The CommunicationLanguage is an officially recognized language the person can communicate with.
@@ -275,39 +127,23 @@ The CommunicationLanguage is an officially recognized language the person can co
 | `@type` | `"CommunicationLanguage"` |    ✓     |                                                                                        |
 | `value` | `string`                  |    ✓     | only [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes |
 
-## Country
-
-A country code according to the standard "ISO 3166-1 alpha-2".
-This is usually used as part of a [`DeliveryBoxAddress`](#deliveryboxaddress), [`PostOfficeBoxAddress`](#postofficeboxaddress) or [`StreetAddress`](#streetaddress).
-
-It is not recommended to send a Country to another Identity by its own.
-Instead, send a [`DeliveryBoxAddress`](#deliveryboxaddress), [`PostOfficeBoxAddress`](#postofficeboxaddress) or [`StreetAddress`](#streetaddress) with the `country` property set.
-{: .notice--warning}
-
-**Properties**
-
-| Name    | Type        | Required | Validation                                                                                                                  |
-| ------- | ----------- | :------: | --------------------------------------------------------------------------------------------------------------------------- |
-| `@type` | `"Country"` |    ✓     |                                                                                                                             |
-| `value` | `string`    |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
-
 ## DeliveryBoxAddress
 
 A complex Attribute Value defining the components of a delivery box address.
 
 **Properties**
 
-| Name            | Type                   | Required | Validation                        |
-| --------------- | ---------------------- | :------: | --------------------------------- |
-| `@type`         | `"DeliveryBoxAddress"` |    ✓     |                                   |
-| `recipient`     | `string`               |    ✓     | max. length: 100                  |
-| `deliveryBoxId` | `string`               |    ✓     | max. length: 100                  |
-| `userId`        | `string`               |    ✓     | max. length: 100                  |
-| `zipCode`       | `string`               |    ✓     | see [`ZipCode`](#zipcode)         |
-| `city`          | `string`               |    ✓     | see [`City`](#city)               |
-| `country`       | `string`               |    ✓     | see [`Country`](#country)         |
-| `phoneNumber`   | `string`               |    ✗     | see [`PhoneNumber`](#phonenumber) |
-| `state`         | `string`               |    ✗     | see [`State`](#state)             |
+| Name            | Type                   | Required | Validation                                                                                                                  |
+| --------------- | ---------------------- | :------: | --------------------------------------------------------------------------------------------------------------------------- |
+| `@type`         | `"DeliveryBoxAddress"` |    ✓     |                                                                                                                             |
+| `recipient`     | `string`               |    ✓     | max. length: 100                                                                                                            |
+| `deliveryBoxId` | `string`               |    ✓     | max. length: 100                                                                                                            |
+| `userId`        | `string`               |    ✓     | max. length: 100                                                                                                            |
+| `zipCode`       | `string`               |    ✓     | max. length: 100                                                                                                            |
+| `city`          | `string`               |    ✓     | max. length: 100                                                                                                            |
+| `country`       | `string`               |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
+| `phoneNumber`   | `string`               |    ✗     | see [`PhoneNumber`](#phonenumber)                                                                                           |
+| `state`         | `string`               |    ✗     | max. length: 100                                                                                                            |
 
 ## DisplayName
 
@@ -389,22 +225,6 @@ The honorific suffix of a person, e.g. 'PhD'
 | `@type` | `"HonorificSuffix"` |    ✓     |                  |
 | `value` | `string`            |    ✓     | max. length: 100 |
 
-## HouseNumber
-
-A house number.
-This is usually used as part of a [`StreetAddress`](#streetaddress).
-
-It is not recommended to send a HouseNumber to another Identity by its own.
-Instead, send a [`StreetAddress`](#streetaddress) with the `houseNumber` property set.
-{: .notice--warning}
-
-**Properties**
-
-| Name    | Type            | Required | Validation       |
-| ------- | --------------- | :------: | ---------------- |
-| `@type` | `"HouseNumber"` |    ✓     |                  |
-| `value` | `string`        |    ✓     | max. length: 100 |
-
 ## JobTitle
 
 A short phrase that describes the position an employee has within an organization, e.g. "Senior Developer" in case of a software company.
@@ -472,15 +292,15 @@ A complex Attribute Value defining the components of a post office box address.
 
 **Properties**
 
-| Name        | Type                     | Required | Validation                |
-| ----------- | ------------------------ | :------: | ------------------------- |
-| `@type`     | `"PostOfficeBoxAddress"` |    ✓     |                           |
-| `recipient` | `string`                 |    ✓     | max. length: 100          |
-| `boxId`     | `string`                 |    ✓     | max. length: 100          |
-| `zipCode`   | `string`                 |    ✓     | see [`ZipCode`](#zipcode) |
-| `city`      | `string`                 |    ✓     | see [`City`](#city)       |
-| `country`   | `string`                 |    ✓     | see [`Country`](#country) |
-| `state`     | `string`                 |    ✗     | see [`State`](#state)     |
+| Name        | Type                     | Required | Validation                                                                                                                  |
+| ----------- | ------------------------ | :------: | --------------------------------------------------------------------------------------------------------------------------- |
+| `@type`     | `"PostOfficeBoxAddress"` |    ✓     |                                                                                                                             |
+| `recipient` | `string`                 |    ✓     | max. length: 100                                                                                                            |
+| `boxId`     | `string`                 |    ✓     | max. length: 100                                                                                                            |
+| `zipCode`   | `string`                 |    ✓     | max. length: 100                                                                                                            |
+| `city`      | `string`                 |    ✓     | max. length: 100                                                                                                            |
+| `country`   | `string`                 |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
+| `state`     | `string`                 |    ✗     | max. length: 100                                                                                                            |
 
 ## Pseudonym
 
@@ -522,181 +342,22 @@ The "Gender" Attribute Value type is currently being evaluated to ensure inclusi
 | `@type` | `"Sex"`  |    ✓     |                                            |
 | `value` | `string` |    ✓     | one of: `"intersex"`, `"female"`, `"male"` |
 
-## State
-
-The name of a state.
-This is usually used as part of a [`DeliveryBoxAddress`](#deliveryboxaddress), [`PostOfficeBoxAddress`](#postofficeboxaddress) or [`StreetAddress`](#streetaddress).
-
-It is not recommended to send a State to another Identity by its own.
-Instead, send a [`DeliveryBoxAddress`](#deliveryboxaddress), [`PostOfficeBoxAddress`](#postofficeboxaddress) or [`StreetAddress`](#streetaddress) with the `state` property set.
-{: .notice--warning}
-
-**Properties**
-
-| Name    | Type      | Required | Validation       |
-| ------- | --------- | :------: | ---------------- |
-| `@type` | `"State"` |    ✓     |                  |
-| `value` | `string`  |    ✓     | max. length: 100 |
-
-## Statement
-
-The statement allows a very generic digital mapping of facts
-
-**Properties**
-
-| Name               | Type          | Required | Validation                                                              |
-| ------------------ | ------------- | :------: | ----------------------------------------------------------------------- |
-| `@type`            | `"Statement"` |    ✓     |                                                                         |
-| `value`            | `string`      |    ✓     | see [`StatementSubject`](#statementsubject)                             |
-| `predicate`        | `string`      |    ✓     | see [`StatementPredicate`](#statementpredicate)                         |
-| `object`           | `string`      |    ✓     | see [`StatementObject`](#statementobject)                               |
-| `issuer`           | `string`      |    ✓     | see [`DigitalIdentityDescriptor`](#statement-digitalidentitydescriptor) |
-| `issuerConditions` | `string`      |    ✓     | see [`StatementIssuerConditions`](#statementissuerconditions)           |
-
-## Statement DigitalIdentityDescriptor
-
-The issuer of a [`statement`](#statement).
-
-It is not recommended to send a DigitalIdentityDescriptor to another Identity by its own.
-Instead, send a [`statement`](#statement)
-{: .notice--warning}
-
-**Properties**
-
-| Name         | Type                          | Required | Validation                                                                                                           |
-| ------------ | ----------------------------- | :------: | -------------------------------------------------------------------------------------------------------------------- |
-| `@type`      | `"DigitalIdentityDescriptor"` |    ✓     |                                                                                                                      |
-| `address`    | `string`                      |    ✓     | The `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that owns the statement. |
-| `attributes` | `string []`                   |    ✗     | see [`Identity Attributes`](#identity-attributes)                                                                    |
-
-## StatementAuthorityType
-
-The authority type in [`StatementIssuerConditions`](#statementissuerconditions)
-
-It is not recommended to send a StatementAuthorityType to another Identity by its own.
-Instead, send a [`statement`](#statement)
-{: .notice--warning}
-
-**Properties**
-
-| Name    | Type          | Required | Validation                                                                                                                                           |
-| ------- | ------------- | :------: | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `@type` | `"Statement"` |    ✓     |                                                                                                                                                      |
-| `value` | `string`      |    ✓     | one of: `"ownAuthority"`, `"trustedAuthority"`, `"publicAuthority"`,`"relayedOwnAuthority"`, `"relayedTrustedAuthority"`, `"relayedPublicAuthority"` |
-
-## StatementEvidence
-
-The evidence in [`StatementIssuerConditions`](#statementissuerconditions)
-
-It is not recommended to send a StatementEvidence to another Identity by its own.
-Instead, send a [`statement`](#statement)
-{: .notice--warning}
-
-**Properties**
-
-| Name    | Type                  | Required | Validation                                                                                                                                                                                                                                                  |
-| ------- | --------------------- | :------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `@type` | `"StatementEvidence"` |    ✓     |                                                                                                                                                                                                                                                             |
-| `value` | `string`              |    ✓     | one of: `"ownFact"`, `"digitalPublicIDCard"`, `"digitalPublicDocument"`,`"digitalDocument"`, `"sightCheckOfPublicIDCard"`, `"sightCheckOfPublicDocument"`,`"sightCheckOfDocument"`, `"mediaOfPublicIDCard"`, `"mediaOfPublicDocument"`, `"mediaOfDocument"` |
-
-## StatementIssuerConditions
-
-The issuer conditions in a [`Statement`](#statement)
-
-It is not recommended to send a StatementIssuerConditions to another Identity by its own.
-Instead, send a [`statement`](#statement)
-{: .notice--warning}
-
-**Properties**
-
-| Name            | Type                          | Required | Validation                                                              |
-| --------------- | ----------------------------- | :------: | ----------------------------------------------------------------------- |
-| `@type`         | `"StatementIssuerConditions"` |    ✓     |                                                                         |
-| `validFrom`     | `string`                      |    ✓     | The date from which on the Attribute is valid.                          |
-| `validTo`       | `string`                      |    ✓     | The date until this Attribute is valid                                  |
-| `evidence`      | `string`                      |    ✓     | see [`StatementEvidence`](#statementevidence)                           |
-| `authorityType` | `string`                      |    ✓     | see [`StatementAuthorityType`](#statementauthoritytype)                 |
-| `relayedParty`  | `string`                      |    ✗     | see [`DigitalIdentityDescriptor`](#statement-digitalidentitydescriptor) |
-
-## StatementObject
-
-The object of a [`statement`](#statement).
-
-It is not recommended to send a object to another Identity by its own.
-Instead, send a [`statement`](#statement)
-{: .notice--warning}
-
-**Properties**
-
-| Name         | Type                | Required | Validation                                                                                                           |
-| ------------ | ------------------- | :------: | -------------------------------------------------------------------------------------------------------------------- |
-| `@type`      | `"StatementObject"` |    ✓     |                                                                                                                      |
-| `address`    | `string`            |    ✓     | The `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that owns the statement. |
-| `attributes` | `string []`         |    ✗     | see [`Identity Attributes`](#identity-attributes)                                                                    |
-
-## StatementPredicate
-
-The predicate of a [`statement`](#statement).
-
-It is not recommended to send a predicate to another Identity by its own.
-Instead, send a [`statement`](#statement)
-{: .notice--warning}
-
-**Properties**
-
-| Name    | Type                   | Required | Validation                                                                                |
-| ------- | ---------------------- | :------: | ----------------------------------------------------------------------------------------- |
-| `@type` | `"StatementPredicate"` |    ✓     |                                                                                           |
-| `value` | `string`               |    ✓     | one of: `"hasAttribute"`, `"relatesTo"`, `"isRelatedTo"` or any string starting with "z-" |
-
-## StatementSubject
-
-The subject of a [`statement`](#statement).
-
-It is not recommended to send a subject to another Identity by its own.
-Instead, send a [`statement`](#statement)
-{: .notice--warning}
-
-**Properties**
-
-| Name         | Type                 | Required | Validation                                                                                                           |
-| ------------ | -------------------- | :------: | -------------------------------------------------------------------------------------------------------------------- |
-| `@type`      | `"StatementSubject"` |    ✓     |                                                                                                                      |
-| `address`    | `string`             |    ✓     | The `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that owns the statement. |
-| `attributes` | `string []`          |    ✗     | see [`Identity Attributes`](#identity-attributes)                                                                    |
-
-## Street
-
-A street name.
-This is usually used as part of a [`StreetAddress`](#streetaddress).
-
-It is not recommended to send a Street to another Identity by its own.
-Instead, send a [`StreetAddress`](#streetaddress) with the `street` property set.
-{: .notice--warning}
-
-**Properties**
-
-| Name    | Type       | Required | Validation       |
-| ------- | ---------- | :------: | ---------------- |
-| `@type` | `"Street"` |    ✓     |                  |
-| `value` | `string`   |    ✓     | max. length: 100 |
-
 ## StreetAddress
 
 A complex Attribute Value defining the components of a "normal" address.
 
 **Properties**
 
-| Name        | Type                    | Required | Validation                        |
-| ----------- | ----------------------- | :------: | --------------------------------- |
-| `@type`     | `"StreetAddress"`       |    ✓     |                                   |
-| `recipient` | `string`                |    ✓     | max. length: 100                  |
-| `street`    | `string`                |    ✓     | see [`Street`](#street)           |
-| `houseNo`   | `string`                |    ✓     | see [`HouseNumber`](#housenumber) |
-| `zipCode`   | `string`                |    ✓     | see [`ZipCode`](#zipcode)         |
-| `city`      | `string`                |    ✓     | see [`City`](#city)               |
-| `country`   | `string`                |    ✓     | see [`Country`](#country)         |
-| `state`     | `string` \| `undefined` |    ✓     | see [`State`](#state)             |
+| Name        | Type                    | Required | Validation                                                                                                                  |
+| ----------- | ----------------------- | :------: | --------------------------------------------------------------------------------------------------------------------------- |
+| `@type`     | `"StreetAddress"`       |    ✓     |                                                                                                                             |
+| `recipient` | `string`                |    ✓     | max. length: 100                                                                                                            |
+| `street`    | `string`                |    ✓     | max. length: 100                                                                                                            |
+| `houseNo`   | `string`                |    ✓     | max. length: 100                                                                                                            |
+| `zipCode`   | `string`                |    ✓     | max. length: 100                                                                                                            |
+| `city`      | `string`                |    ✓     | max. length: 100                                                                                                            |
+| `country`   | `string`                |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
+| `state`     | `string` \| `undefined` |    ✓     | max. length: 100                                                                                                            |
 
 ## Surname
 
@@ -719,22 +380,6 @@ The website of the person which can be used to get more information about the pe
 | ------- | ----------- | :------: | ---------------------------------------------------------- |
 | `@type` | `"Website"` |    ✓     |                                                            |
 | `value` | `string`    |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
-
-## ZipCode
-
-A zip code.
-This is usually used as part of a [`DeliveryBoxAddress`](#deliveryboxaddress), [`PostOfficeBoxAddress`](#postofficeboxaddress) or [`StreetAddress`](#streetaddress).
-
-It is not recommended to send a ZipCode to another Identity by its own.
-Instead, send a [`DeliveryBoxAddress`](#deliveryboxaddress), [`PostOfficeBoxAddress`](#postofficeboxaddress) or [`StreetAddress`](#streetaddress) with the `zipCode` property set.
-{: .notice--warning}
-
-**Properties**
-
-| Name    | Type        | Required | Validation       |
-| ------- | ----------- | :------: | ---------------- |
-| `@type` | `"ZipCode"` |    ✓     |                  |
-| `value` | `string`    |    ✓     | max. length: 100 |
 
 # Relationship Attributes
 
