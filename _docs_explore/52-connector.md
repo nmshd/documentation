@@ -8,7 +8,7 @@ toc: true
 
 ## Connector Docker Image
 
-The Connector is usually deployed with a Docker image. The Docker images can be fetched from [the GitHub container registry](https://github.com/nmshd/cns-connector/pkgs/container/connector) using your Docker client.
+The Connector is usually deployed with a Docker image. The Docker images can be fetched from [the GitHub container registry](https://github.com/nmshd/connector/pkgs/container/connector) using your Docker client.
 
 **Note:** You have to be logged in using a GitHub account to list available tags.
 {: .notice--warning}
