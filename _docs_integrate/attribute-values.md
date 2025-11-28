@@ -63,6 +63,19 @@ Inside of the organization the person can have a role and it can be assigned to 
 | `organization` | `string`        |    ✓     | max. length: 100 |
 | `unit`         | `string`        |    ✗     | max. length: 100 |
 
+## BankAccount
+
+The bank account of a natural person.
+
+**Properties**
+
+| Name            | Type            | Required | Validation                                 |
+| --------------- | --------------- | :------: | ------------------------------------------ |
+| `@type`         | `"BankAccount"` |    ✓     |                                            |
+| `accountHolder` | `string`        |    ✓     | max: 100                                   |
+| `iban`          | `string`        |    ✓     | min: 14<br>max: 34<br>must be a valid IBAN |
+| `bic`           | `string`        |    ✗     | min: 8<br>max: 11<br>must be a valid BIC   |
+
 ## BirthDate
 
 The birth date of a natural person in the Gregorian calendar.
