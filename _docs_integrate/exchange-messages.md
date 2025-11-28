@@ -27,19 +27,23 @@ required_by:
 
 <!-- A general description of the requirement can be given here. -->
 
-The Connector can send and receive Messages with attachments using REST requests and file IDs, which are first uploaded and encrypted on the Platform. Messages can be queried and downloaded, and the Connector pulls for new Messages periodically.
+The Connector can send and receive Messages with attachments using REST requests and file IDs, which are first uploaded and encrypted on the Platform.
+Messages can be queried and downloaded, and the Connector pulls for new Messages periodically.
 
 <!-- This include inserts the table with the metadata  -->
 
 {% include properties_list.html %}
 
-In order to send Messages to recipients, a REST request can be sent with the given `recipients` and Message `content`. Different Message content structures are possible and defined in the chapter Data Structures. Additionally, an array of file ids can be added for property `attachments` in order to send attachments.
+In order to send Messages to recipients, a REST request can be sent with the given `recipients` and Message `content`.
+Different Message content structures are possible and defined in the chapter Data Structures.
+Additionally, an array of file ids can be added for property `attachments` in order to send attachments.
 
 ![Send Message Sequence Diagram]({{ '/assets/diagrams/integrate/Connector_SendMessage.png' | relative_url }} "Send Message")
 
 ## Upload Files
 
-In order to submit attachments/files via Message, they have to be first uploaded to the Connector. The files are then encrypted and uploaded to the Platform, which results in a FileId for every file.
+In order to submit attachments/files via Message, they have to be first uploaded to the Connector.
+The files are then encrypted and uploaded to the Platform, which results in a FileId for every file.
 These FileIds can then be used as attachments to send Messages with attachments.
 
 ## Get Messages
@@ -54,4 +58,5 @@ The metadata of attachments can be found within the Message, the actual files/bi
 
 ## Receive Messages
 
-The Connector pulls occasionally for new Messages from the Platform and temporarily stores them in the database. They can then be fetched by the corresponding business systems by the REST API (pull) or by the defined HTTP endpoint (push).
+The Connector pulls occasionally for new Messages from the Platform and temporarily stores them in the database.
+They can then be fetched by the corresponding business systems by the REST API (pull) or by the defined HTTP endpoint (push).

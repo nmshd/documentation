@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/Relationships
+  - api_route_regex: POST /api/core/v1/Relationships
   - published: default
   - link: use-case-transport-create-relationship-with-relationshiptemplate
 require:
 required_by:
-api_route_regex: ^POST /api/v2/Relationships$
+api_route_regex: ^POST /api/core/v1/Relationships$
 # End automatic generation
 ---
 
@@ -61,7 +61,7 @@ To check whether a Relationship can be created without actually creating it, the
 
 ## On Failure
 
-- The `templateId` does not resolve to a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) or the associated RelationshipTemplate was not cached correctly.
+- The `templateId` does not resolve to a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
 - The [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) has already expired, which means that the timestamp specified in its `expiresAt` property has been exceeded.
 - A [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"`, `"Active"`, `"Terminated"` or `"DeletionProposed"` as `status` already exists to the creator of the RelationshipTemplate. In particular, the initiation of a new Relationship is prevented if the potential initiator has already [decomposed the former Relationship]({% link _docs_integrate/terminate-relationships.md %}#decompose-a-relationship) to the RelationshipTemplate's creator, but the creator of the RelationshipTemplate has not yet decomposed it and still has the former Relationship with `"DeletionProposed"` as `status`.
 - The [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) of the creator of the RelationshipTemplate is in deletion or has already been deleted.

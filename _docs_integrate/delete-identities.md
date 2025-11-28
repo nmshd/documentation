@@ -35,15 +35,18 @@ However, Integrators of Connectors can still delete their Identity by using [Con
 
 ## IdentityDeletionProcesses
 
-From a technical perspective, the process of Identity deletion is described by a data object of type [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess). It can be uniquely identified by its `id`.
-An IdentityDeletionProcess can have `"Approved"` or `"Cancelled"` as its `status`.
-If an IdentityDeletionProcess has `"Approved"` as `status`, it is also referred to as an **active IdentityDeletionProcess**.
+From a technical perspective, the process of Identity deletion is described by a data object of type [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess).
+It can be uniquely identified by its `id`.
+An IdentityDeletionProcess can have `"Active"` or `"Cancelled"` as its `status`.
+If an IdentityDeletionProcess has `"Active"` as `status`, it is also referred to as an **active IdentityDeletionProcess**.
 There can be at most one active IdentityDeletionProcess per Identity.
 There are three [use cases]({% link _docs_integrate/use-cases.md %}) for getting one or more already existing [IdentityDeletionProcesses]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess):
 
 - If the `id` of an IdentityDeletionProcess is known, it can be viewed by calling the [Get IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-identitydeletionprocess.md %}) use case.
-- All IdentityDeletionProcesses of an Identity can be viewed by utilizing the [Get IdentityDeletionProcesses]({% link _docs_use-cases/use-case-transport-get-identitydeletionprocesses.md %}) use case. This includes IdentityDeletionProcesses with `"Cancelled"` as `status` in particular.
-- The [Get active IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-active-identitydeletionprocess.md %}) use case can be executed to view the currently active IdentityDeletionProcess if one exists. If none exists, the [error code]({% link _docs_integrate/error-codes.md %}) `error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess` will arise if an attempt is made to apply the use case anyway.
+- All IdentityDeletionProcesses of an Identity can be viewed by utilizing the [Get IdentityDeletionProcesses]({% link _docs_use-cases/use-case-transport-get-identitydeletionprocesses.md %}) use case.
+  This includes IdentityDeletionProcesses with `"Cancelled"` as `status` in particular.
+- The [Get active IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-active-identitydeletionprocess.md %}) use case can be executed to view the currently active IdentityDeletionProcess if one exists.
+  If none exists, the [error code]({% link _docs_integrate/error-codes.md %}) `error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess` will arise if an attempt is made to apply the use case anyway.
 
 ## Options for Identity Deletion
 
@@ -55,11 +58,11 @@ Whenever a new [IdentityDeletionProcess]({% link _docs_integrate/data-model-over
 ### Self-Initiated Identity Deletion
 
 An Identity can actively trigger its own process of deletion by executing the [Initiate IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-initiate-identitydeletionprocess.md %}) use case.
-Successful execution leads to the creation of an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) with `"Approved"` as `status`.
+Successful execution leads to the creation of an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) with `"Active"` as `status`.
 The Identity is immediately in deletion and will be irreversibly deleted from the Backbone once the end of the associated grace period of the IdentityDeletionProcess specified within its `gracePeriodEndsAt` property has been reached.
 Within the grace period, the [Cancel IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}) use case can be applied by the Identity if it no longer wants to be deleted.
 In this case, the `status` of the IdentityDeletionProcess changes to `"Cancelled"`.
-Trying to cancel an IdentityDeletionProcess that does not have `"Approved"` as `status` causes an error with `error.runtime.identityDeletionProcess.noApprovedIdentityDeletionProcess` as [error code]({% link _docs_integrate/error-codes.md %}) to be thrown.
+Trying to cancel an IdentityDeletionProcess that does not have `"Active"` as `status` causes an error with `error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess` as [error code]({% link _docs_integrate/error-codes.md %}) to be thrown.
 Furthermore, please note that the use of the [Initiate IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-initiate-identitydeletionprocess.md %}) use case is not permitted if there is already an active IdentityDeletionProcess.
 The corresponding [error code]({% link _docs_integrate/error-codes.md %}) is given by `error.runtime.identityDeletionProcess.activeIdentityDeletionProcessAlreadyExists`.
 
@@ -85,7 +88,8 @@ However, if the creator of the RelationshipTemplate is meanwhile in deletion or 
 An Identity is not permitted to [send a Message]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) to a peer with which a Relationship has been established if the peer has already been deleted.
 As long as the `content` of a [Message]({% link _docs_integrate/data-model-overview.md %}#message) is not a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification), this also applies to a peer in deletion.
 If the Identity tries to send a Message anyway to such a peer, an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.runtime.messages.peerIsInDeletion` or `error.transport.messages.peerIsDeleted` is thrown.
-Sent Messages whose `content` is a Notification cannot be received by a peer which is in deletion, but they are queued in case the peer cancels its deletion. After the peer has cancelled its deletion, it receives the queued Notifications.
+Sent Messages whose `content` is a Notification cannot be received by a peer which is in deletion, but they are queued in case the peer cancels its deletion.
+After the peer has cancelled its deletion, it receives the queued Notifications.
 
 ### Sending and Responding to Requests
 

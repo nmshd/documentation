@@ -30,29 +30,37 @@ There are many situations in which an Identity wants to share an [IdentityAttrib
 - An organization wants to share its email address with its members in order to be able to receive emails from them.
 - A company wants to share the customer number of one of its customers with another company.
 
-In this guide, we explain how a Connector, hereinafter referred to as the Sender, can share an [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) with another Connector, the so-called Recipient. Since understanding this sharing process requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) and how to use them in general, you should take a look at our [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) before continuing reading this guide.
+In this guide, we explain how a Connector, hereinafter referred to as the Sender, can share an [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) with another Connector, the so-called Recipient.
+Since understanding this sharing process requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) and how to use them in general, you should take a look at our [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) before continuing reading this guide.
 
-Please note that the general procedure is the same if the Connector wants to share an Attribute with an App user instead of another Connector. For reasons of clarity, this guide focuses on the sharing process with two Connectors.
+Please note that the general procedure is the same if the Connector wants to share an Attribute with an App user instead of another Connector.
+For reasons of clarity, this guide focuses on the sharing process with two Connectors.
 {: .notice--info}
 
 ## Request for sharing Attributes
 
-The Sender wants to share an Attribute with the Recipient. To do this, the Sender must first create a suitable Request, which it can then send to the Recipient. In the following subsections, we describe the general appearance of a Request for sharing Attributes.
+The Sender wants to share an Attribute with the Recipient.
+To do this, the Sender must first create a suitable Request, which it can then send to the Recipient.
+In the following subsections, we describe the general appearance of a Request for sharing Attributes.
 
 ### Role of ShareAttributeRequestItem
 
 For sharing a single Attribute, the Sender needs to insert a single RequestItem of type [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request).
 The Sender can only share an Attribute that already exists as a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) and, in the case of IdentityAttributes, is owned by it.
 The latter means that the address of the Sender is contained in the `content.owner` property of the corresponding LocalAttribute.
-The `id` of the LocalAttribute must be inserted into the `sourceAttributeId` property and the `content` of the LocalAttribute into the `attribute` property of the ShareAttributeRequestItem.
-If a RelationshipAttribute is to be shared, the `thirdPartyAddress` property of the ShareAttributeRequestItem must contain the address of the `peer` with whom the Sender has the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) from which the RelationshipAttribute originates.
+The `id` of the LocalAttribute must be inserted into the `attributeId` property and the `content` of the LocalAttribute into the `attribute` property of the ShareAttributeRequestItem.
+If a RelationshipAttribute is to be shared, the `initialAttributePeer` property of the ShareAttributeRequestItem must contain the address of the `peer` with whom the Sender has the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) from which the RelationshipAttribute originates.
 
-To get a list of all LocalAttributes that are owned by the Sender, proceed as described in the [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}) use case documentation and use `content.owner=<address of Sender>` as query parameter. Please note that the `<...>` notation is used as a placeholder for the actual data as usual. If the `id` of a LocalAttribute is known, the underlying IdentityAttribute or RelationshipAttribute within its `content` property can be displayed by consulting the [Get Attribute]({% link _docs_use-cases/use-case-consumption-get-attribute.md %}) use case description and specifying the `id` of the LocalAttribute.
+To get a list of all LocalAttributes that are owned by the Sender, proceed as described in the [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}) use case documentation and use `content.owner=<address of Sender>` as query parameter.
+Please note that the `<...>` notation is used as a placeholder for the actual data as usual.
+If the `id` of a LocalAttribute is known, the underlying IdentityAttribute or RelationshipAttribute within its `content` property can be displayed by consulting the [Get Attribute]({% link _docs_use-cases/use-case-consumption-get-attribute.md %}) use case description and specifying the `id` of the LocalAttribute.
 {: .notice--info}
 
 ### Combinations and usage scenarios of ShareAttributeRequestItem
 
-The following table provides an overview of the possible kinds of Attributes that the Sender can share with the Recipient using the ShareAttributeRequestItem. It must be taken into account whether the [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) to be shared is an IdentityAttribute or a RelationshipAttribute and which Identity is its `owner`. If the Sender wants to share a RelationshipAttribute with the Recipient, it must exist in the context of a Relationship between the Sender and a third party, because it makes no sense for the Sender to share a RelationshipAttribute that exists in the context of the Relationship between the Sender and the Recipient with the Recipient.
+The following table provides an overview of the possible kinds of Attributes that the Sender can share with the Recipient using the ShareAttributeRequestItem.
+It must be taken into account whether the [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) to be shared is an IdentityAttribute or a RelationshipAttribute and which Identity is its `owner`.
+If the Sender wants to share a RelationshipAttribute with the Recipient, it must exist in the context of a Relationship between the Sender and a third party, because it makes no sense for the Sender to share a RelationshipAttribute that exists in the context of the Relationship between the Sender and the Recipient with the Recipient.
 
 | Type and context                                                                                        | Owner       |                 Possible?                  | Automation      | Remarks, reasons and examples                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------------------------------------------------------------------------------------------- | ----------- | :----------------------------------------: | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -65,13 +73,13 @@ The following table provides an overview of the possible kinds of Attributes tha
 ### Example of sharing an IdentityAttribute
 
 We assume that the Integrator of the Sender has created an IdentityAttribute of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) for the Sender by following the instructions of our [Create Attributes for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}) scenario documentation.
-This IdentityAttribute is stored locally within the `content` property of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) of the Sender, which is also referred to as a [RepositoryAttribute]({% link _docs_integrate/attribute-introduction.md %}#repositoryattributes).
+This IdentityAttribute is stored locally within the `content` property of a corresponding [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) of the Sender.
 
 ```jsonc
 {
-  "@type": "LocalAttribute",
-  "id": "<ID of RepositoryAttribute>",
-  "createdAt": "<creation date of RepositoryAttribute>",
+  "@type": "OwnIdentityAttribute",
+  "id": "<ID of OwnIdentityAttribute>",
+  "createdAt": "<creation date of OwnIdentityAttribute>",
   "content": {
     "@type": "IdentityAttribute",
     "owner": "<address of Sender>",
@@ -86,7 +94,7 @@ This IdentityAttribute is stored locally within the `content` property of a corr
 ```
 
 In our example, the Sender wants to share the IdentityAttribute with the Recipient.
-To do so, it needs to insert the `id` of the corresponding RepositoryAttribute into the `sourceAttributeId` property and the IdentityAttribute itself into the `attribute` property of the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for sharing Attributes.
+To do so, it needs to insert the `id` of the corresponding OwnIdentityAttribute into the `attributeId` property and the IdentityAttribute itself into the `attribute` property of the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for sharing Attributes.
 The value of the `mustBeAccepted` property of the ShareAttributeRequestItem is set to `true` in this example.
 
 ```jsonc
@@ -106,7 +114,7 @@ The value of the `mustBeAccepted` property of the ShareAttributeRequestItem is s
           "year": <year of birth date>
         }
       },
-      "sourceAttributeId": "<ID of RepositoryAttribute>"
+      "attributeId": "<ID of OwnIdentityAttribute>"
     }
   ]
 }
@@ -114,13 +122,15 @@ The value of the `mustBeAccepted` property of the ShareAttributeRequestItem is s
 
 ### Example of sharing a RelationshipAttribute
 
-We now consider the case in which the Sender has an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with a third party and owns a RelationshipAttribute, which has already been created by using an appropriate Request, of type [ProprietaryString]({% link _docs_integrate/attribute-values.md %}#proprietarystring) of this Relationship. The Sender can request to share this RelationshipAttribute with the Recipient if its `confidentiality` is `"protected"` or `"public"`. In our example, we assume that the `confidentiality` of the RelationshipAttribute is `"public"` and that it is stored locally within the `content` property of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) of the Sender, which is also referred to as an [own shared RelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-relationshipattributes).
+We now consider the case in which the Sender has an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with a third party and owns a RelationshipAttribute, which has already been created by using an appropriate Request, of type [ProprietaryString]({% link _docs_integrate/attribute-values.md %}#proprietarystring) of this Relationship.
+The Sender can request to share this RelationshipAttribute with the Recipient if its `confidentiality` is `"protected"` or `"public"`.
+In our example, we assume that the `confidentiality` of the RelationshipAttribute is `"public"` and that it is stored locally within the `content` property of an [OwnRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) of the Sender.
 
 ```jsonc
 {
-  "@type": "LocalAttribute",
-  "id": "<ID of own shared RelationshipAttribute>",
-  "createdAt": "<creation date of own shared RelationshipAttribute>",
+  "@type": "OwnRelationshipAttribute",
+  "id": "<ID of OwnRelationshipAttribute>",
+  "createdAt": "<creation date of OwnRelationshipAttribute>",
   "content": {
     "@type": "RelationshipAttribute",
     "owner": "<address of Sender>",
@@ -132,15 +142,13 @@ We now consider the case in which the Sender has an active [Relationship]({% lin
       "value": "<actual value of RelationshipAttribute>"
     }
   },
-  "shareInfo": {
-    "peer": "<address of third party>",
-    "requestReference": "<ID of Request used for creation of own shared RelationshipAttribute>"
-  }
+  "peer": "<address of third party>",
+  "sourceReference": "<ID of Request or Notification used for creation of OwnRelationshipAttribute>"
 }
 ```
 
-To share the RelationshipAttribute with the Recipient, the Sender needs to insert the `id` of the corresponding own shared RelationshipAttribute into the `sourceAttributeId` property and the RelationshipAttribute itself into the `attribute` property of the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for sharing Attributes.
-Furthermore, the address of the third party, which corresponds to the `shareInfo.peer` of the own shared RelationshipAttribute, must be specified as the `thirdPartyAddress` of the ShareAttributeRequestItem.
+To share the RelationshipAttribute with the Recipient, the Sender needs to insert the `id` of the corresponding OwnRelationshipAttribute into the `attributeId` property and the RelationshipAttribute itself into the `attribute` property of the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for sharing Attributes.
+Furthermore, the address of the third party, which corresponds to the `peer` of the OwnRelationshipAttribute, must be specified as the `initialAttributePeer` of the ShareAttributeRequestItem.
 The value of the `mustBeAccepted` property is set to `true` in this example.
 
 ```jsonc
@@ -161,8 +169,8 @@ The value of the `mustBeAccepted` property is set to `true` in this example.
           "value": "<actual value of RelationshipAttribute>"
         }
       },
-      "sourceAttributeId": "<ID of own shared RelationshipAttribute>",
-      "thirdPartyAddress": "<address of third party>"
+      "attributeId": "<ID of OwnRelationshipAttribute>",
+      "initialAttributePeer": "<address of third party>"
     }
   ]
 }
@@ -172,46 +180,62 @@ Further information on sharing RelationshipAttributes in different application s
 
 ### Share multiple Attributes
 
-Sharing is not limited to just a single Attribute, but it is possible to request the sharing of multiple Attributes at the same time. For this purpose, several ShareAttributeRequestItems or suitable [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) can be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for sharing Attributes. If you want to use a RequestItemGroup in order to share multiple Attributes with the Recipient at the same time, you must insert corresponding ShareAttributeRequestItems into the `items` property of it.
+Sharing is not limited to just a single Attribute, but it is possible to request the sharing of multiple Attributes at the same time.
+For this purpose, several ShareAttributeRequestItems or suitable [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) can be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for sharing Attributes.
+If you want to use a RequestItemGroup in order to share multiple Attributes with the Recipient at the same time, you must insert corresponding ShareAttributeRequestItems into the `items` property of it.
 
 ## Send and receive the Request
 
-The Sender that wants to share an Attribute with the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method can be used to send the [Request for sharing Attributes]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes). There are two ways to send the Request for sharing Attributes created by the Sender to the Recipient.
+The Sender that wants to share an Attribute with the Recipient may or may not already have a Relationship with the Recipient.
+Depending on which is the case, a different method can be used to send the [Request for sharing Attributes]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes).
+There are two ways to send the Request for sharing Attributes created by the Sender to the Recipient.
 
 ### Request via RelationshipTemplate
 
-If there is currently no Relationship between the Sender and the Recipient, this approach must be used. However, it is also possible for the Sender to use a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) to send a Request to the Recipient if there is already an active Relationship between them. All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) guide.
+If there is currently no Relationship between the Sender and the Recipient, this approach must be used.
+However, it is also possible for the Sender to use a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) to send a Request to the Recipient if there is already an active Relationship between them.
+All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) guide.
 
 ### Request via Message
 
-The Sender only has the option of sending a Request to the Recipient via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) if there is already an active Relationship between them. All information on how to send and receive a Request via a Message can be found in the [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) guide.
+The Sender only has the option of sending a Request to the Recipient via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) if there is already an active Relationship between them.
+All information on how to send and receive a Request via a Message can be found in the [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) guide.
 
 ## Accept the Request and get the Attributes
 
-After the Recipient has received the [Request for sharing Attributes]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes), it can accept it to get all or some of the Sender's shared Attributes. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). Also, you need to decide and specify for each ShareAttributeRequestItem contained in the Request for sharing Attributes whether you want to accept or reject it.
+After the Recipient has received the [Request for sharing Attributes]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes), it can accept it to get all or some of the Sender's shared Attributes.
+To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request).
+Also, you need to decide and specify for each ShareAttributeRequestItem contained in the Request for sharing Attributes whether you want to accept or reject it.
 
-If the Recipient does not want to get any of the Sender's shared Attributes and, therefore, does not want to accept the Request for sharing Attributes of the Sender, it can reject it as a whole too. For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
+If the Recipient does not want to get any of the Sender's shared Attributes and, therefore, does not want to accept the Request for sharing Attributes of the Sender, it can reject it as a whole too.
+For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/ac0ca016-1e9b-40f7-b897-290f54c43782" id="crwP~ShTXcFl"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/9f9ad94d-1b83-46a5-90b0-5cbd064511e4" id="GrR_LR94fm6N"></iframe></div>
 
 ### Accept a ShareAttributeRequestItem
 
 If the Recipient agrees to get one of the Sender's shared Attributes, it can accept the associated ShareAttributeRequestItem contained in the Request for sharing Attributes.
 The [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) must be used for this.
-The acceptance of a ShareAttributeRequestItem leads to the creation of a corresponding LocalAttribute with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property.
-Depending on whether an IdentityAttribute or a RelationshipAttribute has been shared by the Sender, it is referred to as either a [peer shared IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-identityattributes) or a [received ThirdPartyRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes).
+The acceptance of a ShareAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
+Depending on whether an IdentityAttribute or a RelationshipAttribute has been shared by the Sender, it is referred to as either a [PeerIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#peeridentityattribute) or a [ThirdPartyRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattribute).
 The `content` of the LocalAttribute corresponds to the underlying `attribute` of the ShareAttributeRequestItem.
 Based on this, an appropriate AcceptResponseItem of type [ShareAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#shareattributeacceptresponseitem) is generated, which incorporates the `id` of the created LocalAttribute in its `attributeId` property.
 This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for sharing Attributes that will be transferred to the Sender.
 
 ### Reject a ShareAttributeRequestItem
 
-Even if the Recipient accepts the Request for sharing Attributes as a whole, it may decide not to accept all of the Sender's shared Attributes. To be more precise, the Recipient has the option of rejecting [ShareAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) that have the value `false` specified in their `mustBeAccepted` property. To reject a ShareAttributeRequestItem, use the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters). The rejection of a ShareAttributeRequestItem leads to the creation of a corresponding ResponseItem of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for sharing Attributes.
+Even if the Recipient accepts the Request for sharing Attributes as a whole, it may decide not to accept all of the Sender's shared Attributes.
+To be more precise, the Recipient has the option of rejecting [ShareAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) that have the value `false` specified in their `mustBeAccepted` property.
+To reject a ShareAttributeRequestItem, use the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters).
+The rejection of a ShareAttributeRequestItem leads to the creation of a corresponding ResponseItem of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem).
+This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for sharing Attributes.
 
 ### Example of accepting a RequestItemGroup
 
-Let's look at an example where the Sender wants to share its [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname) and contact information in the form of an [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) or a [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber) with the Recipient. For this purpose, the Sender creates a [Request]({% link _docs_integrate/data-model-overview.md %}#request) for sharing Attributes, which contains a ShareAttributeRequestItem belonging to the DisplayName and a RequestItemGroup belonging to the contact information in its `items` property. The [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) itself includes two ShareAttributeRequestItems in its `items` property, namely one for the EMailAddress and one for the PhoneNumber.
+Let's look at an example where the Sender wants to share its [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname) and contact information in the form of an [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) or a [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber) with the Recipient.
+For this purpose, the Sender creates a [Request]({% link _docs_integrate/data-model-overview.md %}#request) for sharing Attributes, which contains a ShareAttributeRequestItem belonging to the DisplayName and a RequestItemGroup belonging to the contact information in its `items` property.
+The [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) itself includes two ShareAttributeRequestItems in its `items` property, namely one for the EMailAddress and one for the PhoneNumber.
 
 ```jsonc
 {
@@ -228,7 +252,7 @@ Let's look at an example where the Sender wants to share its [DisplayName]({% li
           "value": "<display name that the Sender wants to share>"
         }
       },
-      "sourceAttributeId": "<ID of source RepositoryAttribute of DisplayName>"
+      "attributeId": "<ID of source OwnIdentityAttribute of DisplayName>"
     },
     {
       "@type": "RequestItemGroup",
@@ -244,7 +268,7 @@ Let's look at an example where the Sender wants to share its [DisplayName]({% li
               "value": "<email address that the Sender wants to share>"
             }
           },
-          "sourceAttributeId": "<ID of source RepositoryAttribute of EMailAddress>"
+          "attributeId": "<ID of source OwnIdentityAttribute of EMailAddress>"
         },
         {
           "@type": "ShareAttributeRequestItem",
@@ -257,7 +281,7 @@ Let's look at an example where the Sender wants to share its [DisplayName]({% li
               "value": "<phone number that the Sender wants to share>"
             }
           },
-          "sourceAttributeId": "<ID of source RepositoryAttribute of PhoneNumber>"
+          "attributeId": "<ID of source OwnIdentityAttribute of PhoneNumber>"
         }
       ]
     }
@@ -265,12 +289,16 @@ Let's look at an example where the Sender wants to share its [DisplayName]({% li
 }
 ```
 
-In our example, the Sender only requires the Recipient to accept the DisplayName and the EMailAddress, which is why the individual [ShareAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) within the Request have specified corresponding values in their `mustBeAccepted` property. We assume that the Recipient wants to accept the Request and all its ShareAttributeRequestItems with the exception of the PhoneNumber.
+In our example, the Sender only requires the Recipient to accept the DisplayName and the EMailAddress, which is why the individual [ShareAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) within the Request have specified corresponding values in their `mustBeAccepted` property.
+We assume that the Recipient wants to accept the Request and all its ShareAttributeRequestItems with the exception of the PhoneNumber.
 
-If the Recipient wants to accept the Request for sharing Attributes, it must accept all ShareAttributeRequestItems for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted for the Recipient to refuse to accept the DisplayName or the EMailAddress shared by the Sender.
+If the Recipient wants to accept the Request for sharing Attributes, it must accept all ShareAttributeRequestItems for which the `mustBeAccepted` property is set to `true`.
+It is therefore not permitted for the Recipient to refuse to accept the DisplayName or the EMailAddress shared by the Sender.
 {: .notice--info}
 
-The Recipient accepts the DisplayName of the Sender. Also, the Recipient accepts the EMailAddress and rejects the PhoneNumber of the Sender. It therefore responds to the Request for sharing Attributes as follows:
+The Recipient accepts the DisplayName of the Sender.
+Also, the Recipient accepts the EMailAddress and rejects the PhoneNumber of the Sender.
+It therefore responds to the Request for sharing Attributes as follows:
 
 ```jsonc
 {
@@ -299,9 +327,11 @@ Note that it is important to respond to RequestItems, some of which may be conta
 
 ## Receive the Response to the Request
 
-We now assume that the Recipient has accepted the [Request for sharing Attributes]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes) of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
+We now assume that the Recipient has accepted the [Request for sharing Attributes]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes) of the Sender.
+In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
+Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/8c6f398e-07ad-43a9-8dda-d4e638c34e57" id="giwP0P_T6Pk8"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/6d75dbf7-4ab2-4924-b579-ede8a889a0cb" id="1tR_SCPGgYJ-"></iframe></div>
 
 To view the Response to the Request, proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 
@@ -310,13 +340,15 @@ To view the Response to the Request, proceed as described in the [Query outgoing
 
 The Integrator of the Sender can now get the Response of the Recipient from the `response.content` property of the result.
 In the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) is a [ShareAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#shareattributeacceptresponseitem) for each accepted ShareAttributeRequestItem and a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) for each rejected ShareAttributeRequestItem included.
-Note that each accepted ShareAttributeRequestItem leads to the creation of an appropriate LocalAttribute with a LocalAttributeShareInfo of the Sender.
-Depending on whether an IdentityAttribute or a RelationshipAttribute has been shared by the Sender, it is referred to as either an [own shared IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-identityattributes) or an [emitted ThirdPartyRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes).
-The `content` of the LocalAttribute is the underlying `attribute` of the ShareAttributeRequestItem.
+Note that each accepted ShareAttributeRequestItem leads to the creation of appropriate [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails).
+Depending on whether an IdentityAttribute or a RelationshipAttribute has been shared by the Sender, they refer either to an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute), an [OwnRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) or a [PeerRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute).
 
-In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) can also be included in the Response. If the Request for sharing Attributes contains a RequestItemGroup in its `items` property, the Response to this Request contains a corresponding [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) in its `items` property.
+In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) can also be included in the Response.
+If the Request for sharing Attributes contains a RequestItemGroup in its `items` property, the Response to this Request contains a corresponding [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) in its `items` property.
 {: .notice--info}
 
 ## What's next?
 
-Take a look at our [Integration example]({% link _docs_integrate/integration-example.md %}) if you want to see how an Identity shares an Attribute with a peer in the context of a larger process. Also note that it is not only possible to share an Attribute with a peer, but you can also request to read an Attribute from a peer. Consult the [Read Attributes from peer]({% link _docs_integrate/read-attributes-from-peer.md %}) guide for this.
+Take a look at our [Integration example]({% link _docs_integrate/integration-example.md %}) if you want to see how an Identity shares an Attribute with a peer in the context of a larger process.
+Also note that it is not only possible to share an Attribute with a peer, but you can also request to read an Attribute from a peer.
+Consult the [Read Attributes from peer]({% link _docs_integrate/read-attributes-from-peer.md %}) guide for this.

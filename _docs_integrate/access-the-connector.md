@@ -23,14 +23,17 @@ required_by:
 # End automatic generation
 ---
 
-The primary integration capability of the Connector is the REST API. In order to use it, you should have received an API-Key for the respective Connector. An API-Key so far has all authorizations for accessing the API.
+The primary integration capability of the Connector is the REST API.
+In order to use it, you should have received an API-Key for the respective Connector.
+An API-Key so far has all authorizations for accessing the API.
 
 # Hosted API tooling by the (development) Connector
 
 In order to use the hosted api tooling, it must be activated in the [Connector configuration]({% link _docs_operate/setup-with-docker-compose.md %}#hosted-api-tooling-by-the-development-connector).
 {: .notice--warning}
 
-You can access the REST API documentation through the Connector's designated HTTP endpoints. Swagger and Rapidoc serve as interactive platforms hosted on the Connector, enabling you to explore and experiment with the various APIs interactively.
+You can access the REST API documentation through the Connector's designated HTTP endpoints.
+Swagger and Rapidoc serve as interactive platforms hosted on the Connector, enabling you to explore and experiment with the various APIs interactively.
 
 ## Swagger
 
@@ -57,11 +60,14 @@ You can view these files with the [Swagger Editor](https://editor.swagger.io/) o
 
 # Accessing the Connector by Software Development Kits (SDK)
 
-To achieve a better developer experience and type safety, preferably a Software Development Kit (SDK) should be used. The following SDKs are available for this purpose:
+To achieve a better developer experience and type safety, preferably a Software Development Kit (SDK) should be used.
+The following SDKs are available for this purpose:
 
-We work on keeping this list as updated as possible. Please let us know, if some SDKs are outdated or new SDKs are available for the community.
+We work on keeping this list as updated as possible.
+Please let us know, if some SDKs are outdated or new SDKs are available for the community.
 {: .notice--info}
 
 ## TypeScript SDK
 
-We offer an SDK developed in TypeScript that facilitates communication with your Connector from your TypeScript or JavaScript application. You can find it readily available on [npmjs](https://www.npmjs.com/package/@nmshd/connector-sdk).
+We offer an SDK developed in TypeScript that facilitates communication with your Connector from your TypeScript or JavaScript application.
+You can find it readily available on [npmjs](https://www.npmjs.com/package/@nmshd/connector-sdk).

@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: PUT /api/v2/Requests/Incoming/{id}/Reject
+  - api_route_regex: PUT /api/core/v1/Requests/Incoming/{id}/Reject
   - published: default
   - link: use-case-consumption-reject-incoming-request
 require:
 required_by:
-api_route_regex: ^PUT /api/v2/Requests/Incoming/{id}/Reject$
+api_route_regex: ^PUT /api/core/v1/Requests/Incoming/{id}/Reject$
 # End automatic generation
 ---
 
@@ -49,8 +49,7 @@ It is advised to [check if the incoming Request can be rejected](/use-case-consu
 ## Parameters
 
 - The `id` of the incoming LocalRequest.
-- The decision for each individual [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitem)
-  expressed as the appropriate [Parameters defined in the Data Model]({% link _docs_integrate/data-model-overview.md %}deciderequestitemparameters).
+- The decision for each individual [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitem) expressed as the appropriate [Parameters defined in the Data Model]({% link _docs_integrate/data-model-overview.md %}deciderequestitemparameters).
 
 ## On Success
 

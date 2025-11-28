@@ -9,7 +9,7 @@ sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA10
+  - id: RA18
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/Attributes/ExecuteThirdPartyRelationshipAttributeQuery
+  - api_route_regex: POST /api/core/v1/Attributes/ExecuteThirdPartyRelationshipAttributeQuery
   - published: default
   - link: use-case-consumption-execute-a-thirdpartyrelationshipattributequery
 require:
 required_by:
-api_route_regex: ^POST /api/v2/Attributes/ExecuteThirdPartyRelationshipAttributeQuery$
+api_route_regex: ^POST /api/core/v1/Attributes/ExecuteThirdPartyRelationshipAttributeQuery$
 # End automatic generation
 ---
 
@@ -51,7 +51,8 @@ It returns a list of matching [RelationshipAttributes]({% link _docs_integrate/d
 
 ## On Success
 
-- Returns the RelationshipAttributes as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that match the given `query` and can, thus, be used as `content` for a ThirdPartyRelationshipAttribute.
+- Returns the RelationshipAttributes as [OwnRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) or [PeerRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute) that match the given `query`.
+  [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with `private` as `confidentiality` are never returned.
 
 ## On Failure
 

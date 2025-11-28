@@ -31,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/RelationshipTemplates/Peer
+  - api_route_regex: POST /api/core/v1/RelationshipTemplates/Peer
   - published: default
   - link: use-case-transport-load-relationshiptemplate-created-by-others
 require:
 required_by:
-api_route_regex: ^POST /api/v2/RelationshipTemplates/Peer$
+api_route_regex: ^POST /api/core/v1/RelationshipTemplates/Peer$
 # End automatic generation
 ---
 

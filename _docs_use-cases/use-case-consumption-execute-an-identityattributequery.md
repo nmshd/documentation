@@ -9,7 +9,7 @@ sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA8
+  - id: RA16
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/Attributes/ExecuteIdentityAttributeQuery
+  - api_route_regex: POST /api/core/v1/Attributes/ExecuteIdentityAttributeQuery
   - published: default
   - link: use-case-consumption-execute-an-identityattributequery
 require:
 required_by:
-api_route_regex: ^POST /api/v2/Attributes/ExecuteIdentityAttributeQuery$
+api_route_regex: ^POST /api/core/v1/Attributes/ExecuteIdentityAttributeQuery$
 # End automatic generation
 ---
 
@@ -42,8 +42,7 @@ api_route_regex: ^POST /api/v2/Attributes/ExecuteIdentityAttributeQuery$
 
 {% include properties_list.html %}
 
-This use case is intended to execute an incoming
-[IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery) (e.g. of a ReadAttributeRequestItem) which returns a list of matching [Identity Attributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
+This use case is intended to execute an incoming [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery) (e.g. of a ReadAttributeRequestItem) which returns a list of matching [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) of the current Identity.
 
 ## Parameters
 
@@ -51,7 +50,7 @@ This use case is intended to execute an incoming
 
 ## On Success
 
-- Returns the `IdentityAttributes` as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that match the given query.
+- Returns the IdentityAttributes as [OwnIdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) that match the given query.
 
 ## On Failure
 
