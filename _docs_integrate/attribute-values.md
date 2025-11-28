@@ -37,7 +37,6 @@ And every Identity can understand/use/fill/query these Attribute Value types of 
 
 Most Attribute Value types are atomic, which means that they have only one property called `value` (e.g. [`EMailAddress`](#emailaddress), [`DisplayName`](#displayname), [`PhoneNumber`](#phonenumber)).
 But there are also more complex Attribute Value types which consist of multiple properties with a strong correlation (e.g. [`StreetAddress`](#streetaddress), [`PersonName`](#personname)).
-These properties can (but don't have to) contain other Attribute Values.
 
 # Valid Characters in Attributes
 
@@ -101,9 +100,9 @@ The BirthPlace consists of the birth city and birth country and can optionally i
 | Name      | Type           | Required | Validation                                                                                                                  |
 | --------- | -------------- | :------: | --------------------------------------------------------------------------------------------------------------------------- |
 | `@type`   | `"BirthPlace"` |    ✓     |                                                                                                                             |
-| `city`    | `string`       |  ✓ see   | max. length: 100                                                                                                            |
-| `country` | `string`       |  ✓ see   | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
-| `state`   | `string`       |  ✗ see   | max. length: 100                                                                                                            |
+| `city`    | `string`       |    ✓     | max. length: 100                                                                                                            |
+| `country` | `string`       |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
+| `state`   | `string`       |    ✗     | max. length: 100                                                                                                            |
 
 ## Citizenship
 

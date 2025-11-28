@@ -55,16 +55,13 @@ Depending on what IdentityAttribute value type is used, the associated IdentityA
 
 #### Simple IdentityAttributes
 
-A simple IdentityAttribute is an IdentityAttribute with an [IdentityAttribute value type]({% link _docs_integrate/attribute-values.md %}#identity-attributes) for which none of its properties correspond to another IdentityAttribute value type.
-In most cases, the IdentityAttribute value type then only has a single property, which often also has the name `value`.
+A simple IdentityAttribute is an IdentityAttribute with an [IdentityAttribute value type]({% link _docs_integrate/attribute-values.md %}#identity-attributes) which only has a single property with the name `value`.
 This property stores the actual value of the IdentityAttribute.
-In other words, it could be said that simple IdentityAttributes are not composite of other IdentityAttributes.
 Examples of simple IdentityAttributes are IdentityAttributes with IdentityAttribute value type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname) or [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress).
 
 #### Complex IdentityAttributes
 
-A complex IdentityAttribute is an IdentityAttribute with an [IdentityAttribute value type]({% link _docs_integrate/attribute-values.md %}#identity-attributes) for which at least one property corresponds to another IdentityAttribute value type.
-An IdentityAttribute value type that contains such a property can be recognized by whether another IdentityAttribute value type is mentioned in its table in the [documentation]({% link _docs_integrate/attribute-values.md %}#identity-attributes) with regard to the validation of the property.
+A complex IdentityAttribute is an IdentityAttribute with an [IdentityAttribute value type]({% link _docs_integrate/attribute-values.md %}#identity-attributes) which has multiple properties instead of only one `value` property.
 Examples of complex IdentityAttributes are IdentityAttributes with IdentityAttribute value type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) or [StreetAddress]({% link _docs_integrate/attribute-values.md %}#streetaddress).
 
 ### LocalAttributes and IdentityAttributes
