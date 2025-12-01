@@ -160,7 +160,7 @@ required_by:
     {% for use-case in use-cases%}
     <tr>
         <td>
-            <a href="{{ use-case.url }}"> {{ use-case.title }} </a>
+            <a href="{{ site.baseurl }}{{ use-case.url }}"> {{ use-case.title }} </a>
         </td>
         <td class="layer-list">{{ use-case.properties | map:"layer" }}</td>
         <td class="actor-list">{{ use-case.properties | map:"actor" }}</td>
