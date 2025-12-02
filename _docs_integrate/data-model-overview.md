@@ -1198,7 +1198,7 @@ It is comparable with the classic email, so its properties should be familiar.
 | cc         | `string[]` \| `undefined`     | The enmeshed addresses without duplicates that should receive a copy of this Mail, additionally to the enmeshed addresses of the main recipients specified in `to`. Only `recipients` of the Message which are not main recipients of the Mail can receive a copy of it. |
 | subject    | `string`                      | The subject of the Mail.                                                                                                                                                                                                                                                 |
 | body       | `string`                      | The body of the Mail.                                                                                                                                                                                                                                                    |
-| bodyFormat | `"PlainText"` \| `"Markdown"` | The format of the body of the Mail.                                                                                                                                                                                                                                      |
+| bodyFormat | `"PlainText"` \| `"Markdown"` | The format of the body of the Mail. It is used in the App to display the body of the Mail according to the specified format.                                                                                                                                             |
 
 ## ArbitraryMessageContent
 
