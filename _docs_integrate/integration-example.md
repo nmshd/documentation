@@ -263,7 +263,8 @@ Further, the `subject` and `body` properties can be modified with some custom `c
     "@type": "Mail",
     "to": ["did:e:_________________________________"],
     "subject": "Welcome",
-    "body": "Hello. We are pleased to welcome you as our customer."
+    "body": "Hello. We are pleased to welcome you as our customer.",
+    "bodyFormat": "PlainText"
   }
 }
 ```
