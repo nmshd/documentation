@@ -57,8 +57,9 @@ All parameters are optional. If no parameter is given, all Messages are returned
 - `recipients.relationshipId` are the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) ids of the respective recipient.
 - `participant` is either the enmeshed address of the sender or enmeshed addresses of the Identities the Message was sent to.
 - `content.@type` the type of structure of the Message's content
-- `content.body` the body of the Mail, if the Message is of type Mail
-- `content.subject` the subject of the Mail, if the Message is of type Mail
+- `content.body` the body of the Mail if the Message is of type Mail
+- `content.bodyFormat` the format of the body of the Mail if the Message is of type Mail
+- `content.subject` the subject of the Mail if the Message is of type Mail
 
 ## On Success
 
