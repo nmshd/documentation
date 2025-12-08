@@ -250,6 +250,17 @@ A short phrase that describes the position an employee has within an organizatio
 | `@type` | `"JobTitle"` |    ✓     |                  |
 | `value` | `string`     |    ✓     | max. length: 100 |
 
+## MaritalStatus
+
+The marital status of a natural person.
+
+**Properties**
+
+| Name    | Type              | Required | Validation                                                                                                                                               |
+| ------- | ----------------- | :------: | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@type` | `"MaritalStatus"` |    ✓     |                                                                                                                                                          |
+| `value` | `string`          |    ✓     | one of: `"single"`, `"married"`, `"separated"`, `"divorced"`, `"widowed"`, `"civilPartnership"`, `"civilPartnershipDissolved"`, `"civilPartnerDeceased"` |
+
 ## MiddleName
 
 In various cultures, a middle name is a portion of a personal name that is written between the person's first given name and their surname.
