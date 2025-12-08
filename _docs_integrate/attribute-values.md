@@ -252,7 +252,10 @@ A short phrase that describes the position an employee has within an organizatio
 
 ## MaritalStatus
 
-The marital status of a natural person.
+The marital status represents the current legal relationship of a natural person.
+
+Please be advised that the possible values are defined by the public laws and administrative standards that may vary between countries.
+{: .notice--info}
 
 **Properties**
 
