@@ -250,6 +250,20 @@ A short phrase that describes the position an employee has within an organizatio
 | `@type` | `"JobTitle"` |    ✓     |                  |
 | `value` | `string`     |    ✓     | max. length: 100 |
 
+## MaritalStatus
+
+The marital status represents the current legal relationship of a natural person.
+
+Please be advised that the possible values are defined by the public laws and administrative standards that may vary between countries.
+{: .notice--info}
+
+**Properties**
+
+| Name    | Type              | Required | Validation                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ------- | ----------------- | :------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@type` | `"MaritalStatus"` |    ✓     |                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `value` | `string`          |    ✓     | one of: `"single"`, `"married"`, `"separated"`, `"divorced"`, `"widowed"`, `"civilPartnership"`, `"civilPartnershipDissolved"`, `"civilPartnerDeceased"` (these values are based on the [list of possible marital statuses in Germany](https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Haushalte-Familien/Glossar/familienstand.html) that can be found on the website of the German Federal Statistical Office) |
+
 ## MiddleName
 
 In various cultures, a middle name is a portion of a personal name that is written between the person's first given name and their surname.
