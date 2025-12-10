@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: FilesFacade
   - function: deleteFile
-  - description: Deletes the File with the fiven `id`.
+  - description: Deletes the File with the given `id`.
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE
