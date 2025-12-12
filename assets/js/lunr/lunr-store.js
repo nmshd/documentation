@@ -875,6 +875,18 @@ var store = [{
         "url": "/use-case-transport-delete-file",
         "teaser": null
       },{
+        "title": "Delete RelationshipTemplate",
+        "excerpt":"This use case allows you to delete a RelationshipTemplate. Parameters id of the RelationshipTemplate that should be deleted. On Success The RelationshipTemplate is deleted locally. If isOwn of the RelationshipTemplate is true, the RelationshipTemplate will be deleted from the Backbone, too. On Failure No RelationshipTemplate can be deleted if there...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-delete-relationshiptemplate",
+        "teaser": null
+      },{
+        "title": "Delete Token",
+        "excerpt":"This use case allows you to delete a Token. Parameters id of the Token that should be deleted. On Success The Token is deleted locally. If isOwn of the Token is true, the Token will be deleted from the Backbone, too. On Failure No Token can be deleted if there...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-delete-token",
+        "teaser": null
+      },{
         "title": "Download File of Attachment",
         "excerpt":"   This use case downloads the content of a File that was sent by a Message as one of its attachments.   Internally, it uses the Download File use case.  ","categories": [],
         "tags": [],
