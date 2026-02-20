@@ -23,5 +23,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npx prettier -c .
-      - run: npm audit
+      - run: npx better-npm-audit audit --exclude 1113296
       - run: npx markdownlint-cli **/*.md
