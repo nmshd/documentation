@@ -1,14 +1,19 @@
+
+
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
-  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
 
 <html lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
+    
+<meta charset="utf-8">
+
 
 <!-- begin _includes/seo.html --><title>Connector Events - enmeshed</title>
 <meta name="description" content="Event       Data       Description (This event is triggered when …)                       consumption.attributeCreated       LocalAttribute       … an Attribute was created manually or through a Request.                 consumption.attributeDeleted       LocalAttribute       … an Attribute was deleted manually or through a Request.                 consumption.attributeSucceeded       LocalAttribute       … an Attribute was succeeded manually or through a Request.                 consumption.attributeUpdated       LocalAttribute       … an Attribute was updated manually or through a Request.                 consumption.incomingRequestReceived       LocalRequest       … an incoming Request was received either by loading a RelationshipTemplate or by receiving a Message                 consumption.incomingRequestStatusChanged       RequestStatusChangedEventData       … the status of an incoming Request has changed.                 consumption.messageProcessed       MessageProcessedEventData       … a Message was processed by Modules like the RequestModule or DeciderModule.                 consumption.outgoingRequestCreated       LocalRequest       … any outgoing Request was created by the Connector API or Connector Module.                 consumption.outgoingRequestCreatedAndCompleted       LocalRequest       … any outgoing Request was transferred via a RelationshipTemplate.This event could either be triggered: • by an incoming pending Relationship using the onNewRelationship property within the RelationshipTemplateContent • by an incoming Message using the onExistingRelationship property within the RelationshipTemplateContent, if the user already has a Relationship with the RelationshipTemplate creator                 consumption.outgoingRequestFromRelationshipCreationCreatedAndCompleted       LocalRequest       … a consumption.outgoingRequestCreatedAndCompleted event is fired and it was fired due to an incoming pending Relationship. This convenience event is useful to act on incoming pending Relationships.                 consumption.outgoingRequestStatusChanged       RequestStatusChangedEventData       … the status of an outgoing Request has changed.                 consumption.relationshipTemplateProcessed       RelationshipTemplateProcessedEventData       … a RelationshipTemplate was processed by Modules like the RequestModule or DeciderModule.                 transport.fileOwnershipClaimed       File       … the ownership of the File was claimed by another Identity. This happens when they accept a corresponding TransferFileOwnershipRequestItem.                 transport.fileOwnershipLocked       File       … the ownership of the File is locked and can only be claimed once the ownershipToken is regenerated.                 transport.identityDeletionProcessStatusChanged       IdentityDeletionProcess       … a new IdentityDeletionProcess has been created or the status of an existing IdentityDeletionProcess has changed.                 transport.messageReceived       Message       … a Message is received during synchronization.                 transport.messageSent       Message       … a Message was sent.                 transport.peerRelationshipTemplateLoaded       RelationshipTemplate       … a RelationshipTemplate was loaded that belongs to another Identity.                 transport.relationshipChanged       Relationship       … a Relationship has changed. This can be due to one of the following cases: • you create a Relationship • you accept, reject or revoke a pending Relationship • you terminate an active Relationship • you request the reactivation of a terminated Relationship or accept, reject or revoke such a reactivation request • a new Relationship is received or an existing one changed during synchronization                 transport.relationshipReactivationRequested       Relationship       … the reactivation of a terminated Relationship has been requested by you or the peer.                 transport.relationshipReactivationCompleted       Relationship       … the reactivation of a terminated Relationship has been accepted, rejected or revoked by you or the peer.                 transport.relationshipDecomposedBySelf       Relationship       … you have decomposed a terminated Relationship.                 transport.relationshipTemplateAllocationsExhausted       RelationshipTemplate       … an own RelationshipTemplate has reached its maxNumberOfAllocations and can therefore no longer be allocated by further peers.                 transport.peerToBeDeleted       Relationship       … your Relationship’s peer triggered their deletion.                 transport.peerDeleted       Relationship       … your Relationship’s peer was deleted.                 transport.peerDeletionCancelled       Relationship       … your Relationship’s peer cancelled their deletion.">
@@ -35,7 +40,9 @@
 
 
 
-  <meta property="article:published_time" content="2026-02-25T13:31:29+01:00">
+
+
+  <meta property="article:published_time" content="2026-03-19T14:00:07+01:00">
 
 
 
@@ -89,7 +96,8 @@
   </head>
 
   <body class="layout--single" dir="ltr">
-    <nav class="skip-links">
+    
+<nav class="skip-links" aria-label="Skip links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
     <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
@@ -99,10 +107,11 @@
 
     
 
+
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
         
         <a class="site-title" href="/">
           enmeshed
@@ -169,8 +178,11 @@
 
 
 
+
+
 <div id="main" role="main">
   
+
   <div class="sidebar sticky">
   
   
@@ -178,7 +190,8 @@
       
       <h3>Integrate enmeshed</h3>
       
-      <nav class="nav__list">
+      
+<nav class="nav__list">
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">Toggle Menu</label>
@@ -355,33 +368,35 @@
     
     
   
+  
   </div>
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Connector Events">
     <meta itemprop="description" content="            Event      Data      Description (This event is triggered when …)                  consumption.attributeCreated      LocalAttribute      … an Attribute was created manually or through a Request.              consumption.attributeDeleted      LocalAttribute      … an Attribute was deleted manually or through a Request.              consumption.attributeSucceeded      LocalAttribute      … an Attribute was succeeded manually or through a Request.              consumption.attributeUpdated      LocalAttribute      … an Attribute was updated manually or through a Request.              consumption.incomingRequestReceived      LocalRequest      … an incoming Request was received either by loading a RelationshipTemplate or by receiving a Message              consumption.incomingRequestStatusChanged      RequestStatusChangedEventData      … the status of an incoming Request has changed.              consumption.messageProcessed      MessageProcessedEventData      … a Message was processed by Modules like the RequestModule or DeciderModule.              consumption.outgoingRequestCreated      LocalRequest      … any outgoing Request was created by the Connector API or Connector Module.              consumption.outgoingRequestCreatedAndCompleted      LocalRequest      … any outgoing Request was transferred via a RelationshipTemplate.This event could either be triggered: • by an incoming pending Relationship using the onNewRelationship property within the RelationshipTemplateContent • by an incoming Message using the onExistingRelationship property within the RelationshipTemplateContent, if the user already has a Relationship with the RelationshipTemplate creator              consumption.outgoingRequestFromRelationshipCreationCreatedAndCompleted      LocalRequest      … a consumption.outgoingRequestCreatedAndCompleted event is fired and it was fired due to an incoming pending Relationship. This convenience event is useful to act on incoming pending Relationships.              consumption.outgoingRequestStatusChanged      RequestStatusChangedEventData      … the status of an outgoing Request has changed.              consumption.relationshipTemplateProcessed      RelationshipTemplateProcessedEventData      … a RelationshipTemplate was processed by Modules like the RequestModule or DeciderModule.              transport.fileOwnershipClaimed      File      … the ownership of the File was claimed by another Identity. This happens when they accept a corresponding TransferFileOwnershipRequestItem.              transport.fileOwnershipLocked      File      … the ownership of the File is locked and can only be claimed once the ownershipToken is regenerated.              transport.identityDeletionProcessStatusChanged      IdentityDeletionProcess      … a new IdentityDeletionProcess has been created or the status of an existing IdentityDeletionProcess has changed.              transport.messageReceived      Message      … a Message is received during synchronization.              transport.messageSent      Message      … a Message was sent.              transport.peerRelationshipTemplateLoaded      RelationshipTemplate      … a RelationshipTemplate was loaded that belongs to another Identity.              transport.relationshipChanged      Relationship      … a Relationship has changed. This can be due to one of the following cases: • you create a Relationship • you accept, reject or revoke a pending Relationship • you terminate an active Relationship • you request the reactivation of a terminated Relationship or accept, reject or revoke such a reactivation request • a new Relationship is received or an existing one changed during synchronization              transport.relationshipReactivationRequested      Relationship      … the reactivation of a terminated Relationship has been requested by you or the peer.              transport.relationshipReactivationCompleted      Relationship      … the reactivation of a terminated Relationship has been accepted, rejected or revoked by you or the peer.              transport.relationshipDecomposedBySelf      Relationship      … you have decomposed a terminated Relationship.              transport.relationshipTemplateAllocationsExhausted      RelationshipTemplate      … an own RelationshipTemplate has reached its maxNumberOfAllocations and can therefore no longer be allocated by further peers.              transport.peerToBeDeleted      Relationship      … your Relationship’s peer triggered their deletion.              transport.peerDeleted      Relationship      … your Relationship’s peer was deleted.              transport.peerDeletionCancelled      Relationship      … your Relationship’s peer cancelled their deletion.      ">
-    <meta itemprop="datePublished" content="2026-02-25T13:31:29+01:00">
+    <meta itemprop="datePublished" content="2026-03-19T14:00:07+01:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
             <a href="/integrate/connector-events" itemprop="url">Connector Events
 </a>
           </h1>
           
 
 
+
         </header>
       
 
-      <section class="page__content" itemprop="text">
+      <section class="page__content e-content" itemprop="text">
         
           <aside class="sidebar__right ">
-            <nav class="toc">
+            <nav class="toc" aria-label="Table of contents">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
               <ul class="toc__menu"><li><a href="#event-structure">Event structure</a><ul><li><a href="#requeststatuschangedeventdata">RequestStatusChangedEventData</a></li><li><a href="#messageprocessedeventdata">MessageProcessedEventData</a></li><li><a href="#relationshiptemplateprocessedeventdata">RelationshipTemplateProcessedEventData</a></li></ul></li></ul>
             </nav>
@@ -584,10 +599,16 @@
         
         
 
+  
+
+  
+
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-02-25T13:31:29+01:00">February 25, 2026</time></p>
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-03-19T14:00:07+01:00">March 19, 2026</time></p>
+
 
       </footer>
 
@@ -608,7 +629,8 @@
 
     
       <div class="search-content">
-        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+        
+<div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
     <label class="sr-only" for="search">
       Enter your search term...
     </label>
@@ -721,7 +743,9 @@
     </div>
 
     
+
   <script src="/assets/js/main.min.js"></script>
+
 
 
 
@@ -729,6 +753,8 @@
 <script src="/assets/js/lunr/lunr.min.js"></script>
 <script src="/assets/js/lunr/lunr-store.js"></script>
 <script src="/assets/js/lunr/lunr-en.js"></script>
+
+
 
 
 
