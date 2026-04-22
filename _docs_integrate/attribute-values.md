@@ -341,6 +341,23 @@ The officially registered pseudonym of a person.
 | `@type` | `"Pseudonym"` |    ✓     |                  |
 | `value` | `string`      |    ✓     | max. length: 100 |
 
+## SchematizedJSON
+
+An arbitrary JSON value.
+The `value` property can contain any valid JSON structure (except `null`).
+For examples see [ProprietaryJSON](#proprietaryjson).
+
+For validation purposes, the `value` property is stringified using `JSON.stringify`.
+That string must not exceed the maximum length of 4096 characters.
+
+**Properties**
+
+| Name        | Type                | Required | Validation                                                 |
+| ----------- | ------------------- | :------: | ---------------------------------------------------------- |
+| `@type`     | `"SchematizedJSON"` |    ✓     |                                                            |
+| `value`     | `unknown`           |    ✓     | max. length: 4096                                          |
+| `schemaURL` | `string`            |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+
 ## SchematizedXML
 
 SchematizedXML can be used to exchange files in XML format.
