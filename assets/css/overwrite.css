@@ -18,3 +18,13 @@
 .toc__menu a {
     overflow-wrap: break-word;
 }
+
+.author__avatar img {
+    width: auto;
+    max-width: 110px;
+    height: auto;
+    max-height: 110px;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+}
