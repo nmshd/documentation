@@ -6,7 +6,7 @@ redirect_from:
 published: true
 title: "Use Cases"
 type: scenario
-toc: true
+toc: false
 properties:
   - id: SC082
   - category: Data Model
