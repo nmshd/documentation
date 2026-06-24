@@ -193,6 +193,38 @@ After the Recipient has responded to the ShareAttributeRequestItem, a suitable [
 - After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
+#### ShareAuthorizationRequestRequestItem
+
+If you want to authorize a [VerifiableCredential]({% link _docs_integrate/attribute-values.md %}#verifiablecredential) or certain claims of it via a Request, this is done with the [ShareAuthorizationRequestRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareauthorizationrequestrequestitem).
+All details on how to use the ShareAttributeRequestItem and examples of use cases for it can be found in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) guide.
+
+Depending on whether the ShareAuthorizationRequestRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:
+
+- To accept this RequestItem, the [AcceptShareAuthorizationRequestRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptshareauthorizationrequestrequestitemparameters) can be utilized.
+- To reject this RequestItem, the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) can be utilized.
+
+After the Recipient has responded to the ShareAuthorizationRequestRequestItem, a suitable [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitems) is generated and transferred to the Sender of the Request:
+
+- After accepting this RequestItem, an [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) will be transferred.
+- After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
+- In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
+
+#### ShareCredentialOfferRequestItem
+
+If you want to issue a [VerifiableCredential]({% link _docs_integrate/attribute-values.md %}#verifiablecredential) via a Request, this is done with the [ShareCredentialOfferRequestItem]({% link _docs_integrate/data-model-overview.md %}#sharecredentialofferrequestitem).
+All details on how to use the ShareAttributeRequestItem and examples of use cases for it can be found in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) guide.
+
+Depending on whether the ShareCredentialOfferRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:
+
+- To accept this RequestItem, the [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) can be utilized.
+- To reject this RequestItem, the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) can be utilized.
+
+After the Recipient has responded to the ShareCredentialOfferRequestItem, a suitable [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitems) is generated and transferred to the Sender of the Request:
+
+- After accepting this RequestItem, an [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) will be transferred.
+- After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
+- In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
+
 #### TransferFileOwnershipRequestItem
 
 If you want to transfer the ownership of a [File]({% link _docs_integrate/data-model-overview.md %}#file), this is done with the [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem).
