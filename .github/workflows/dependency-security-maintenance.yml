@@ -1,0 +1,14 @@
+name: Dependency Security Maintenance
+
+on:
+  schedule:
+    - cron: "0 2 * * 2" # every Tuesday at 02:00 UTC
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  npm-audit:
+    uses: js-soft/github-actions/.github/workflows/dependency-security-maintenance.yml@main
+    secrets:
+      github-token: ${{ secrets.GH_PAT }}
