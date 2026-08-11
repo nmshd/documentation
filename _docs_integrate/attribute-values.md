@@ -415,6 +415,19 @@ The Surname, also called family name or last name, is the portion of the persona
 | `@type` | `"Surname"` |    ✓     |                  |
 | `value` | `string`    |    ✓     | max. length: 100 |
 
+## VerifiableCredential
+
+A VerifiableCredential is a set of information about an identity that follows the [W3C standard](https://www.w3.org/TR/vc-data-model-2.0/).
+
+**Properties**
+
+| Name                 | Type                              | Required | Validation                                        |
+| -------------------- | --------------------------------- | :------: | ------------------------------------------------- |
+| `@type`              | `"VerifiableCredential"`          |    ✓     |                                                   |
+| `value`              | `string` \| `Record<string, any>` |    ✓     | max. size: 50MB<br>must be a valid string or JSON |
+| `type`               | `string`                          |    ✗     |                                                   |
+| `displayInformation` | `Record<string, any>`             |    ✗     |                                                   |
+
 ## Website
 
 The website of the person which can be used to get more information about the person.
